@@ -26,20 +26,28 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      home: Home('test title','ddd'),
     );
   }
 }
 
 class Home extends StatefulWidget {
+  var b;
+  String s;
+
+  Home(this.s, this.b);
+
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+
+
   int _counter = 0;
    void _incrementCounter(){
      setState(() {
+       print(this);
        _counter++;
      });
    }
@@ -47,7 +55,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:Text('hhh'),
+        title:Text(widget.s),
       ),
       body: Center(
         child: Column(
