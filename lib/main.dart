@@ -20,21 +20,40 @@ class App extends StatelessWidget {
     return MultiProvider(
         providers: providers,
         child:Consumer<GlobalModel>(builder: (context,globalModel,child){  //Consumer  Consumer2对应model个数
-          return MaterialApp(
-            home:Scaffold(
-               body:Center(
-                 child: Text(globalModel.count.toString()),//值的获取
-               ),
-              floatingActionButton: FloatingActionButton(
-                onPressed: ()=>globalModel.add(), //方法的调用
-                tooltip: '数字点击加1',
-                child: Icon(Icons.add),
-              ),
-            )
-          );
+          return Home(globalModel);
         })
     );
   }
+  //组件抽离:alt+shift+m
+  MaterialApp Home(GlobalModel globalModel) {
+    return MaterialApp(
+          home:Scaffold(
+             body:Center(
+               child: Column(
+                 children: <Widget>[
+                   Text(globalModel.count.toString()),//值的获取
+                   ProviderUseDemo() //provider.of的使用
+                 ],
+               )
+             ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: ()=>globalModel.add(), //方法的调用
+              tooltip: '数字点击加1',
+              child: Icon(Icons.add),
+            ),
+          )
+        );
+  }
 }
 
+class ProviderUseDemo extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    var globalData=Provider.of<GlobalModel>(context);
+    return Container(
+      child: Text('我是provider.of获取的值'+globalData.count.toString()),
+    );
+  }
+}
 
