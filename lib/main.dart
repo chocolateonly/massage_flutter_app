@@ -16,6 +16,7 @@ void main() {
 使用 Consumer
 不过这两种方式都需要在顶层套上ChangeNotifierProvider():
 * 根据userModel.hasUser true false 切换页面
+* 建立tabNavigation
 * */
 class App extends StatelessWidget {
   @override
@@ -24,6 +25,7 @@ class App extends StatelessWidget {
         providers: providers,
         child:Consumer<GlobalModel>(builder: (context,globalModel,child){  //Consumer  Consumer2对应model个数
           return MaterialApp(
+              debugShowCheckedModeBanner: false, //删除页面右上角debug
               onGenerateRoute: Router.generateRoute,//回调参数提供路由
               initialRoute:getInitRoute(context) //初始路由设置
           );

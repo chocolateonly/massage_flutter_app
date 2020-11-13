@@ -15,7 +15,7 @@ class Router {
       case RouteName.login:
         return CupertinoPageRoute(builder: (_) => LoginPage());
      case RouteName.tab:
-      return CupertinoPageRoute(builder: (_) => HomePage());
+        return CupertinoPageRoute(builder: (_) => TabNavigator());
       default:
         return CupertinoPageRoute(
             builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));
