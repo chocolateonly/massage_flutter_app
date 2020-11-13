@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GlobalModel extends ChangeNotifier{
-   static const langList=['zh-CN','en','my'];
+   static const langList=['zh','en','ms']; //中 英 马来文
    int _count;
    GlobalModel(this._count);
 
