@@ -1,10 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:massageflutterapp/view_model/locale_model.dart';
 import 'package:provider/provider.dart';
 import 'package:massageflutterapp/config/provider_manager.dart';
 import 'view_model/global_model.dart';
 import 'view_model/user_model.dart';
 import 'config/router_manager.dart';
 import 'utils/size_fit.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/l10n.dart'; //添加语言包：https://blog.csdn.net/u011272795/article/details/108114487
 void main() {
   SizeFit.initialize(); //单位适配
   runApp(App());
@@ -19,17 +23,31 @@ void main() {
 不过这两种方式都需要在顶层套上ChangeNotifierProvider():
 * 根据userModel.hasUser true false 切换页面
 * 建立tabNavigation
+* 多语言添加
 * */
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider( //状态管理
         providers: providers,
-        child:Consumer<GlobalModel>(builder: (context,globalModel,child){  //Consumer  Consumer2对应model个数
+        child:Consumer2<GlobalModel,LocaleModel>(builder: (context,globalModel,localeModel,child){  //Consumer  Consumer2对应model个数
           return MaterialApp(
               debugShowCheckedModeBanner: false, //删除页面右上角debug
               onGenerateRoute: Router.generateRoute,//回调参数提供路由
-              initialRoute:getInitRoute(context) //初始路由设置
+              initialRoute:getInitRoute(context), //初始路由设置
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            locale: localeModel.locale, //设置本地语言
+            localeListResolutionCallback: (locales, supportedLocales) {
+              print(locales);
+              print(supportedLocales);
+              return;
+            },
           );
         })
     );

@@ -5,6 +5,7 @@ import 'package:massageflutterapp/ui/pages/order/order.dart';
 import 'package:massageflutterapp/ui/pages/message/message.dart';
 import 'package:massageflutterapp/ui/pages/mine/mine.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
+import 'package:massageflutterapp/generated/l10n.dart';
 class TabNavigator extends StatefulWidget {
   @override
   _TabNavigatorState createState() => _TabNavigatorState();
@@ -48,22 +49,22 @@ class _TabNavigatorState extends State<TabNavigator> with WidgetsBindingObserver
         items:<BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
-              title: Text('首页'),
+              title: Text(S.of(context).tab1),
               activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
               icon:Image.asset(ImageHelper.wrapAssets("icon_tab2.png"),width:20.px,height:20.px),
-              title: Text('订单'),
+              title: Text(S.of(context).tab2),
               activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab2_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
               icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
-              title: Text('消息'),
+              title: Text(S.of(context).tab3),
               activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
               icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
-              title: Text('我的'),
+              title: Text(S.of(context).tab4),
               activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
         ],
