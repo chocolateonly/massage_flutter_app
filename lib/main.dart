@@ -1,58 +1,40 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'package:massageflutterapp/config/provider_manager.dart';
+import 'view_model/global_model.dart';
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
-
-class MyApp extends StatelessWidget {
-
-  // This widget is the root of your application.
+/*
+* provider使用
+* 1添加依赖
+* 2.创建共享数据类
+* 3.Provider 获取数据状态有两种方式：
+使用 Provider.of(context) 获取 DataInfo
+使用 Consumer
+不过这两种方式都需要在顶层套上ChangeNotifierProvider():
+* */
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: Home('test title',()=>{
-        print('我被点击了')
-      }),
+    return MultiProvider(
+        providers: providers,
+        child:Consumer<GlobalModel>(builder: (context,globalModel,child){  //Consumer  Consumer2对应model个数
+          return MaterialApp(
+            home:Scaffold(
+               body:Center(
+                 child: Text(globalModel.count.toString()),//值的获取
+               ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: ()=>globalModel.add(), //方法的调用
+                tooltip: '数字点击加1',
+                child: Icon(Icons.add),
+              ),
+            )
+          );
+        })
     );
   }
 }
-class Home extends StatelessWidget {
-  var s;
-  var fun;
 
-  Home(this.s, this.fun);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-          child: GestureDetector(
-              onTap:this.fun,
-            child: Container(
-                color:Colors.green,
-                width:200,
-                height:200,
-                child: Center(child: Container(color: Colors.red,width:100,height:100))
-            ),
-          ),
-        )
-    );
-  }
-}
