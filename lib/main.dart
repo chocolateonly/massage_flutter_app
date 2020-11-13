@@ -4,7 +4,9 @@ import 'package:massageflutterapp/config/provider_manager.dart';
 import 'view_model/global_model.dart';
 import 'view_model/user_model.dart';
 import 'config/router_manager.dart';
+import 'utils/size_fit.dart';
 void main() {
+  SizeFit.initialize(); //单位适配
   runApp(App());
 }
 /*
@@ -21,7 +23,7 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiProvider( //状态管理
         providers: providers,
         child:Consumer<GlobalModel>(builder: (context,globalModel,child){  //Consumer  Consumer2对应model个数
           return MaterialApp(

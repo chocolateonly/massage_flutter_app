@@ -4,6 +4,7 @@ import 'package:massageflutterapp/ui/pages/home/home.dart';
 import 'package:massageflutterapp/ui/pages/order/order.dart';
 import 'package:massageflutterapp/ui/pages/message/message.dart';
 import 'package:massageflutterapp/ui/pages/mine/mine.dart';
+import 'package:massageflutterapp/utils/size_fit.dart';
 class TabNavigator extends StatefulWidget {
   @override
   _TabNavigatorState createState() => _TabNavigatorState();
@@ -46,24 +47,24 @@ class _TabNavigatorState extends State<TabNavigator> with WidgetsBindingObserver
         selectedItemColor: Theme.of(context).accentColor,
         items:<BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20,height:20),
+              icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
               title: Text('首页'),
-              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20, width: 20)
+              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
-              icon:Image.asset(ImageHelper.wrapAssets("icon_tab2.png"),width:20,height:20),
+              icon:Image.asset(ImageHelper.wrapAssets("icon_tab2.png"),width:20.px,height:20.px),
               title: Text('订单'),
-              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab2_true.png"), color: Theme.of(context).accentColor, height: 20, width: 20)
+              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab2_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
-              icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20,height:20),
+              icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
               title: Text('消息'),
-              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20, width: 20)
+              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
-              icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20,height:20),
+              icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
               title: Text('我的'),
-              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20, width: 20)
+              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
         ],
         currentIndex: _selectedIndex,
