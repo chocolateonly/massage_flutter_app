@@ -9,7 +9,7 @@ class _OrderPageState extends State<OrderPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('我的tab index 页面'),
+        child: Text('我的 order 页面'),
       ),
     );
   }
