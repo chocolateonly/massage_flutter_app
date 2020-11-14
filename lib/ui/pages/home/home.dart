@@ -10,10 +10,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  int _newValue=StorageManager.sharedPreferences.getInt(LocaleModel.kLocaleIndex) ?? 0;
   @override
   Widget build(BuildContext context) {
-    var langIndex=StorageManager.sharedPreferences.getInt(LocaleModel.kLocaleIndex) ?? 0;
-    var _newValue = langIndex.toString();
     var localModelData=Provider.of<LocaleModel>(context);
     return Scaffold(
       appBar: AppBar(
@@ -21,51 +20,27 @@ class _HomePageState extends State<HomePage> {
        // backgroundColor: ,
         title: Text(S.of(context).homeTitle),
       ),
-      body: Center(
-        child: Row(
-          children: <Widget>[
-            Flexible(
-              child: RadioListTile<String>(
-                value: '0',
-                title: Text(localModelData.localeName(0,context)),
+      body: ListView.builder( //遍历对应v-for
+        shrinkWrap: true,
+        itemCount: LocaleModel.localeValueList.length,
+        itemBuilder: (context,index){
+          return Column(
+            children: <Widget>[
+              RadioListTile(
+                value: index,
+                title: Text(localModelData.localeName(index,context)),
                 groupValue: _newValue,
-                onChanged: (value) {
+                onChanged: (index) {
                   setState(() {
-                    print(_newValue);
-                    _newValue = value;
+                    print(index);
+                    _newValue = index;
                   });
-                  localModelData.switchLocale(0);
+                  localModelData.switchLocale(index);
                 },
               ),
-            ),
-            Flexible(
-              child: RadioListTile<String>(
-                value: '1',
-                title: Text(localModelData.localeName(1,context)),
-                groupValue: _newValue,
-                onChanged: (value) {
-                  setState(() {
-                    _newValue = value;
-                  });
-                  localModelData.switchLocale(1);
-                },
-              ),
-            ),
-            Flexible(
-              child: RadioListTile<String>(
-                value: '2',
-                title: Text(localModelData.localeName(2,context)),
-                groupValue: _newValue,
-                onChanged: (value) {
-                  setState(() {
-                    _newValue = value;
-                  });
-                  localModelData.switchLocale(2);
-                },
-              ),
-            ),
-          ],
-        ),
+            ],
+          );
+        },
       ),
     );
   }
