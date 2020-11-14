@@ -74,6 +74,16 @@ class S {
       args: [],
     );
   }
+
+  /// `首页`
+  String get homeTitle {
+    return Intl.message(
+      '首页',
+      name: 'homeTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

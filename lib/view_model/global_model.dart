@@ -11,4 +11,14 @@ class GlobalModel extends ChangeNotifier{
    }
    get count => _count;//3
 
+    //   主题色
+    static const _themeColor=Color(0xffD27633);
+
+   themeData(){
+      var themData=ThemeData(
+        accentColor: _themeColor,
+        primaryColor:_themeColor
+      );
+      return themData;
+   }
 }

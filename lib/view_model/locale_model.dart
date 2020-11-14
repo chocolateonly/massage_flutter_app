@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-/*import 'package:flutterapp/config/storage_manager.dart';
-import 'package:flutterapp/generated/l10n.dart';*/
+import 'package:massageflutterapp/config/storage_manager.dart';
 
 class LocaleModel extends ChangeNotifier {
   static const localeValueList = ['zh', 'en',"ms"];
@@ -8,7 +7,7 @@ class LocaleModel extends ChangeNotifier {
   //
   static const kLocaleIndex = 'kLocaleIndex';
 
-  int _localeIndex=1;
+  int _localeIndex;
 
   int get localeIndex => _localeIndex;
 
@@ -18,23 +17,23 @@ class LocaleModel extends ChangeNotifier {
   }
 
   LocaleModel() {
-   // _localeIndex = StorageManager.sharedPreferences.getInt(kLocaleIndex) ?? 0;
+    _localeIndex = StorageManager.sharedPreferences.getInt(kLocaleIndex) ?? 0;
   }
 
   switchLocale(int index) {
     _localeIndex = index;
     notifyListeners();
-   // StorageManager.sharedPreferences.setInt(kLocaleIndex, index);
+   StorageManager.sharedPreferences.setInt(kLocaleIndex, index);
   }
 
-  static String localeName(index, context) {
+   String localeName(index, context) {
     switch (index) {
       case 0:
         return '中文';
       case 1:
         return 'English';
       case 2:
-        return 'ภาษาไทย';
+        return 'Malay';
       default:
         return '';
     }

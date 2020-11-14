@@ -2,5 +2,6 @@
   "tab1": "Home",
   "tab2": "Order",
   "tab3": "Message",
-  "tab4": "Mine"
+  "tab4": "Mine",
+  "homeTitle": "首页"
 }

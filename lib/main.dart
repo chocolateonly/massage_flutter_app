@@ -9,8 +9,14 @@ import 'config/router_manager.dart';
 import 'utils/size_fit.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart'; //添加语言包：https://blog.csdn.net/u011272795/article/details/108114487
-void main() {
+import 'package:massageflutterapp/config/storage_manager.dart';
+import 'package:flutter/services.dart'; //修改状态栏相关
+void main() async {
   SizeFit.initialize(); //单位适配
+  WidgetsFlutterBinding.ensureInitialized(); //将组件和flutter绑定？
+  await StorageManager.init();//本地存储初始化
+  // Android状态栏透明 splash为白色,所以调整状态栏文字为黑色
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent, statusBarBrightness: Brightness.light));
   runApp(App());
 }
 /*
@@ -35,6 +41,7 @@ class App extends StatelessWidget {
               debugShowCheckedModeBanner: false, //删除页面右上角debug
               onGenerateRoute: Router.generateRoute,//回调参数提供路由
               initialRoute:getInitRoute(context), //初始路由设置
+
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
@@ -48,6 +55,7 @@ class App extends StatelessWidget {
               print(supportedLocales);
               return;
             },
+            theme: globalModel.themeData(),
           );
         })
     );
