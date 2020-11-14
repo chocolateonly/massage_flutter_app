@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "homeTitle" : MessageLookupByLibrary.simpleMessage("Home"),
     "language" : MessageLookupByLibrary.simpleMessage("Language"),
+    "search" : MessageLookupByLibrary.simpleMessage("search"),
+    "searchPlaceholder" : MessageLookupByLibrary.simpleMessage("please input"),
     "tab1" : MessageLookupByLibrary.simpleMessage("Home"),
     "tab2" : MessageLookupByLibrary.simpleMessage("Order"),
     "tab3" : MessageLookupByLibrary.simpleMessage("Message"),

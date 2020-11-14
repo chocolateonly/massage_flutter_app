@@ -4,5 +4,7 @@
   "tab3": "消息",
   "tab4": "我的",
   "homeTitle": "首页",
-  "language": "语言"
+  "language": "语言",
+  "search": "搜索",
+  "searchPlaceholder": "请输入关键字搜索"
 }

@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "homeTitle" : MessageLookupByLibrary.simpleMessage("首页"),
     "language" : MessageLookupByLibrary.simpleMessage("语言"),
+    "search" : MessageLookupByLibrary.simpleMessage("搜索"),
+    "searchPlaceholder" : MessageLookupByLibrary.simpleMessage("请输入关键字搜索"),
     "tab1" : MessageLookupByLibrary.simpleMessage("首页"),
     "tab2" : MessageLookupByLibrary.simpleMessage("订单"),
     "tab3" : MessageLookupByLibrary.simpleMessage("消息"),

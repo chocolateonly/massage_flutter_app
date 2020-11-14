@@ -4,5 +4,7 @@
   "tab3": "Message",
   "tab4": "Mine",
   "homeTitle": "Home",
-  "language": "Language"
+  "language": "Language",
+  "search": "search",
+  "searchPlaceholder": "please input"
 }
