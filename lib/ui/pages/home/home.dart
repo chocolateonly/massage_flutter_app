@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
+import 'package:massageflutterapp/ui/weidge/banner_image.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -10,7 +12,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var homeType=['home_type1.png','home_type2.png','home_type3.png','home_type4.png'];
-  final _searchController=TextEditingController(text: '测试测试测试测试测试测试测试测试测试测试');
+  var banners = ['home_banner.png'];
+  final _searchController=TextEditingController(text: '');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,9 +45,28 @@ class _HomePageState extends State<HomePage> {
                     top:100.rpx,
                     left:20.rpx,
                     right:20.rpx,
-                    child:  Image.asset(
-                      ImageHelper.wrapAssets("home_banner.png"),
+                    child:  Container(
                       height: 387.5.rpx,
+                      child: Swiper(
+                        loop: true,
+                        autoplay: true,
+                        autoplayDelay: 5000,
+                        pagination:
+                        SwiperPagination(builder: DotSwiperPaginationBuilder(size: 6, activeSize: 6, activeColor: Theme.of(context).accentColor)),
+                        itemCount: banners.length,
+                        itemBuilder: (ctx, index) {
+                          return InkWell(
+                              onTap: () {
+                                //Navigator.of(context).pushNamed(RouteName.shopDetail, arguments: [banners[index].goodsId]);
+                              },
+                              child: Container(
+                                child: Image.asset(
+                                  ImageHelper.wrapAssets(banners[index]),
+                                ),
+                              )//BannerImage(banners[index])
+                          );
+                        },
+                      ),
                     ),
                   ),
                   Container(
@@ -97,6 +119,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 Expanded(
                                   child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 10.rpx),
                                     child: TextField(
                                       controller: _searchController,
                                       textAlignVertical:TextAlignVertical.center,
