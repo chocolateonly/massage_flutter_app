@@ -15,10 +15,15 @@ class GlobalModel extends ChangeNotifier{
     static const _themeColor=Color(0xffD27633);
 
    themeData(){
-      var themData=ThemeData(
-        accentColor: _themeColor,
-        primaryColor:_themeColor
+
+      var themeData=ThemeData(
+        accentColor: _themeColor,  //修改文字颜色
+        primaryColor:_themeColor  //修改背景主题色
+
       );
-      return themData;
+      themeData = themeData.copyWith(
+        appBarTheme: themeData.appBarTheme.copyWith(elevation: 0), //去掉导航阴影
+     );
+      return themeData;
    }
 }

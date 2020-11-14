@@ -26,7 +26,7 @@ class LocaleModel extends ChangeNotifier {
    StorageManager.sharedPreferences.setInt(kLocaleIndex, index);
   }
 
-   String localeName(index, context) {
+  static String localeName(index, context) {
     switch (index) {
       case 0:
         return '中文';

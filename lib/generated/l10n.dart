@@ -75,11 +75,21 @@ class S {
     );
   }
 
-  /// `首页`
+  /// `Home`
   String get homeTitle {
     return Intl.message(
-      '首页',
+      'Home',
       name: 'homeTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
       desc: '',
       args: [],
     );

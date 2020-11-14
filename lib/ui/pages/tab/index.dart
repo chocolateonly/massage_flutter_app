@@ -50,22 +50,22 @@ class _TabNavigatorState extends State<TabNavigator> with WidgetsBindingObserver
           BottomNavigationBarItem(
               icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
               title: Text(S.of(context).tab1),
-              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
+              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_active.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
               icon:Image.asset(ImageHelper.wrapAssets("icon_tab2.png"),width:20.px,height:20.px),
               title: Text(S.of(context).tab2),
-              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab2_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
+              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab2_active.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
-              icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
+              icon:Image.asset(ImageHelper.wrapAssets("icon_tab3.png"),width:20.px,height:20.px),
               title: Text(S.of(context).tab3),
-              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
+              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab3_active.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
           BottomNavigationBarItem(
-              icon:Image.asset(ImageHelper.wrapAssets("icon_tab1.png"),width:20.px,height:20.px),
+              icon:Image.asset(ImageHelper.wrapAssets("icon_tab4.png"),width:20.px,height:20.px),
               title: Text(S.of(context).tab4),
-              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab1_true.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
+              activeIcon: Image.asset(ImageHelper.wrapAssets("icon_tab4_active.png"), color: Theme.of(context).accentColor, height: 20.px, width: 20.px)
           ),
         ],
         currentIndex: _selectedIndex,
