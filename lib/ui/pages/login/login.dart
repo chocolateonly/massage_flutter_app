@@ -5,14 +5,52 @@ import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:massageflutterapp/view_model/global_model.dart';
+import './CodeButton.dart';
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  var _phoneController=TextEditingController();
+  var _passwordController =TextEditingController();
+  bool isPsdLogin=true;
+  InputDecoration getInputStyle(String placeholder){
+    return InputDecoration(
+        hintText: placeholder,
+        // 隐藏边框
+        border: InputBorder.none,
+        // 设置背景色填充模式为-充满（fasle时无效）
+        filled: true,
+        // 设置背景色
+        fillColor: Color(0xfff8f8f8),
+        contentPadding: const EdgeInsets.all(14.0),
+        enabledBorder: OutlineInputBorder(
+          /*边角*/
+          borderRadius: BorderRadius.all(
+            Radius.circular(10), //边角为5
+          ),
+          borderSide: BorderSide(
+            color: Colors.transparent, //边线颜色为白色
+            width: 1, //边线宽度为2
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          /*边角*/
+          borderRadius: BorderRadius.all(
+            Radius.circular(10), //边角为5
+          ),
+          borderSide: BorderSide(
+            color: Colors.transparent, //边线颜色为白色
+            width: 1, //边线宽度为2
+          ),
+        )
+    );
+  }
   @override
   Widget build(BuildContext context) {
+
+    var themeModel=Provider.of<GlobalModel>(context);
     return Scaffold(
       backgroundColor: Color(0xffF5F5F5),
       body:GestureDetector(
@@ -37,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                       color: Color(0xffffffff),
                       borderRadius: BorderRadius.circular(20.rpx)
                   ),
-                  child: FormContent(context),
+                  child: FormContent(context, themeModel),
                 )
               ],
             ),
@@ -47,44 +85,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Padding FormContent(BuildContext context) {
-    var themeModel=Provider.of<GlobalModel>(context);
-    var _phoneController=TextEditingController();
-    var _passwordController =TextEditingController();
-    bool isPsdLogin=true;
-    InputDecoration getInputStyle(String placeholder){
-        return InputDecoration(
-            hintText: placeholder,
-            // 隐藏边框
-            border: InputBorder.none,
-            // 设置背景色填充模式为-充满（fasle时无效）
-            filled: true,
-            // 设置背景色
-            fillColor: Color(0xfff8f8f8),
-            contentPadding: const EdgeInsets.all(14.0),
-            enabledBorder: OutlineInputBorder(
-              /*边角*/
-              borderRadius: BorderRadius.all(
-                Radius.circular(10), //边角为5
-              ),
-              borderSide: BorderSide(
-                color: Colors.white, //边线颜色为白色
-                width: 1, //边线宽度为2
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              /*边角*/
-              borderRadius: BorderRadius.all(
-                Radius.circular(10), //边角为5
-              ),
-              borderSide: BorderSide(
-                color: Colors.white, //边线颜色为白色
-                width: 1, //边线宽度为2
-              ),
-            )
-        );
-    }
-
+  Padding FormContent(BuildContext context, GlobalModel themeModel) {
     return Padding(
                   padding: EdgeInsets.all(30.rpx),
                   child: Column(
@@ -96,15 +97,17 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 20.rpx),
                       TextField(
                         controller: _phoneController,
+                        keyboardType:TextInputType.phone,
                         style:TextStyle(fontSize: 32.rpx,),
                         decoration:getInputStyle(S.of(context).phonePlaceholder),
                       ),
                       SizedBox(height: 20.rpx),
-                      (TextField(
+
+                      isPsdLogin ? TextField(
                         controller: _passwordController,
                         style:TextStyle(fontSize: 32.rpx,),
                         decoration:getInputStyle(S.of(context).passwordPlaceholder),
-                      )),
+                      ):PhoneCodeButton(context),
                       SizedBox(height: 40.rpx),
                       Container(
                         width: double.maxFinite,
@@ -112,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                           color: themeModel.themeColor,
                           borderRadius:BorderRadius.circular(60.rpx),
                           onPressed: () {
-                          //todo:登录处理
+                            //todo:登录处理
                           },
                           child: Text(S.of(context).login,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
                         ) ,
@@ -147,6 +150,32 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 );
+  }
+
+  var _phoneCodeController=TextEditingController();
+  Widget PhoneCodeButton(BuildContext context) {
+      return Container(
+        decoration: BoxDecoration(
+          color:  Color(0xfff8f8f8),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10), //边角为5
+          ),
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                child: TextField(
+                  controller: _phoneCodeController,
+                  style:TextStyle(fontSize: 32.rpx,),
+                  decoration:getInputStyle(S.of(context).phoneCodePlaceholder),
+                ),
+              ),
+            ),
+            CodeButton()
+          ],
+        ),
+      );
   }
 }
 

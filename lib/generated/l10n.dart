@@ -145,6 +145,16 @@ class S {
     );
   }
 
+  /// `请输入验证码`
+  String get phoneCodePlaceholder {
+    return Intl.message(
+      '请输入验证码',
+      name: 'phoneCodePlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `注册账户`
   String get registerUser {
     return Intl.message(

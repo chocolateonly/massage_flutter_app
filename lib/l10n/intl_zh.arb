@@ -12,6 +12,7 @@
   "login": "登录",
   "phonePlaceholder": "请输入手机号",
   "passwordPlaceholder": "请输入密码",
+  "phoneCodePlaceholder": "请输入验证码",
   "registerUser":"注册账户",
   "messageLogin": "短信登录",
   "passwordLogin": "密码登录",

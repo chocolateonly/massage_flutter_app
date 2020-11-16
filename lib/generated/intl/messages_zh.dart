@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messageLogin" : MessageLookupByLibrary.simpleMessage("短信登录"),
     "passwordLogin" : MessageLookupByLibrary.simpleMessage("密码登录"),
     "passwordPlaceholder" : MessageLookupByLibrary.simpleMessage("请输入密码"),
+    "phoneCodePlaceholder" : MessageLookupByLibrary.simpleMessage("请输入验证码"),
     "phonePlaceholder" : MessageLookupByLibrary.simpleMessage("请输入手机号"),
     "registerUser" : MessageLookupByLibrary.simpleMessage("注册账户"),
     "search" : MessageLookupByLibrary.simpleMessage("搜索"),
