@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
-import 'package:massageflutterapp/ui/weidge/banner_image.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:massageflutterapp/view_model/home_model.dart';
