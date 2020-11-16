@@ -5,7 +5,10 @@ class UserModel extends ChangeNotifier{
   static const String userToken = 'userToken';
   static const String kUser = 'kUser';
 
-  static const isExit = false;
+  static var isExit = false;
 
   bool get hasUser => isExit;
+  set setHasUser(val){
+    isExit=val;
+  }
 }

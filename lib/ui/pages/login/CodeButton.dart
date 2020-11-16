@@ -5,7 +5,7 @@ import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:oktoast/oktoast.dart';
 //获取验证码按钮
 class CodeButton extends StatefulWidget {
-  var phone='eee';
+  var phone='';
 
   CodeButton(this.phone);
 

@@ -118,12 +118,36 @@ class _LoginPageState extends State<LoginPage> {
                         child: CupertinoButton(
                           color: themeModel.themeColor,
                           borderRadius:BorderRadius.circular(60.rpx),
+                          child: Text(S.of(context).login,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
+
                           onPressed: () {
+//                            fixme:
+                            Navigator.of(context).pushReplacementNamed(RouteName.tab);
+                            return;
+
+                            if(_phoneCodeController.text==''){
+                               showToast(S.of(context).phonePlaceholder);
+                               return;
+                            }
+                            if(_passwordController.text==''&&isPsdLogin){
+                               showToast(S.of(context).passwordPlaceholder);
+                               return;
+                            }
+                            if(_phoneCodeController.text==''&&!isPsdLogin){
+                              showToast(S.of(context).phoneCodePlaceholder);
+                              return;
+                            }
                             //todo:登录处理
+                            Map data={
+                              "mobile":_phoneCodeController.text,
+                              "password":_passwordController.text,
+                              "code":''
+                            };
+                            //isPsdLogin  判断登录方式
+                            // model.loginCode(data)
 
                           },
-                          child: Text(S.of(context).login,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
-                        ) ,
+                          ) ,
                       ),
                       SizedBox(height: 40.rpx),
                       Row(
@@ -139,7 +163,6 @@ class _LoginPageState extends State<LoginPage> {
                           InkWell(
                             onTap: (){
                               setState(() {
-
                                 isPsdLogin=!isPsdLogin;
                               });
                             },
@@ -148,7 +171,10 @@ class _LoginPageState extends State<LoginPage> {
                             Text(S.of(context).passwordLogin,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),),
                           ),
                           InkWell(
-                            onTap: (){},
+                            onTap: (){
+//                              忘记密码
+                              Navigator.of(context).pushNamed(RouteName.forgetPassword,arguments: [_phoneController.text]);
+                            },
                             child: Text(S.of(context).forgetPassword,style: TextStyle(color: Color(0xffcccccc),fontSize: 26.rpx),),
                           ),
                         ],

@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "confirmPasswordError" : MessageLookupByLibrary.simpleMessage("两次输入密码不一致"),
     "confirmPasswordPlaceholder" : MessageLookupByLibrary.simpleMessage("请再次输入密码"),
     "disclaimer" : MessageLookupByLibrary.simpleMessage("免责声明"),
     "forgetPassword" : MessageLookupByLibrary.simpleMessage("忘记密码"),
@@ -43,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerWord" : MessageLookupByLibrary.simpleMessage("《使用条款及隐私政策》"),
     "search" : MessageLookupByLibrary.simpleMessage("search"),
     "searchPlaceholder" : MessageLookupByLibrary.simpleMessage("please input"),
+    "submit" : MessageLookupByLibrary.simpleMessage("提交"),
     "tab1" : MessageLookupByLibrary.simpleMessage("Home"),
     "tab2" : MessageLookupByLibrary.simpleMessage("Order"),
     "tab3" : MessageLookupByLibrary.simpleMessage("Message"),

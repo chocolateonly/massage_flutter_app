@@ -12,6 +12,7 @@
   "phonePlaceholder": "请输入手机号",
   "passwordPlaceholder": "请输入密码",
   "confirmPasswordPlaceholder": "请再次输入密码",
+  "confirmPasswordError": "两次输入密码不一致",
   "phoneCodePlaceholder": "请输入验证码",
   "registerUser":"注册账户",
   "messageLogin": "短信登录",
@@ -24,5 +25,6 @@
   "hasRegister": "已经注册？",
   "registerTip": "注册代表已同意",
   "registerWord": "《使用条款及隐私政策》",
-  "disclaimer": "免责声明"
+  "disclaimer": "免责声明",
+  "submit": "提交"
 }

@@ -4,6 +4,7 @@ import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:massageflutterapp/view_model/global_model.dart';
 import './CodeButton.dart';
@@ -149,9 +150,26 @@ class _RegisterPageState extends State<RegisterPage> {
                           borderRadius:BorderRadius.circular(60.rpx),
                           onPressed: () {
                             //todo:注册处理
+                            if(_phoneCodeController.text==''){
+                              showToast(S.of(context).phonePlaceholder);
+                              return;
+                            }
+                            if(_passwordController.text==''){
+                              showToast(S.of(context).passwordPlaceholder);
+                              return;
+                            }
+                            if(_passwordController.text!=_confirmPasswordController.text){
+                              showToast(S.of(context).confirmPasswordError);
+                              return;
+                            }
 
-
-
+                            //
+                            Map data={
+                              "mobile":_phoneCodeController.text,
+                              "password":_passwordController.text,
+                              "code":''
+                            };
+                            // model.loginCode(data)
                           },
                           child: Text(S.of(context).register,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
                         ) ,

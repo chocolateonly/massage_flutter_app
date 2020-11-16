@@ -155,6 +155,16 @@ class S {
     );
   }
 
+  /// `两次输入密码不一致`
+  String get confirmPasswordError {
+    return Intl.message(
+      '两次输入密码不一致',
+      name: 'confirmPasswordError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `请输入验证码`
   String get phoneCodePlaceholder {
     return Intl.message(
@@ -280,6 +290,16 @@ class S {
     return Intl.message(
       '免责声明',
       name: 'disclaimer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提交`
+  String get submit {
+    return Intl.message(
+      '提交',
+      name: 'submit',
       desc: '',
       args: [],
     );
