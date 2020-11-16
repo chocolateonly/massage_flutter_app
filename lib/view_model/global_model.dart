@@ -5,7 +5,7 @@ class GlobalModel extends ChangeNotifier{
 
     //   主题色
     static const _themeColor=Color(0xffD27633);
-
+    get themeColor=>_themeColor;
    themeData(){
 
       var themeData=ThemeData(

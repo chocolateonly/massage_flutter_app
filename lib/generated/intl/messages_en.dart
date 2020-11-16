@@ -19,15 +19,27 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static m0(num) => "${num}秒后重新获取";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "forgetPassword" : MessageLookupByLibrary.simpleMessage("忘记密码"),
+    "getCode" : MessageLookupByLibrary.simpleMessage("获取验证码"),
+    "getCodeTip" : m0,
     "homeTitle" : MessageLookupByLibrary.simpleMessage("Home"),
     "language" : MessageLookupByLibrary.simpleMessage("Language"),
+    "login" : MessageLookupByLibrary.simpleMessage("登录"),
+    "messageLogin" : MessageLookupByLibrary.simpleMessage("短信登录"),
+    "passwordLogin" : MessageLookupByLibrary.simpleMessage("密码登录"),
+    "passwordPlaceholder" : MessageLookupByLibrary.simpleMessage("请输入密码"),
+    "phonePlaceholder" : MessageLookupByLibrary.simpleMessage("请输入手机号"),
+    "registerUser" : MessageLookupByLibrary.simpleMessage("注册账户"),
     "search" : MessageLookupByLibrary.simpleMessage("search"),
     "searchPlaceholder" : MessageLookupByLibrary.simpleMessage("please input"),
     "tab1" : MessageLookupByLibrary.simpleMessage("Home"),
     "tab2" : MessageLookupByLibrary.simpleMessage("Order"),
     "tab3" : MessageLookupByLibrary.simpleMessage("Message"),
-    "tab4" : MessageLookupByLibrary.simpleMessage("Mine")
+    "tab4" : MessageLookupByLibrary.simpleMessage("Mine"),
+    "thirdLogin" : MessageLookupByLibrary.simpleMessage("第三方账号登录")
   };
 }

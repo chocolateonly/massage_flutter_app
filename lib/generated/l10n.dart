@@ -114,6 +114,106 @@ class S {
       args: [],
     );
   }
+
+  /// `登录`
+  String get login {
+    return Intl.message(
+      '登录',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请输入手机号`
+  String get phonePlaceholder {
+    return Intl.message(
+      '请输入手机号',
+      name: 'phonePlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请输入密码`
+  String get passwordPlaceholder {
+    return Intl.message(
+      '请输入密码',
+      name: 'passwordPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `注册账户`
+  String get registerUser {
+    return Intl.message(
+      '注册账户',
+      name: 'registerUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `短信登录`
+  String get messageLogin {
+    return Intl.message(
+      '短信登录',
+      name: 'messageLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `密码登录`
+  String get passwordLogin {
+    return Intl.message(
+      '密码登录',
+      name: 'passwordLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `获取验证码`
+  String get getCode {
+    return Intl.message(
+      '获取验证码',
+      name: 'getCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{num}秒后重新获取`
+  String getCodeTip(Object num) {
+    return Intl.message(
+      '$num秒后重新获取',
+      name: 'getCodeTip',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `忘记密码`
+  String get forgetPassword {
+    return Intl.message(
+      '忘记密码',
+      name: 'forgetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `第三方账号登录`
+  String get thirdLogin {
+    return Intl.message(
+      '第三方账号登录',
+      name: 'thirdLogin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

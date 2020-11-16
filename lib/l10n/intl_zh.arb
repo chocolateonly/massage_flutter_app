@@ -3,8 +3,20 @@
   "tab2": "订单",
   "tab3": "消息",
   "tab4": "我的",
+
   "homeTitle": "首页",
   "language": "语言",
   "search": "搜索",
-  "searchPlaceholder": "请输入关键字搜索"
+  "searchPlaceholder": "请输入关键字搜索",
+
+  "login": "登录",
+  "phonePlaceholder": "请输入手机号",
+  "passwordPlaceholder": "请输入密码",
+  "registerUser":"注册账户",
+  "messageLogin": "短信登录",
+  "passwordLogin": "密码登录",
+  "getCode": "获取验证码",
+  "getCodeTip": "{num}秒后重新获取",
+  "forgetPassword": "忘记密码",
+  "thirdLogin": "第三方账号登录"
 }
