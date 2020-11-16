@@ -4,18 +4,18 @@ import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
-import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:massageflutterapp/view_model/global_model.dart';
 import './CodeButton.dart';
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   var _phoneController=TextEditingController();
   var _passwordController =TextEditingController();
+  var _confirmPasswordController =TextEditingController();
   bool isPsdLogin=true;
   InputDecoration getInputStyle(String placeholder){
     return InputDecoration(
@@ -78,7 +78,29 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(20.rpx)
                   ),
                   child: FormContent(context, themeModel),
-                )
+                ),
+                Container(
+                  width: 640.rpx,
+                  padding: EdgeInsets.only(top:20.rpx),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(S.of(context).registerTip,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx)),
+                          InkWell(
+                            onTap: (){
+//                              //隐私政策
+                              Navigator.of(context).pushNamed(RouteName.registerWord);
+                            },
+                            child: Text(S.of(context).registerWord,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),),
+                          ),
+                        ],
+                      ),
+                      Text(S.of(context).disclaimer,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),)
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -94,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: <Widget>[
                       Align(
                           alignment:Alignment.topLeft,
-                          child: Text(S.of(context).login,style: TextStyle(fontSize: 36.rpx),textAlign: TextAlign.left,)
+                          child: Text(S.of(context).register,style: TextStyle(fontSize: 36.rpx),textAlign: TextAlign.left,)
                       ),
                       SizedBox(height: 20.rpx),
                       TextField(
@@ -104,14 +126,21 @@ class _LoginPageState extends State<LoginPage> {
                         decoration:getInputStyle(S.of(context).phonePlaceholder),
                       ),
                       SizedBox(height: 20.rpx),
-
-                      isPsdLogin ?
+                      PhoneCodeButton(context),
+                      SizedBox(height: 20.rpx),
                       TextField(
                         controller: _passwordController,
                         style:TextStyle(fontSize: 32.rpx,),
                         obscureText: true,
                         decoration:getInputStyle(S.of(context).passwordPlaceholder),
-                      ):PhoneCodeButton(context),
+                      ),
+                      SizedBox(height: 20.rpx),
+                      TextField(
+                        controller: _confirmPasswordController,
+                        style:TextStyle(fontSize: 32.rpx,),
+                        obscureText: true,
+                        decoration:getInputStyle(S.of(context).confirmPasswordPlaceholder),
+                      ),
                       SizedBox(height: 40.rpx),
                       Container(
                         width: double.maxFinite,
@@ -119,42 +148,23 @@ class _LoginPageState extends State<LoginPage> {
                           color: themeModel.themeColor,
                           borderRadius:BorderRadius.circular(60.rpx),
                           onPressed: () {
-                            //todo:登录处理
+                            //todo:注册处理
+
+
 
                           },
-                          child: Text(S.of(context).login,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
+                          child: Text(S.of(context).register,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
                         ) ,
                       ),
-                      SizedBox(height: 40.rpx),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          InkWell(
-                            onTap: (){
-//                              注册
-                            Navigator.of(context).pushReplacementNamed(RouteName.register);
-                            },
-                            child: Text(S.of(context).registerUser,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),),
-                          ),
-                          InkWell(
-                            onTap: (){
-                              setState(() {
-
-                                isPsdLogin=!isPsdLogin;
-                              });
-                            },
-                            child:isPsdLogin?
-                            Text(S.of(context).messageLogin,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),):
-                            Text(S.of(context).passwordLogin,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),),
-                          ),
-                          InkWell(
-                            onTap: (){},
-                            child: Text(S.of(context).forgetPassword,style: TextStyle(color: Color(0xffcccccc),fontSize: 26.rpx),),
-                          ),
-                        ],
+                      SizedBox(height: 20.rpx),
+                      InkWell(
+                        onTap: (){
+//                        登录
+                          Navigator.of(context).pushReplacementNamed(RouteName.login);
+                        },
+                        child: Text(S.of(context).hasRegister,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),),
                       ),
-                      SizedBox(height: 20.rpx,),
-                      FooterView(context)
+
                     ],
                   ),
                 );
@@ -180,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            CodeButton(_phoneCodeController.text)
+            CodeButton(_phoneController.text)
           ],
         ),
       );

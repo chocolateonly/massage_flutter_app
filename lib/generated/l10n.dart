@@ -145,6 +145,16 @@ class S {
     );
   }
 
+  /// `请再次输入密码`
+  String get confirmPasswordPlaceholder {
+    return Intl.message(
+      '请再次输入密码',
+      name: 'confirmPasswordPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `请输入验证码`
   String get phoneCodePlaceholder {
     return Intl.message(
@@ -220,6 +230,56 @@ class S {
     return Intl.message(
       '第三方账号登录',
       name: 'thirdLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `注册`
+  String get register {
+    return Intl.message(
+      '注册',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已经注册？`
+  String get hasRegister {
+    return Intl.message(
+      '已经注册？',
+      name: 'hasRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `注册代表已同意`
+  String get registerTip {
+    return Intl.message(
+      '注册代表已同意',
+      name: 'registerTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `《使用条款及隐私政策》`
+  String get registerWord {
+    return Intl.message(
+      '《使用条款及隐私政策》',
+      name: 'registerWord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `免责声明`
+  String get disclaimer {
+    return Intl.message(
+      '免责声明',
+      name: 'disclaimer',
       desc: '',
       args: [],
     );

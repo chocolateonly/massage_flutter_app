@@ -23,9 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "confirmPasswordPlaceholder" : MessageLookupByLibrary.simpleMessage("请再次输入密码"),
+    "disclaimer" : MessageLookupByLibrary.simpleMessage("免责声明"),
     "forgetPassword" : MessageLookupByLibrary.simpleMessage("忘记密码"),
     "getCode" : MessageLookupByLibrary.simpleMessage("获取验证码"),
     "getCodeTip" : m0,
+    "hasRegister" : MessageLookupByLibrary.simpleMessage("已经注册？"),
     "homeTitle" : MessageLookupByLibrary.simpleMessage("Home"),
     "language" : MessageLookupByLibrary.simpleMessage("Language"),
     "login" : MessageLookupByLibrary.simpleMessage("登录"),
@@ -34,7 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordPlaceholder" : MessageLookupByLibrary.simpleMessage("请输入密码"),
     "phoneCodePlaceholder" : MessageLookupByLibrary.simpleMessage("请输入验证码"),
     "phonePlaceholder" : MessageLookupByLibrary.simpleMessage("请输入手机号"),
+    "register" : MessageLookupByLibrary.simpleMessage("注册"),
+    "registerTip" : MessageLookupByLibrary.simpleMessage("注册代表已同意"),
     "registerUser" : MessageLookupByLibrary.simpleMessage("注册账户"),
+    "registerWord" : MessageLookupByLibrary.simpleMessage("《使用条款及隐私政策》"),
     "search" : MessageLookupByLibrary.simpleMessage("search"),
     "searchPlaceholder" : MessageLookupByLibrary.simpleMessage("please input"),
     "tab1" : MessageLookupByLibrary.simpleMessage("Home"),

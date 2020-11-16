@@ -2,8 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
+import 'package:oktoast/oktoast.dart';
 //获取验证码按钮
 class CodeButton extends StatefulWidget {
+  var phone='eee';
+
+  CodeButton(this.phone);
+
 
   @override
   _CodeButtonState createState() => _CodeButtonState();
@@ -13,8 +18,15 @@ class _CodeButtonState extends State<CodeButton> {
     int type=0;
     var countdownTime=0;
     Timer _timer=null;
+    String phonePlaceholder='';
 
-  startCountdown() {
+  startCountdown(BuildContext context) {
+     print(widget.phone=='');
+    if(widget.phone==''){
+       showToast(S.of(context).phonePlaceholder);
+       return;
+    }
+
     if (type == 1) {
       return;
     }
@@ -49,7 +61,7 @@ class _CodeButtonState extends State<CodeButton> {
   Widget build(BuildContext context) {
     return FlatButton(
       onPressed: (){
-        startCountdown();
+        startCountdown(context);
       },
       child: Text(
         type==0?S.of(context).getCode:S.of(context).getCodeTip(countdownTime),
