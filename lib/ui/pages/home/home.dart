@@ -5,7 +5,6 @@ import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/ui/weidge/banner_image.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:provider/provider.dart';
 import 'package:massageflutterapp/view_model/home_model.dart';
 import 'package:massageflutterapp/provider/provider_widget.dart';
 class HomePage extends StatefulWidget {
