@@ -304,6 +304,206 @@ class S {
       args: [],
     );
   }
+
+  /// `编辑`
+  String get edit {
+    return Intl.message(
+      '编辑',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已购买套餐`
+  String get hasBuyCombo {
+    return Intl.message(
+      '已购买套餐',
+      name: 'hasBuyCombo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即查看`
+  String get viewNow {
+    return Intl.message(
+      '立即查看',
+      name: 'viewNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的订单`
+  String get myOrder {
+    return Intl.message(
+      '我的订单',
+      name: 'myOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `全部订单`
+  String get orderStatus1 {
+    return Intl.message(
+      '全部订单',
+      name: 'orderStatus1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `待付款`
+  String get orderStatus2 {
+    return Intl.message(
+      '待付款',
+      name: 'orderStatus2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已购买`
+  String get orderStatus3 {
+    return Intl.message(
+      '已购买',
+      name: 'orderStatus3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已完成`
+  String get orderStatus4 {
+    return Intl.message(
+      '已完成',
+      name: 'orderStatus4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消中`
+  String get orderStatus5 {
+    return Intl.message(
+      '取消中',
+      name: 'orderStatus5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `应聘表格`
+  String get applicationForm {
+    return Intl.message(
+      '应聘表格',
+      name: 'applicationForm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `推广好礼`
+  String get promotionGift {
+    return Intl.message(
+      '推广好礼',
+      name: 'promotionGift',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的服务`
+  String get myService {
+    return Intl.message(
+      '我的服务',
+      name: 'myService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的积分`
+  String get myPoint {
+    return Intl.message(
+      '我的积分',
+      name: 'myPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的资料`
+  String get myInfo {
+    return Intl.message(
+      '我的资料',
+      name: 'myInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的收益`
+  String get myEarnings {
+    return Intl.message(
+      '我的收益',
+      name: 'myEarnings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的机构`
+  String get myOrganization {
+    return Intl.message(
+      '我的机构',
+      name: 'myOrganization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的评论`
+  String get myComments {
+    return Intl.message(
+      '我的评论',
+      name: 'myComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的地址`
+  String get myAddress {
+    return Intl.message(
+      '我的地址',
+      name: 'myAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的收藏`
+  String get myCollection {
+    return Intl.message(
+      '我的收藏',
+      name: 'myCollection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `工作台`
+  String get workPlatform {
+    return Intl.message(
+      '工作台',
+      name: 'workPlatform',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

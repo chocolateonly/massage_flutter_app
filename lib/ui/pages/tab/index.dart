@@ -13,7 +13,7 @@ class TabNavigator extends StatefulWidget {
 
 class _TabNavigatorState extends State<TabNavigator> with WidgetsBindingObserver{
   var _pageController = PageController();
-  int _selectedIndex = 0;
+  int _selectedIndex = 3;
   DateTime _lastPressed;
   List<Widget> pages = <Widget>[HomePage(), OrderPage(), MessagePag(), MinePage()];
 
@@ -30,7 +30,7 @@ class _TabNavigatorState extends State<TabNavigator> with WidgetsBindingObserver
           return true;
         },
         child: PageView.builder(
-            itemBuilder: (ctx,index)=>pages[index],
+            itemBuilder: (ctx,index)=>pages[_selectedIndex],
             itemCount: pages.length,
             controller:_pageController,
             physics: NeverScrollableScrollPhysics(),
