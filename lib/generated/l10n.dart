@@ -435,11 +435,11 @@ class S {
     );
   }
 
-  /// `我的资料`
-  String get myInfo {
+  /// `健康资料`
+  String get healthyInfo {
     return Intl.message(
-      '我的资料',
-      name: 'myInfo',
+      '健康资料',
+      name: 'healthyInfo',
       desc: '',
       args: [],
     );
@@ -500,6 +500,76 @@ class S {
     return Intl.message(
       '工作台',
       name: 'workPlatform',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `个人资料`
+  String get myInfo {
+    return Intl.message(
+      '个人资料',
+      name: 'myInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `系统设置`
+  String get settings {
+    return Intl.message(
+      '系统设置',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `头像`
+  String get avatar {
+    return Intl.message(
+      '头像',
+      name: 'avatar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ID`
+  String get ID {
+    return Intl.message(
+      'ID',
+      name: 'ID',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `电话`
+  String get mobile {
+    return Intl.message(
+      '电话',
+      name: 'mobile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `性别`
+  String get sex {
+    return Intl.message(
+      '性别',
+      name: 'sex',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `地址`
+  String get address {
+    return Intl.message(
+      '地址',
+      name: 'address',
       desc: '',
       args: [],
     );

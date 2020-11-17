@@ -6,6 +6,10 @@ import 'package:massageflutterapp/ui/pages/login/register_word.dart';
 import 'package:massageflutterapp/ui/pages/tab/index.dart';
 import 'package:massageflutterapp/ui/pages/login/register.dart';
 import 'package:massageflutterapp/ui/pages/login/forget_password.dart';
+import 'package:massageflutterapp/ui/pages/mine/my_order_list.dart';
+import 'package:massageflutterapp/ui/pages/mine/my_info.dart';
+
+
 class RouteName {
   static const String login = 'login';
   static const String tab = 'tab';
@@ -13,6 +17,21 @@ class RouteName {
   static const String register='register';
   static const String registerWord='registerWord';//隐私政策
   static const String forgetPassword='forgetPassword';
+  static const String myInfo='myInfo';//编辑个人信息
+  static const String settings='settings';//设置
+  static const String myCombo='myCombo';//我的套餐
+  static const String myOrderList='myOrderList';//我的订单列表
+  static const String applicationForm='applicationForm';//应聘表格
+  static const String promotionGift='promotionGift';//推广好礼
+  static const String myPoint='myPoint';
+  static const String healthyInfo='healthyInfo';
+  static const String myEarnings='myEarnings';
+  static const String myOrganization='myOrganization';
+  static const String myComments='myComments';
+  static const String myAddress='myAddress';
+  static const String myCollection='myCollection';
+  static const String workPlatform='workPlatform';
+
 }
 
 class Router {
@@ -33,6 +52,11 @@ class Router {
         var list = settings.arguments as List;
         String phone = list[0];
         return CupertinoPageRoute(builder: (_) => ForgetPasswordPage(phone));
+      case RouteName.myInfo:
+        return CupertinoPageRoute(builder: (_) => MyInfoPage());
+      case RouteName.myOrderList:
+        var list = settings.arguments as List;
+        return CupertinoPageRoute(builder: (_) => MyOrderListPage(list[0]));
       default:
         return CupertinoPageRoute(
             builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));

@@ -55,7 +55,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                             padding:EdgeInsets.symmetric(vertical: 10.rpx),
                             decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Color(0xffcccccc))
+                                  bottom: BorderSide(color: Color(0xffeeeeee))
                               )
                             ),
                             child: TextField(
@@ -72,7 +72,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                             padding:EdgeInsets.symmetric(vertical: 10.rpx),
                             decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Color(0xffcccccc))
+                                    bottom: BorderSide(color: Color(0xffeeeeee))
                                 )
                             ),
                             child: Row(
