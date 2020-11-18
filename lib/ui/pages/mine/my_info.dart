@@ -7,6 +7,7 @@ import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:massageflutterapp/ui/widges/form/form_item.dart';
+import 'package:massageflutterapp/ui/widges/form/radio_list.dart';
 class MyInfoPage extends StatefulWidget {
 
   @override
@@ -18,7 +19,7 @@ class _MyInfoPageState extends State<MyInfoPage> {
   var _phoneController=TextEditingController();
   var _addressController=TextEditingController(text: '呵呵哈哈哈还是地方还是东方红华东师范is的哈佛史蒂芬斯哦好的覅哦');
   Widget imgWidth;
-
+  var _newValue=0;
 
   @override
   void initState() {
@@ -33,28 +34,6 @@ class _MyInfoPageState extends State<MyInfoPage> {
       S.of(context).female,
       S.of(context).male
     ];
-    var _newValue=0;
-
-/*
-    List<Widget> getRadioList() {
-      var list = [];
-
-      sexList.forEach((item) {
-        list.add(RadioListTile(
-          title: sexList[0],
-          value: sexList[0],
-          groupValue: _newValue,
-          onChanged: (index) {
-            setState(() {
-              print(index);
-              _newValue = index;
-            });
-          },
-        ));
-      });
-      return list;
-    }
-* */
 
 
     imgWidth = CachedNetworkImage(
@@ -127,19 +106,20 @@ class _MyInfoPageState extends State<MyInfoPage> {
                                 )
                             ),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Container(
                                   width:100.rpx,
                                   child:  Text(S.of(context).sex,style: TextStyle(color: Color(0xff666666)),),
                                 ),
-                                Expanded(
-                                  child: Row(
-                                    children: <Widget>[
-
-
-                                    ],
-                                  ),
-                                )
+                                RadioList(
+                                    options: sexList,selected: _newValue,isRow: true,
+                                    onChange:(i){
+                                      setState(() {
+                                        _newValue =i;
+                                      });
+                                    }
+                                    )
                               ],
                             ),
                           ),
@@ -158,7 +138,7 @@ class _MyInfoPageState extends State<MyInfoPage> {
                     child: Text(S.of(context).submit,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
 
                     onPressed: () {
-                        print(_phoneController.text);
+                        print(_newValue);
                     }
                 ),
               )
