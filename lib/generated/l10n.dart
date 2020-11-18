@@ -644,6 +644,86 @@ class S {
       args: [],
     );
   }
+
+  /// `加载失败`
+  String get failedText {
+    return Intl.message(
+      '加载失败',
+      name: 'failedText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `下拉刷新`
+  String get idleText {
+    return Intl.message(
+      '下拉刷新',
+      name: 'idleText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `松开刷新`
+  String get releaseText {
+    return Intl.message(
+      '松开刷新',
+      name: 'releaseText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `刷新中...`
+  String get refreshingText {
+    return Intl.message(
+      '刷新中...',
+      name: 'refreshingText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `正在刷新...`
+  String get completeText {
+    return Intl.message(
+      '正在刷新...',
+      name: 'completeText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `松开刷新`
+  String get canTwoLevelText {
+    return Intl.message(
+      '松开刷新',
+      name: 'canTwoLevelText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `正在加载...`
+  String get loadingText {
+    return Intl.message(
+      '正在加载...',
+      name: 'loadingText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `暂无数据`
+  String get noDataText {
+    return Intl.message(
+      '暂无数据',
+      name: 'noDataText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

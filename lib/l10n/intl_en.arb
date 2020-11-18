@@ -62,5 +62,13 @@
   "aboutUs": "关于平台",
   "agreement1": "隐私协议",
   "agreement2": "用户协议",
-  "changePassword": "修改密码"
+  "changePassword": "修改密码",
+  "failedText": "加载失败",
+  "idleText": "下拉刷新",
+  "releaseText": "松开刷新",
+  "refreshingText": "刷新中...",
+  "completeText": "正在刷新...",
+  "canTwoLevelText": "松开刷新",
+   "loadingText": "正在加载...",
+   "noDataText": "暂无数据"
 }

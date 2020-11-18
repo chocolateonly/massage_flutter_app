@@ -12,6 +12,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart'; //添加语言包：https://blog.csdn.net/u011272795/article/details/108114487
 import 'package:massageflutterapp/config/storage_manager.dart';
 import 'package:flutter/services.dart'; //修改状态栏相关
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 void main() async {
   SizeFit.initialize(); //单位适配
   WidgetsFlutterBinding.ensureInitialized(); //将组件和flutter绑定？
@@ -39,25 +40,29 @@ class App extends StatelessWidget {
       child: MultiProvider( //状态管理
           providers: providers,
           child:Consumer2<GlobalModel,LocaleModel>(builder: (context,globalModel,localeModel,child){  //Consumer  Consumer2对应model个数
-            return MaterialApp(
-                debugShowCheckedModeBanner: false, //删除页面右上角debug
-                onGenerateRoute: Router.generateRoute,//回调参数提供路由
-                initialRoute:getInitRoute(context), //初始路由设置
+            //刷新加载列表配置
+            return RefreshConfiguration(
+              hideFooterWhenNotFull: true, //列表数据不满一页,不触发加载更多
+              child: MaterialApp(
+                  debugShowCheckedModeBanner: false, //删除页面右上角debug
+                  onGenerateRoute: Router.generateRoute,//回调参数提供路由
+                  initialRoute:getInitRoute(context), //初始路由设置
 
-              localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate
-              ],
-              supportedLocales: S.delegate.supportedLocales,
-              locale: localeModel.locale, //设置本地语言
-              localeListResolutionCallback: (locales, supportedLocales) {
-                print(locales);
-                print(supportedLocales);
-                return;
-              },
-              theme: globalModel.themeData(),
+                localizationsDelegates: const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                locale: localeModel.locale, //设置本地语言
+                localeListResolutionCallback: (locales, supportedLocales) {
+                  print(locales);
+                  print(supportedLocales);
+                  return;
+                },
+                theme: globalModel.themeData(),
+              ),
             );
           })
       ),
