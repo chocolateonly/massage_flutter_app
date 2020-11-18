@@ -55,5 +55,7 @@
   "ID": "ID",
   "mobile": "电话",
   "sex": "性别",
+  "male": "男",
+  "female": "女",
   "address": "地址"
 }

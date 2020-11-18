@@ -565,6 +565,26 @@ class S {
     );
   }
 
+  /// `男`
+  String get male {
+    return Intl.message(
+      '男',
+      name: 'male',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `女`
+  String get female {
+    return Intl.message(
+      '女',
+      name: 'female',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `地址`
   String get address {
     return Intl.message(
