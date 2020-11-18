@@ -173,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                           InkWell(
                             onTap: (){
 //                              忘记密码
-                              Navigator.of(context).pushNamed(RouteName.forgetPassword,arguments: [_phoneController.text]);
+                              Navigator.of(context).pushNamed(RouteName.forgetPassword,arguments: [0]);
                             },
                             child: Text(S.of(context).forgetPassword,style: TextStyle(color: Color(0xffcccccc),fontSize: 26.rpx),),
                           ),

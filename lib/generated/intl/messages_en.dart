@@ -24,9 +24,13 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "ID" : MessageLookupByLibrary.simpleMessage("ID"),
+    "aboutUs" : MessageLookupByLibrary.simpleMessage("关于平台"),
     "address" : MessageLookupByLibrary.simpleMessage("地址"),
+    "agreement1" : MessageLookupByLibrary.simpleMessage("隐私协议"),
+    "agreement2" : MessageLookupByLibrary.simpleMessage("用户协议"),
     "applicationForm" : MessageLookupByLibrary.simpleMessage("应聘表格"),
     "avatar" : MessageLookupByLibrary.simpleMessage("头像"),
+    "changePassword" : MessageLookupByLibrary.simpleMessage("修改密码"),
     "confirmPasswordError" : MessageLookupByLibrary.simpleMessage("两次输入密码不一致"),
     "confirmPasswordPlaceholder" : MessageLookupByLibrary.simpleMessage("请再次输入密码"),
     "disclaimer" : MessageLookupByLibrary.simpleMessage("免责声明"),
@@ -41,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeTitle" : MessageLookupByLibrary.simpleMessage("Home"),
     "language" : MessageLookupByLibrary.simpleMessage("Language"),
     "login" : MessageLookupByLibrary.simpleMessage("登录"),
+    "loginOut" : MessageLookupByLibrary.simpleMessage("退出登录"),
     "male" : MessageLookupByLibrary.simpleMessage("男"),
     "messageLogin" : MessageLookupByLibrary.simpleMessage("短信登录"),
     "mobile" : MessageLookupByLibrary.simpleMessage("电话"),

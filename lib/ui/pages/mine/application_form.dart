@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
-class SettingsPage extends StatefulWidget {
+class ApplicationFormPage extends StatefulWidget {
 
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+  _ApplicationFormPageState createState() => _ApplicationFormPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _ApplicationFormPageState extends State<ApplicationFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

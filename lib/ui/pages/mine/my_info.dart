@@ -81,17 +81,13 @@ class _MyInfoPageState extends State<MyInfoPage> {
                                     uploadImages();
                                 },
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Text(S.of(context).avatar,style: TextStyle(color: Color(0xff666666)),),
-                                    Expanded(
-                                      child: Align(
-                                        alignment: Alignment.centerRight,
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(vertical: 5),
-                                          child: ClipOval(
-                                            child: imgWidth,
-                                          ),
-                                        ),
+                                    Container(
+                                      padding: EdgeInsets.symmetric(vertical: 10.rpx),
+                                      child: ClipOval(
+                                        child: imgWidth,
                                       ),
                                     ),
                                   ],

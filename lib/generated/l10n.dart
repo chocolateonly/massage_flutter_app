@@ -594,6 +594,56 @@ class S {
       args: [],
     );
   }
+
+  /// `退出登录`
+  String get loginOut {
+    return Intl.message(
+      '退出登录',
+      name: 'loginOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `关于平台`
+  String get aboutUs {
+    return Intl.message(
+      '关于平台',
+      name: 'aboutUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `隐私协议`
+  String get agreement1 {
+    return Intl.message(
+      '隐私协议',
+      name: 'agreement1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `用户协议`
+  String get agreement2 {
+    return Intl.message(
+      '用户协议',
+      name: 'agreement2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `修改密码`
+  String get changePassword {
+    return Intl.message(
+      '修改密码',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

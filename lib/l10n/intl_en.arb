@@ -57,5 +57,10 @@
   "sex": "性别",
   "male": "男",
   "female": "女",
-  "address": "地址"
+  "address": "地址",
+  "loginOut": "退出登录",
+  "aboutUs": "关于平台",
+  "agreement1": "隐私协议",
+  "agreement2": "用户协议",
+  "changePassword": "修改密码"
 }

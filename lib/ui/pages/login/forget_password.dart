@@ -8,9 +8,9 @@ import 'package:provider/provider.dart';
 import 'package:massageflutterapp/view_model/global_model.dart';
 import 'package:massageflutterapp/ui/widges/button/theme_button.dart';
 class ForgetPasswordPage extends StatefulWidget {
-  var phone;
+  var type=0;//0为忘记密码，其他为修改密码
 
-  ForgetPasswordPage(this.phone);
+  ForgetPasswordPage(this.type);
   @override
   _ForgetPasswordPageState createState() => _ForgetPasswordPageState();
 }
@@ -21,8 +21,6 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   var _passwordController=TextEditingController();
   @override
   void initState() {
-    _phoneController.text=widget.phone;
-
     super.initState();
   }
 
@@ -32,7 +30,8 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
     return Scaffold(
       backgroundColor: Color(0xffF5F5F5),
       appBar: AppBar(
-        title: Text(S.of(context).forgetPassword),
+        centerTitle: true,
+        title: Text(widget.type==0?S.of(context).forgetPassword:S.of(context).changePassword),
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
