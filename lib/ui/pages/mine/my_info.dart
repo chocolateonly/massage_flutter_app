@@ -8,6 +8,7 @@ import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:massageflutterapp/ui/widges/form/form_item.dart';
 import 'package:massageflutterapp/ui/widges/form/radio_list.dart';
+import 'package:massageflutterapp/ui/widges/button/theme_button.dart';
 class MyInfoPage extends StatefulWidget {
 
   @override
@@ -17,7 +18,7 @@ class MyInfoPage extends StatefulWidget {
 class _MyInfoPageState extends State<MyInfoPage> {
   var _idController=TextEditingController(text: 'ididid');
   var _phoneController=TextEditingController();
-  var _addressController=TextEditingController(text: '呵呵哈哈哈还是地方还是东方红华东师范is的哈佛史蒂芬斯哦好的覅哦');
+  var _addressController=TextEditingController(text: '');
   Widget imgWidth;
   var _newValue=0;
 
@@ -32,7 +33,7 @@ class _MyInfoPageState extends State<MyInfoPage> {
   Widget build(BuildContext context) {
     List sexList=[
       S.of(context).female,
-      S.of(context).male
+      S.of(context).male,
     ];
 
 
@@ -112,36 +113,37 @@ class _MyInfoPageState extends State<MyInfoPage> {
                                   width:100.rpx,
                                   child:  Text(S.of(context).sex,style: TextStyle(color: Color(0xff666666)),),
                                 ),
-                                RadioList(
-                                    options: sexList,selected: _newValue,isRow: true,
-                                    onChange:(i){
-                                      setState(() {
-                                        _newValue =i;
-                                      });
-                                    }
-                                    )
+                                Center(
+                                  child: Container(
+                                    width:300.rpx,
+                                    child: RadioList(
+                                        options: sexList,selected: _newValue,isRow: true,
+                                        height:90.rpx,
+                                        crossAxisCount:2,
+                                        childAspectRatio:1.7,
+                                        onChange:(i){
+                                          setState(() {
+                                            _newValue =i;
+                                          });
+                                        }
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
-                          FormItem(label:S.of(context).address,controller:_addressController,textAlign:TextAlign.left,inputType:TextInputType.multiline,maxLines:null),
+                          FormItem(label:S.of(context).address,controller:_addressController,textAlign:TextAlign.left,inputType:TextInputType.multiline,maxLines:null,hasBottomBorder:false),
                         ],
                       )
                   ),
                 ),
               ),
-              Container(
-                width:double.maxFinite,
-                margin: EdgeInsets.all(20.rpx),
-                child: CupertinoButton(
-                    color: Theme.of(context).accentColor,
-                    borderRadius:BorderRadius.circular(60.rpx),
-                    child: Text(S.of(context).submit,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
-
-                    onPressed: () {
-                        print(_newValue);
-                    }
-                ),
-              )
+              ThemeButton(
+                  title: S.of(context).submit,
+                  onPressed:(){
+                    //todo:处理表单
+                  }
+                  )
             ],
           ),
         ),

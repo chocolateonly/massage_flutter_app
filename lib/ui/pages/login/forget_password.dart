@@ -6,6 +6,7 @@ import 'package:massageflutterapp/ui/pages/login/CodeButton.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:provider/provider.dart';
 import 'package:massageflutterapp/view_model/global_model.dart';
+import 'package:massageflutterapp/ui/widges/button/theme_button.dart';
 class ForgetPasswordPage extends StatefulWidget {
   var phone;
 
@@ -114,18 +115,11 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   ),
                 ),
               ),
-              Container(
-                width:double.maxFinite,
-                margin: EdgeInsets.all(20.rpx),
-                child: CupertinoButton(
-                color: themeModel.themeColor,
-                borderRadius:BorderRadius.circular(60.rpx),
-                child: Text(S.of(context).submit,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
-
-                onPressed: () {
-
-                }
-                ),
+              ThemeButton(
+                  title: S.of(context).submit,
+                  onPressed:(){
+                    //todo:处理表单
+                  }
               )
             ],
           ),

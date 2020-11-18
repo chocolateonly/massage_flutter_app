@@ -14,6 +14,8 @@ class FormItem extends StatefulWidget {
   bool readOnly;
   final maxLines;
 
+  var hasBottomBorder=true;
+
   FormItem({
     this.inputDefaultValue,
     this.label='title',
@@ -23,7 +25,8 @@ class FormItem extends StatefulWidget {
     this.controller,
     this.isRequired:false,
     this.readOnly:false,
-    this.maxLines:1
+    this.maxLines:1,
+    this.hasBottomBorder:true
   });
 
   @override
@@ -39,7 +42,7 @@ class _FormItemState extends State<FormItem> {
       default:return Container(
           decoration: BoxDecoration(
               border: Border(
-                  bottom: BorderSide(color: Color(0xffeeeeee))
+                  bottom: widget.hasBottomBorder?BorderSide(color: Color(0xffeeeeee)):BorderSide(color: Colors.transparent)
               )
           ),
           child: Row(
