@@ -6,9 +6,9 @@ import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
-import 'package:massageflutterapp/ui/widges/form/form_item.dart';
-import 'package:massageflutterapp/ui/widges/form/radio_list.dart';
-import 'package:massageflutterapp/ui/widges/button/theme_button.dart';
+import 'package:massageflutterapp/ui/widgets/form/form_item.dart';
+import 'package:massageflutterapp/ui/widgets/form/radio_list.dart';
+import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 class MyInfoPage extends StatefulWidget {
 
   @override

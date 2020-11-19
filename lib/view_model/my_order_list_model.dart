@@ -1,6 +1,6 @@
 import 'package:massageflutterapp/services/http_utils.dart';
-//import 'package:massageflutterapp/model/OrderList.dart';
 import 'package:massageflutterapp/provider/view_state_refresh_list_model.dart';
+import 'package:massageflutterapp/model/my_order_list.dart';
 
 class MyOrderListModel extends ViewStateRefreshListModel {
   int order_status;
@@ -13,7 +13,7 @@ class MyOrderListModel extends ViewStateRefreshListModel {
 
   @override
   Future<List> loadData({int pageNum}) async {
-    //OrderList home = await HttpUtils.myOrder(order_status, pageNum);
-    //return home.lists;
+    MyOrderList home = await HttpUtils.myOrder(order_status, pageNum);
+    return home.lists;
   }
 }

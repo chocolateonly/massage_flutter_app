@@ -6,7 +6,7 @@ import 'package:massageflutterapp/ui/pages/login/CodeButton.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:provider/provider.dart';
 import 'package:massageflutterapp/view_model/global_model.dart';
-import 'package:massageflutterapp/ui/widges/button/theme_button.dart';
+import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 class ForgetPasswordPage extends StatefulWidget {
   var type=0;//0为忘记密码，其他为修改密码
 

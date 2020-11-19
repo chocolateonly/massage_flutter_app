@@ -2,12 +2,14 @@ import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:massageflutterapp/view_model/locale_model.dart';
 import 'package:massageflutterapp/view_model/user_model.dart';
 
 import 'package:massageflutterapp/config/storage_manager.dart';
 import 'api.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:massageflutterapp/ui/widgets/loading/loading_wrap.dart';
 final Http http = Http();
 
 class Http extends BaseHttp {
@@ -15,7 +17,7 @@ class Http extends BaseHttp {
 
   @override
   void init() {
-    options.baseUrl = 'https://taiguo.dev.hbbeisheng.com/api/';
+    options.baseUrl = 'http://peiwan.dev.hbbeisheng.com/';
     options.contentType = options.contentType ?? CONTENT_TYPE_FORM;
 
     interceptors
@@ -28,9 +30,11 @@ class Http extends BaseHttp {
 /// 玩Android API
 class ApiInterceptor extends InterceptorsWrapper {
   String uid, token;
-
+  bool loading;
   @override
   onRequest(RequestOptions options) async {
+    print('options-----------');
+    print(options.data);
     uid = StorageManager.sharedPreferences.getString(UserModel.userId);
     token = StorageManager.sharedPreferences.getString(UserModel.userToken);
     bool isFrom = options.data is FormData;
@@ -51,12 +55,16 @@ class ApiInterceptor extends InterceptorsWrapper {
         print(e.toString());
       }
     }
+    //    加载动画
+    loading=options.data['loading'];
+   if(loading) LoadingWrap.before(options.uri, '');
     debugPrint('---api-request--->url--> ${options.baseUrl}${options.path}' + ' json: ${options.data}');
     return options;
   }
 
   @override
   Future onError(DioError err) {
+    if(loading) LoadingWrap.complete(err.request.uri);
     debugPrint('---api-request--->data--->${err.toString()}');
     return super.onError(err);
   }
@@ -65,6 +73,9 @@ class ApiInterceptor extends InterceptorsWrapper {
   onResponse(Response response) {
     debugPrint('---api-response--->resp----->${response.data}');
     ResponseData respData = ResponseData.fromJson(response.data);
+     //    加载动画完成
+    if(loading) LoadingWrap.complete(response.request.uri);
+
     if (respData.success) {
       if(respData.code=="201"){
         showToast(respData.message);

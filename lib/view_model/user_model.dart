@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
-import 'package:massageflutterapp/models/User.dart';
+import 'package:massageflutterapp/model/User.dart';
 class UserModel extends ChangeNotifier{
   static const String userId = 'userId';
   static const String userToken = 'userToken';

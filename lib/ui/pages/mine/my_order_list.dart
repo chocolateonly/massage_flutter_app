@@ -4,6 +4,7 @@ import 'package:massageflutterapp/provider/provider_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:massageflutterapp/view_model/my_order_list_model.dart';
 import 'package:massageflutterapp/view_model/refresh_helper.dart';
+import '../../widgets/loading/loading_wrap.dart';
 class MyOrderListPage extends StatefulWidget {
   var type=0;//订单状态
 
@@ -53,12 +54,18 @@ class OrderListContent extends StatefulWidget {
 }
 
 class _OrderListContentState extends State<OrderListContent> {
+
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<MyOrderListModel>(
+      onModelReady: (model) {
+        model.setStatus(widget.index);
+        model.initData();
+      },
       builder:(context,model,child){
+        LoadingWrap.ctx=context; //需要加载时，全局加载context配置
         return SmartRefresher(
-            controller: model.refreshController,
+        controller: model.refreshController,
             header: RefreshHeader(),
             footer: RefresherFooter(),
             onRefresh: model.refresh,

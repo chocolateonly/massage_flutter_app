@@ -3,7 +3,7 @@ import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/ui/pages/login/login.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
-import 'package:massageflutterapp/ui/widges/button/theme_button.dart';
+import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 class SettingsPage extends StatefulWidget {
 
   @override
