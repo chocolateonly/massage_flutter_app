@@ -8,8 +8,6 @@ class LoadingWrap {
   static dynamic ctx;
 
   static void before(uri, text) {
-    print('Loading  Wrap1');
-    print(loadingStatus);
     dict.add(uri); // 放入set变量中
     // 已有弹窗，则不再显示弹窗, dict.length >= 2 保证了有一个执行弹窗即可，
     if (loadingStatus == true || dict.length >= 2) {

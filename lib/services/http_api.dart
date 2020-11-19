@@ -64,6 +64,7 @@ class ApiInterceptor extends InterceptorsWrapper {
 
   @override
   Future onError(DioError err) {
+    //加载动画完成
     if(loading) LoadingWrap.complete(err.request.uri);
     debugPrint('---api-request--->data--->${err.toString()}');
     return super.onError(err);
@@ -73,7 +74,7 @@ class ApiInterceptor extends InterceptorsWrapper {
   onResponse(Response response) {
     debugPrint('---api-response--->resp----->${response.data}');
     ResponseData respData = ResponseData.fromJson(response.data);
-     //    加载动画完成
+     //加载动画完成
     if(loading) LoadingWrap.complete(response.request.uri);
 
     if (respData.success) {

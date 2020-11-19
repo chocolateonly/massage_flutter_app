@@ -365,31 +365,121 @@ class S {
     );
   }
 
-  /// `已购买`
+  /// `待审核`
   String get orderStatus3 {
     return Intl.message(
-      '已购买',
+      '待审核',
       name: 'orderStatus3',
       desc: '',
       args: [],
     );
   }
 
-  /// `已完成`
+  /// `已驳回`
   String get orderStatus4 {
     return Intl.message(
-      '已完成',
+      '已驳回',
       name: 'orderStatus4',
       desc: '',
       args: [],
     );
   }
 
-  /// `取消中`
+  /// `已购买`
   String get orderStatus5 {
     return Intl.message(
-      '取消中',
+      '已购买',
       name: 'orderStatus5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已完成`
+  String get orderStatus6 {
+    return Intl.message(
+      '已完成',
+      name: 'orderStatus6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消中`
+  String get orderStatus7 {
+    return Intl.message(
+      '取消中',
+      name: 'orderStatus7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `订单号:`
+  String get orderNumber {
+    return Intl.message(
+      '订单号:',
+      name: 'orderNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `¥`
+  String get priceUnit {
+    return Intl.message(
+      '¥',
+      name: 'priceUnit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `去付款`
+  String get goPay {
+    return Intl.message(
+      '去付款',
+      name: 'goPay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `联系客服`
+  String get contact {
+    return Intl.message(
+      '联系客服',
+      name: 'contact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消订单`
+  String get cancelOrder {
+    return Intl.message(
+      '取消订单',
+      name: 'cancelOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `预约`
+  String get makeAnAppointment {
+    return Intl.message(
+      '预约',
+      name: 'makeAnAppointment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `再次购买`
+  String get buyAgain {
+    return Intl.message(
+      '再次购买',
+      name: 'buyAgain',
       desc: '',
       args: [],
     );

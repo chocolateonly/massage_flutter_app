@@ -10,7 +10,6 @@ class HomeModel extends ChangeNotifier{
 
    Future<bool> loadHome() async {
      try {
-       print('load home');
        return true;
      } catch (e, s) {
 

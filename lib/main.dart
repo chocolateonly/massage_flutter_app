@@ -57,8 +57,8 @@ class App extends StatelessWidget {
                 supportedLocales: S.delegate.supportedLocales,
                 locale: localeModel.locale, //设置本地语言
                 localeListResolutionCallback: (locales, supportedLocales) {
-                  print(locales);
-                  print(supportedLocales);
+                  //print(locales);
+                  //print(supportedLocales);
                   return;
                 },
                 theme: globalModel.themeData(),
