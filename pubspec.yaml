@@ -57,7 +57,7 @@ dev_dependencies:
   # 本地json对象存储
   localstorage: ^2.0.0
   #
-  url_launcher: ^5.7.10
+  #url_launcher: ^5.7.10
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

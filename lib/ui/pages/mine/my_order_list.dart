@@ -9,7 +9,7 @@ import 'package:massageflutterapp/view_model/my_order_list_model.dart';
 import 'package:massageflutterapp/view_model/refresh_helper.dart';
 import '../../widgets/loading/loading_wrap.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
-import 'package:massageflutterapp/ui/widgets/button/order_button.dart';
+import 'package:massageflutterapp/ui/pages/mine/order/get_order_button.dart';
 class MyOrderListPage extends StatefulWidget {
   var type=0;//订单状态
 
@@ -82,7 +82,7 @@ class _OrderListContentState extends State<OrderListContent> {
             child: ListView.builder(
                 itemCount: model.list.length,
                 itemBuilder: (context, index) {
-                  return ItemOrder(model.list[index]);
+                  return ItemOrder(model.list[index],model);
                 }));
       },
       model:MyOrderListModel(),
@@ -93,7 +93,9 @@ class _OrderListContentState extends State<OrderListContent> {
 class ItemOrder extends StatefulWidget {
   var item;
 
-  ItemOrder(this.item);
+  var model;
+
+  ItemOrder(this.item,this.model);
 
   @override
   _ItemOrderState createState() => _ItemOrderState();
@@ -131,7 +133,6 @@ class _ItemOrderState extends State<ItemOrder> {
                  ),
                ),
                Container(
-                 height: 150.rpx,
                  padding:EdgeInsets.symmetric(vertical: 20.rpx),
                  decoration: BoxDecoration(
                      border: Border(bottom: BorderSide(color: Color(0xffeeeeee)),top:BorderSide(color: Color(0xffeeeeee)))
@@ -143,8 +144,8 @@ class _ItemOrderState extends State<ItemOrder> {
                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3)),
                        child: CachedNetworkImage(
-                              height: 140.rpx,
-                              width: 140.rpx,
+                              height: 150.rpx,
+                              width: 150.rpx,
                               imageUrl: ImageHelper.wrapUrl(widget.item.image),
                               placeholder: (context, url) => Center(child: CupertinoActivityIndicator()),
                               errorWidget: (context, url, error) => Icon(Icons.error))
@@ -184,7 +185,7 @@ class _ItemOrderState extends State<ItemOrder> {
                        ),
                      ),
                    ),
-                   ...getOrderButton(context,widget.item),
+                   ...getOrderButton(context,widget.item,widget.model,'form_list'),
                  ],
                )
              ],
@@ -194,15 +195,4 @@ class _ItemOrderState extends State<ItemOrder> {
   }
 }
 
-List getOrderButton(BuildContext context,item){
-  var button=[];
-  switch(item.id){
-     default:button.addAll(
-       [
-         OrderButton(title:S.of(context).contact,onPressed:(){},isOutLineButton:true),
-         OrderButton(title:S.of(context).goPay,onPressed:(){},isOutLineButton:false),
-       ]
-     );
-  }
-  return button;
-}
+

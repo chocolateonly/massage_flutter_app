@@ -11,6 +11,7 @@ import 'package:massageflutterapp/ui/pages/mine/my_order_list.dart';
 import 'package:massageflutterapp/ui/pages/mine/my_info.dart';
 import 'package:massageflutterapp/ui/pages/mine/settings.dart';
 import 'package:massageflutterapp/ui/pages/mine/agreement_file.dart';
+import 'package:massageflutterapp/ui/pages/mine/order/order_detail.dart';
 
 class RouteName {
   static const String login = 'login';
@@ -34,6 +35,7 @@ class RouteName {
   static const String myCollection='myCollection';
   static const String workPlatform='workPlatform';
   static const String agreementFile='agreementFile'; //关于平台  隐私协议   用户协议
+  static const String orderDetail='orderDetail';//订单详情
 }
 
 class Router {
@@ -67,6 +69,10 @@ class Router {
         var list = settings.arguments as List;
         var type=list[0];
         return CupertinoPageRoute(builder: (_) => MyOrderListPage(type));
+      case RouteName.orderDetail:
+        var list = settings.arguments as List;
+        var id=list[0];
+        return CupertinoPageRoute(builder: (_) => OrderDetailPage(id));
       default:
         return CupertinoPageRoute(
             builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));

@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> {
   final _searchController=TextEditingController(text: '');
   @override
   void initState() {
-    print('object');
     super.initState();
   }
 

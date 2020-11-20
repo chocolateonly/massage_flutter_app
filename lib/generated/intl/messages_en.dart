@@ -21,6 +21,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(num) => "${num}秒后重新获取";
 
+  static m1(num) => "剩余套餐${num}次 ";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "ID" : MessageLookupByLibrary.simpleMessage("ID"),
@@ -32,9 +34,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "avatar" : MessageLookupByLibrary.simpleMessage("头像"),
     "buyAgain" : MessageLookupByLibrary.simpleMessage("再次购买"),
     "canTwoLevelText" : MessageLookupByLibrary.simpleMessage("松开刷新"),
+    "cancel" : MessageLookupByLibrary.simpleMessage("取消"),
     "cancelOrder" : MessageLookupByLibrary.simpleMessage("取消订单"),
+    "cancelOrderTip" : MessageLookupByLibrary.simpleMessage("取消购买的配套， 需扣除订单费用的10%作为服务费哦~"),
     "changePassword" : MessageLookupByLibrary.simpleMessage("修改密码"),
     "completeText" : MessageLookupByLibrary.simpleMessage("正在刷新..."),
+    "confirm" : MessageLookupByLibrary.simpleMessage("确认"),
     "confirmPasswordError" : MessageLookupByLibrary.simpleMessage("两次输入密码不一致"),
     "confirmPasswordPlaceholder" : MessageLookupByLibrary.simpleMessage("请再次输入密码"),
     "contact" : MessageLookupByLibrary.simpleMessage("联系客服"),
@@ -57,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginOut" : MessageLookupByLibrary.simpleMessage("退出登录"),
     "makeAnAppointment" : MessageLookupByLibrary.simpleMessage("预约"),
     "male" : MessageLookupByLibrary.simpleMessage("男"),
+    "massagist" : MessageLookupByLibrary.simpleMessage("按摩技师"),
     "messageLogin" : MessageLookupByLibrary.simpleMessage("短信登录"),
     "mobile" : MessageLookupByLibrary.simpleMessage("电话"),
     "myAddress" : MessageLookupByLibrary.simpleMessage("我的地址"),
@@ -69,6 +75,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "myPoint" : MessageLookupByLibrary.simpleMessage("我的积分"),
     "myService" : MessageLookupByLibrary.simpleMessage("我的服务"),
     "noDataText" : MessageLookupByLibrary.simpleMessage("暂无数据"),
+    "orderDetail" : MessageLookupByLibrary.simpleMessage("订单详情"),
+    "orderNum" : MessageLookupByLibrary.simpleMessage("订单编号"),
     "orderNumber" : MessageLookupByLibrary.simpleMessage("订单号:"),
     "orderStatus1" : MessageLookupByLibrary.simpleMessage("全部订单"),
     "orderStatus2" : MessageLookupByLibrary.simpleMessage("待付款"),
@@ -77,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderStatus5" : MessageLookupByLibrary.simpleMessage("已购买"),
     "orderStatus6" : MessageLookupByLibrary.simpleMessage("已完成"),
     "orderStatus7" : MessageLookupByLibrary.simpleMessage("取消中"),
+    "orderTime" : MessageLookupByLibrary.simpleMessage("订单时间"),
     "passwordLogin" : MessageLookupByLibrary.simpleMessage("密码登录"),
     "passwordPlaceholder" : MessageLookupByLibrary.simpleMessage("请输入密码"),
     "phoneCodePlaceholder" : MessageLookupByLibrary.simpleMessage("请输入验证码"),
@@ -89,16 +98,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerUser" : MessageLookupByLibrary.simpleMessage("注册账户"),
     "registerWord" : MessageLookupByLibrary.simpleMessage("《使用条款及隐私政策》"),
     "releaseText" : MessageLookupByLibrary.simpleMessage("松开刷新"),
+    "remark" : MessageLookupByLibrary.simpleMessage("备注"),
     "search" : MessageLookupByLibrary.simpleMessage("search"),
     "searchPlaceholder" : MessageLookupByLibrary.simpleMessage("please input"),
+    "serviceTime" : MessageLookupByLibrary.simpleMessage("服务时长"),
     "settings" : MessageLookupByLibrary.simpleMessage("系统设置"),
     "sex" : MessageLookupByLibrary.simpleMessage("性别"),
     "submit" : MessageLookupByLibrary.simpleMessage("提交"),
+    "surplusComboOrder" : m1,
     "tab1" : MessageLookupByLibrary.simpleMessage("Home"),
     "tab2" : MessageLookupByLibrary.simpleMessage("Order"),
     "tab3" : MessageLookupByLibrary.simpleMessage("Message"),
     "tab4" : MessageLookupByLibrary.simpleMessage("Mine"),
     "thirdLogin" : MessageLookupByLibrary.simpleMessage("第三方账号登录"),
+    "tipTile" : MessageLookupByLibrary.simpleMessage("温馨提示"),
     "viewNow" : MessageLookupByLibrary.simpleMessage("立即查看"),
     "workPlatform" : MessageLookupByLibrary.simpleMessage("工作台")
   };

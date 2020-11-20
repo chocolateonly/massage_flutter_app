@@ -485,6 +485,116 @@ class S {
     );
   }
 
+  /// `订单详情`
+  String get orderDetail {
+    return Intl.message(
+      '订单详情',
+      name: 'orderDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `剩余套餐{num}次 `
+  String surplusComboOrder(Object num) {
+    return Intl.message(
+      '剩余套餐$num次 ',
+      name: 'surplusComboOrder',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `服务时长`
+  String get serviceTime {
+    return Intl.message(
+      '服务时长',
+      name: 'serviceTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `按摩技师`
+  String get massagist {
+    return Intl.message(
+      '按摩技师',
+      name: 'massagist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `备注`
+  String get remark {
+    return Intl.message(
+      '备注',
+      name: 'remark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `订单编号`
+  String get orderNum {
+    return Intl.message(
+      '订单编号',
+      name: 'orderNum',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `订单时间`
+  String get orderTime {
+    return Intl.message(
+      '订单时间',
+      name: 'orderTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `温馨提示`
+  String get tipTile {
+    return Intl.message(
+      '温馨提示',
+      name: 'tipTile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消购买的配套， 需扣除订单费用的10%作为服务费哦~`
+  String get cancelOrderTip {
+    return Intl.message(
+      '取消购买的配套， 需扣除订单费用的10%作为服务费哦~',
+      name: 'cancelOrderTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `确认`
+  String get confirm {
+    return Intl.message(
+      '确认',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消`
+  String get cancel {
+    return Intl.message(
+      '取消',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `应聘表格`
   String get applicationForm {
     return Intl.message(
