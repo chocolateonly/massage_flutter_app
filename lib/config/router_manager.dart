@@ -12,7 +12,8 @@ import 'package:massageflutterapp/ui/pages/mine/my_info.dart';
 import 'package:massageflutterapp/ui/pages/mine/settings.dart';
 import 'package:massageflutterapp/ui/pages/mine/agreement_file.dart';
 import 'package:massageflutterapp/ui/pages/mine/order/order_detail.dart';
-
+import 'package:massageflutterapp/ui/pages/mine/my_combo.dart';
+import 'package:massageflutterapp/ui/pages/mine/order/make_an_appointment.dart';
 class RouteName {
   static const String login = 'login';
   static const String tab = 'tab';
@@ -23,6 +24,7 @@ class RouteName {
   static const String myInfo='myInfo';//编辑个人信息
   static const String settings='settings';//设置
   static const String myCombo='myCombo';//我的套餐
+  static const String makeAnAppointment='makeAnAppointment';//我的套餐  预约
   static const String myOrderList='myOrderList';//我的订单列表
   static const String applicationForm='applicationForm';//应聘表格
   static const String promotionGift='promotionGift';//推广好礼
@@ -73,6 +75,12 @@ class Router {
         var list = settings.arguments as List;
         var id=list[0];
         return CupertinoPageRoute(builder: (_) => OrderDetailPage(id));
+      case RouteName.myCombo:
+        return CupertinoPageRoute(builder: (_) => MyComboPage());
+      case RouteName.makeAnAppointment:
+        var list = settings.arguments as List;
+        var id=list[0];
+        return CupertinoPageRoute(builder: (_) => MakeAnAppointmentPage(id));
       default:
         return CupertinoPageRoute(
             builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));

@@ -61,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "login" : MessageLookupByLibrary.simpleMessage("登录"),
     "loginOut" : MessageLookupByLibrary.simpleMessage("退出登录"),
     "makeAnAppointment" : MessageLookupByLibrary.simpleMessage("预约"),
+    "makeAnAppointmentAddress" : MessageLookupByLibrary.simpleMessage("请选择预约服务地址"),
+    "makeAnAppointmentTime" : MessageLookupByLibrary.simpleMessage("请选择预约服务时间"),
     "male" : MessageLookupByLibrary.simpleMessage("男"),
     "massagist" : MessageLookupByLibrary.simpleMessage("按摩技师"),
     "messageLogin" : MessageLookupByLibrary.simpleMessage("短信登录"),

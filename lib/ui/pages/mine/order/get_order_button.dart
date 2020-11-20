@@ -5,7 +5,7 @@ import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/ui/widgets/dialog/dialog_helper.dart';
 List getOrderButton(BuildContext context,item,model,type){
   var button=[];
-  switch(item.id){
+  switch(3){
   //待审核
     case 1:button.addAll(
         [
@@ -23,10 +23,12 @@ List getOrderButton(BuildContext context,item,model,type){
     );
     break;
   //已购买
-    case 1:button.addAll(
+    case 3:button.addAll(
         [
           OrderButton(title:S.of(context).cancelOrder,onPressed:(){},isOutLineButton:true),
-          OrderButton(title:S.of(context).makeAnAppointment,onPressed:(){},isOutLineButton:false),
+          OrderButton(title:S.of(context).makeAnAppointment,onPressed:(){
+            Navigator.of(context).pushNamed(RouteName.makeAnAppointment,arguments: [item.id]);
+          },isOutLineButton:false),
         ]
     );
     break;

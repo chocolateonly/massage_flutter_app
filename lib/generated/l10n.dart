@@ -595,6 +595,26 @@ class S {
     );
   }
 
+  /// `请选择预约服务地址`
+  String get makeAnAppointmentAddress {
+    return Intl.message(
+      '请选择预约服务地址',
+      name: 'makeAnAppointmentAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请选择预约服务时间`
+  String get makeAnAppointmentTime {
+    return Intl.message(
+      '请选择预约服务时间',
+      name: 'makeAnAppointmentTime',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `应聘表格`
   String get applicationForm {
     return Intl.message(

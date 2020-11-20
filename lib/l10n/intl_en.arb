@@ -57,6 +57,8 @@
   "cancelOrderTip":"取消购买的配套， 需扣除订单费用的10%作为服务费哦~",
   "confirm": "确认",
   "cancel": "取消",
+  "makeAnAppointmentAddress": "请选择预约服务地址",
+  "makeAnAppointmentTime": "请选择预约服务时间",
   "applicationForm": "应聘表格",
   "promotionGift": "推广好礼",
   "myService": "我的服务",
