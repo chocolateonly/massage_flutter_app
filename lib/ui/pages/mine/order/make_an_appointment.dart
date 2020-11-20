@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:massageflutterapp/ui/widgets/form/form_item.dart';
 class MakeAnAppointmentPage extends StatefulWidget {
   MakeAnAppointmentPage(id);
 
@@ -119,7 +119,37 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
                                 )
                             ),
                             child: InkWell(
-                              onTap: (){},
+                              onTap: (){
+                            /*    showModalBottomSheet<int>(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return CupertinoPicker;
+                                  },
+                                );*/
+//底部弹出层
+                                showCupertinoModalPopup(
+                                  context: context,
+                                  builder: (context) {
+
+                                    return Container(
+                                      height:200,
+                                      color: Colors.white,
+//                                      选择器
+                                      child: CupertinoPicker(
+                                          itemExtent: 28,
+                                          onSelectedItemChanged: (position) {
+                                            print('The position is $position');
+                                          },
+                                          children: <Widget>[
+                                            Text('dddd'),
+                                            Text('dddd'),
+                                            Text('dddd'),
+                                          ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
@@ -135,6 +165,7 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
                             ),
 
                           ),
+//                   备注
                           Container(
                             padding:EdgeInsets.only(top: 10.rpx),
                             child: Text(S.of(context).remark+':',style: TextStyle(fontSize: 26.rpx),),
