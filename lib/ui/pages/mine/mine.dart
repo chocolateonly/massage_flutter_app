@@ -157,7 +157,7 @@ class _MinePageState extends State<MinePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                   TwoRowItem(S.of(context).applicationForm,'mine_form.png',0),
-                  TwoRowItem(S.of(context).applicationForm,'mine_gift.png',1),
+                  TwoRowItem(S.of(context).promotionGift,'mine_gift.png',1),
               ],
             ),
             //            我的服务

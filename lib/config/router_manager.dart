@@ -14,6 +14,7 @@ import 'package:massageflutterapp/ui/pages/mine/agreement_file.dart';
 import 'package:massageflutterapp/ui/pages/mine/order/order_detail.dart';
 import 'package:massageflutterapp/ui/pages/mine/my_combo.dart';
 import 'package:massageflutterapp/ui/pages/mine/order/make_an_appointment.dart';
+import 'package:massageflutterapp/ui/pages/mine/my_point.dart';
 class RouteName {
   static const String login = 'login';
   static const String tab = 'tab';
@@ -81,6 +82,10 @@ class Router {
         var list = settings.arguments as List;
         var id=list[0];
         return CupertinoPageRoute(builder: (_) => MakeAnAppointmentPage(id));
+      case RouteName.applicationForm:
+        return CupertinoPageRoute(builder: (_) => ApplicationFormPage());
+      case RouteName.myPoint:
+        return CupertinoPageRoute(builder: (_) => MyPointPage());
       default:
         return CupertinoPageRoute(
             builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));

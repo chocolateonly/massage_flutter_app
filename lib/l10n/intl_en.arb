@@ -92,5 +92,8 @@
   "completeText": "正在刷新...",
   "canTwoLevelText": "松开刷新",
    "loadingText": "正在加载...",
-   "noDataText": "暂无数据"
+   "noDataText": "暂无数据",
+  "pleaseSelect": "请选择",
+  "myPointRecord": "兑换明细",
+  "allGoods": "全部商品"
 }

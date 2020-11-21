@@ -6,6 +6,8 @@ import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:massageflutterapp/ui/widgets/picker/PickerTool.dart';
+import 'package:massageflutterapp/utils/getPicker.dart';
 class MakeAnAppointmentPage extends StatefulWidget {
   MakeAnAppointmentPage(id);
 
@@ -18,6 +20,8 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
   var address;
   var time;
   var remark=TextEditingController();
+  var timeList=[];
+  var can_selected_timeSorts=[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,35 +124,68 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
                             ),
                             child: InkWell(
                               onTap: (){
-                            /*    showModalBottomSheet<int>(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return CupertinoPicker;
-                                  },
-                                );*/
-//底部弹出层
-                                showCupertinoModalPopup(
-                                  context: context,
-                                  builder: (context) {
+//                                时间选择
+                                selectTimePicker(context);
 
-                                    return Container(
-                                      height:200,
-                                      color: Colors.white,
-//                                      选择器
-                                      child: CupertinoPicker(
-                                          itemExtent: 28,
-                                          onSelectedItemChanged: (position) {
-                                            print('The position is $position');
-                                          },
-                                          children: <Widget>[
-                                            Text('dddd'),
-                                            Text('dddd'),
-                                            Text('dddd'),
-                                          ],
-                                      ),
-                                    );
-                                  },
-                                );
+//底部弹出层
+                                /*var currentDatetime=new DateTime.now();
+                                var currentTime=currentDatetime.year.toString()+'-'+currentDatetime.month.toString()+'-'+currentDatetime.day.toString();//2020-11-21
+                                print('time');
+                                print(currentTime);
+                                var timeSorts=['5:00-8:00','8:00-11:00','11:00-14:00','14:00-17:00','17:00-20:00','20:00-23:00'];
+                                var newTimeList=[];
+                                var new_can_selected_timeSorts=[];
+                                for(var i=0;i<365;i++){
+                                  var next_datetime=currentDatetime.add(Duration(days: i+1));
+                                  newTimeList.add(next_datetime.year.toString()+'-'+next_datetime.month.toString()+'-'+next_datetime.day.toString());
+                                  setState(() {
+                                    timeList=newTimeList;
+                                  });
+                                }
+                                getCanSelectedTimeSorts(){
+                                  timeSorts.forEach((item) {
+                                    print(item);
+                                    var s_item=item.split('-');
+                                    var start=s_item[0].split(':')[0];
+                                    var end=s_item[1].split(':')[0];
+                                    print(currentDatetime);
+                                    var currentHour=currentDatetime.hour;
+
+                                    if(currentHour>int.parse(start)&&currentHour>int.parse(end)) {
+                                    }
+                                    else if(currentHour>int.parse(start)&&currentHour==int.parse(end)) {
+//                                      比较分钟
+
+                                    }
+                                    else{
+                                      new_can_selected_timeSorts.add(item);
+                                    }
+                                  }
+                                  );
+                                  setState(() {
+                                    can_selected_timeSorts=new_can_selected_timeSorts;
+                                  });
+                                }
+                                getCanSelectedTimeSorts();//初始化
+                                return JhPickerTool.showArrayPicker(
+                                    context,
+                                    data:[timeList,can_selected_timeSorts],//数据源
+                                    normalIndex: [0,0],//索引
+                                    onSelect: (index,selectedIndex){
+                                      if(timeList[selectedIndex[0]]==currentTime){
+                                        getCanSelectedTimeSorts();
+                                      }else{
+                                        setState(() {
+                                          can_selected_timeSorts=timeSorts;
+                                          print(can_selected_timeSorts);
+                                        });
+                                      }
+                                    },
+                                    clickCallBack:(var index, var strData){
+                                      print(index);
+                                      print(strData);
+                                    }
+                                );*/
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

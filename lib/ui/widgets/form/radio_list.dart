@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 /*
@@ -55,7 +56,7 @@ class _RadioListState extends State<RadioList> {
                 });
               },
             ),
-            Text(widget.options[i])
+            Text(widget.options[i],style:TextStyle(fontSize: 26.rpx),overflow: TextOverflow.ellipsis,)
           ],
         ),
       ),

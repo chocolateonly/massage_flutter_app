@@ -944,6 +944,36 @@ class S {
       args: [],
     );
   }
+
+  /// `请选择`
+  String get pleaseSelect {
+    return Intl.message(
+      '请选择',
+      name: 'pleaseSelect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `兑换明细`
+  String get myPointRecord {
+    return Intl.message(
+      '兑换明细',
+      name: 'myPointRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `全部商品`
+  String get allGoods {
+    return Intl.message(
+      '全部商品',
+      name: 'allGoods',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
