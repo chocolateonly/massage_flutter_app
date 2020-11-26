@@ -975,7 +975,275 @@ class S {
     );
   }
 
-  // skipped getter for the '' key
+  /// `优秀按摩师`
+  String get goodMassagist {
+    return Intl.message(
+      '优秀按摩师',
+      name: 'goodMassagist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `评分`
+  String get score {
+    return Intl.message(
+      '评分',
+      name: 'score',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `评论`
+  String get comment {
+    return Intl.message(
+      '评论',
+      name: 'comment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lv`
+  String get levelAbb {
+    return Intl.message(
+      'Lv',
+      name: 'levelAbb',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `详情`
+  String get detail {
+    return Intl.message(
+      '详情',
+      name: 'detail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务资质`
+  String get serviceAbility {
+    return Intl.message(
+      '服务资质',
+      name: 'serviceAbility',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `温度记录`
+  String get temperatureRecord {
+    return Intl.message(
+      '温度记录',
+      name: 'temperatureRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `产品详情`
+  String get goodsDetail {
+    return Intl.message(
+      '产品详情',
+      name: 'goodsDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即购买`
+  String get goBuy {
+    return Intl.message(
+      '立即购买',
+      name: 'goBuy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `库存`
+  String get stock {
+    return Intl.message(
+      '库存',
+      name: 'stock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `库存{num}件`
+  String stockNumUtil(Object num) {
+    return Intl.message(
+      '库存$num件',
+      name: 'stockNumUtil',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `选择`
+  String get select {
+    return Intl.message(
+      '选择',
+      name: 'select',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `规格`
+  String get specs {
+    return Intl.message(
+      '规格',
+      name: 'specs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消政策`
+  String get cancelRule {
+    return Intl.message(
+      '取消政策',
+      name: 'cancelRule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消收取{num}手续费`
+  String cancelRuleTip(Object num) {
+    return Intl.message(
+      '取消收取$num手续费',
+      name: 'cancelRuleTip',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `套餐次数`
+  String get numberOfCombo {
+    return Intl.message(
+      '套餐次数',
+      name: 'numberOfCombo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `优惠券`
+  String get coupons {
+    return Intl.message(
+      '优惠券',
+      name: 'coupons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `订单备注`
+  String get orderRemark {
+    return Intl.message(
+      '订单备注',
+      name: 'orderRemark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `共{num}件`
+  String numberOfGoods(Object num) {
+    return Intl.message(
+      '共$num件',
+      name: 'numberOfGoods',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `小计`
+  String get subtotal {
+    return Intl.message(
+      '小计',
+      name: 'subtotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提交订单`
+  String get submitOrder {
+    return Intl.message(
+      '提交订单',
+      name: 'submitOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `上传凭证`
+  String get uploadOrderResult {
+    return Intl.message(
+      '上传凭证',
+      name: 'uploadOrderResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提交凭证`
+  String get submitOrderResult {
+    return Intl.message(
+      '提交凭证',
+      name: 'submitOrderResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `支付账户`
+  String get payAccount {
+    return Intl.message(
+      '支付账户',
+      name: 'payAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `支付卡号`
+  String get payNumber {
+    return Intl.message(
+      '支付卡号',
+      name: 'payNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `付款人姓名`
+  String get payeeAccount {
+    return Intl.message(
+      '付款人姓名',
+      name: 'payeeAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `付款人卡号`
+  String get payeeNumber {
+    return Intl.message(
+      '付款人卡号',
+      name: 'payeeNumber',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

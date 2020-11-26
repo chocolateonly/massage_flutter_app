@@ -22,11 +22,12 @@ class GoodsDetailPage extends StatefulWidget {
 }
 
 class _GoodsDetailPageState extends State<GoodsDetailPage> {
+  var isFocus=false;
   @override
   Widget build(BuildContext context) {
-    var title = '商品详情';
-    var goodsDetailTitle = '产品详情';
-    var submit = '立即购买';
+    var title = S.of(context).detail;
+    var goodsDetailTitle = S.of(context).goodsDetail;
+    var submit = S.of(context).goBuy;
 
     openModel(){
 
@@ -70,7 +71,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                           ),
                                         ],
                                       ),
-                                      Text('库存12件',style:TextStyle(color:   Color(0xff999999),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,),
+                                      Text(S.of(context).stockNumUtil(12),style:TextStyle(color:   Color(0xff999999),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,),
                                     ],
                                   ),
                                 ),
@@ -117,7 +118,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                 borderRadius:BorderRadius.circular(60.rpx),
                                 child: Text(S.of(context).confirm,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
                                 onPressed: () {
-                                  Navigator.of(context).pushNamed(RouteName.createAnOrder);
+                                  Navigator.of(context).pushNamed(RouteName.createAnOrder,arguments: ['']);
                                 }
                             ),
                           ),
@@ -188,8 +189,12 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                     child:  InkWell(
                                       onTap: (){
                                         print('sss');
+                                        setState(() {
+                                          isFocus=!isFocus;
+                                        });
                                       },
-                                      child: Image.asset(ImageHelper.wrapAssets('icon_heart.png'),width:33.rpx,height: 27.rpx,),
+                                      child: isFocus?Image.asset(ImageHelper.wrapAssets('icon_heart.png'),width:33.rpx,height: 27.rpx,):
+                                      Image.asset(ImageHelper.wrapAssets('icon_heart_null.png'),width:33.rpx,height: 27.rpx,),
                                     ),
                                   ),
                                 ],
@@ -278,7 +283,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                         child: Row(
                                           children: <Widget>[
                                             Text(
-                                              '选择',
+                                              S.of(context).select,
                                               style: TextStyle(
                                                   color: Color(0xff666666),
                                                   fontSize: 30.rpx),
@@ -290,7 +295,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                             ),
                                             Expanded(
                                               child: Text(
-                                                '规格',
+                                               S.of(context).specs,
                                                 style: TextStyle(
                                                     color: Color(0xff333333),
                                                     fontSize: 30.rpx),
@@ -334,7 +339,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                               ),
                                               Expanded(
                                                 child: Text(
-                                                  '取消政策',
+                                                  S.of(context).cancelRule,
                                                   style: TextStyle(
                                                       color: Color(0xff000000),
                                                       fontSize: 30.rpx),
@@ -356,7 +361,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                                     BorderRadius.circular(
                                                         10.rpx)),
                                             child: Text(
-                                              '取消收取10%手续费',
+                                              S.of(context).cancelRuleTip('10%'),
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 22.rpx),
@@ -400,7 +405,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                               ),
                                               Expanded(
                                                 child: Text(
-                                                  '评价(0)',
+                                                  '${S.of(context).comment}(0)',
                                                   style: TextStyle(
                                                       color: Color(0xff000000),
                                                       fontSize: 30.rpx),
@@ -478,40 +483,10 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                                     ),
                                                     Row(
                                                       children: <Widget>[
-                                                        Icon(
-                                                          Icons.star,
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .accentColor,
-                                                          size: 20,
-                                                        ),
-                                                        Icon(
-                                                          Icons.star,
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .accentColor,
-                                                          size: 20,
-                                                        ),
-                                                        Icon(
-                                                          Icons.star,
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .accentColor,
-                                                          size: 20,
-                                                        ),
-                                                        Icon(
-                                                          Icons.star,
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .accentColor,
-                                                          size: 20,
-                                                        ),
-                                                        Icon(
-                                                          Icons.star_border,
-                                                          color:
-                                                              Color(0xff999999),
-                                                          size: 20,
-                                                        ),
+                                                        ...List.generate(5, (index){
+                                                          return index<=3? Icon(Icons.star, color: Theme.of(context).accentColor, size: 20,):
+                                                          Icon(Icons.star_border, color: Color(0xff999999), size: 20,);
+                                                        }),
                                                       ],
                                                     ),
                                                   ],

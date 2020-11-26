@@ -19,7 +19,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ms';
 
-  static m0(num) => "${num}秒后重新获取";
+  static m1(num) => "${num}秒后重新获取";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -41,7 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "female" : MessageLookupByLibrary.simpleMessage("女"),
     "forgetPassword" : MessageLookupByLibrary.simpleMessage("忘记密码"),
     "getCode" : MessageLookupByLibrary.simpleMessage("获取验证码"),
-    "getCodeTip" : m0,
+    "getCodeTip" : m1,
     "hasBuyCombo" : MessageLookupByLibrary.simpleMessage("已购买套餐"),
     "hasRegister" : MessageLookupByLibrary.simpleMessage("已经注册？"),
     "healthyInfo" : MessageLookupByLibrary.simpleMessage("健康资料"),

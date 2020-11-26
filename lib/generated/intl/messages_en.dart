@@ -19,9 +19,15 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static m0(num) => "${num}秒后重新获取";
+  static m0(num) => "取消收取${num}手续费";
 
-  static m1(num) => "剩余套餐${num}次 ";
+  static m1(num) => "${num}秒后重新获取";
+
+  static m2(num) => "共${num}件";
+
+  static m3(num) => "库存${num}件";
+
+  static m4(num) => "剩余套餐${num}次 ";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -38,26 +44,35 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel" : MessageLookupByLibrary.simpleMessage("取消"),
     "cancelOrder" : MessageLookupByLibrary.simpleMessage("取消订单"),
     "cancelOrderTip" : MessageLookupByLibrary.simpleMessage("取消购买的配套， 需扣除订单费用的10%作为服务费哦~"),
+    "cancelRule" : MessageLookupByLibrary.simpleMessage("取消政策"),
+    "cancelRuleTip" : m0,
     "changePassword" : MessageLookupByLibrary.simpleMessage("修改密码"),
+    "comment" : MessageLookupByLibrary.simpleMessage("评论"),
     "completeText" : MessageLookupByLibrary.simpleMessage("正在刷新..."),
     "confirm" : MessageLookupByLibrary.simpleMessage("确认"),
     "confirmPasswordError" : MessageLookupByLibrary.simpleMessage("两次输入密码不一致"),
     "confirmPasswordPlaceholder" : MessageLookupByLibrary.simpleMessage("请再次输入密码"),
     "contact" : MessageLookupByLibrary.simpleMessage("联系客服"),
+    "coupons" : MessageLookupByLibrary.simpleMessage("优惠券"),
+    "detail" : MessageLookupByLibrary.simpleMessage("详情"),
     "disclaimer" : MessageLookupByLibrary.simpleMessage("免责声明"),
     "edit" : MessageLookupByLibrary.simpleMessage("编辑"),
     "failedText" : MessageLookupByLibrary.simpleMessage("加载失败"),
     "female" : MessageLookupByLibrary.simpleMessage("女"),
     "forgetPassword" : MessageLookupByLibrary.simpleMessage("忘记密码"),
     "getCode" : MessageLookupByLibrary.simpleMessage("获取验证码"),
-    "getCodeTip" : m0,
+    "getCodeTip" : m1,
+    "goBuy" : MessageLookupByLibrary.simpleMessage("立即购买"),
     "goPay" : MessageLookupByLibrary.simpleMessage("去付款"),
+    "goodMassagist" : MessageLookupByLibrary.simpleMessage("优秀按摩师"),
+    "goodsDetail" : MessageLookupByLibrary.simpleMessage("产品详情"),
     "hasBuyCombo" : MessageLookupByLibrary.simpleMessage("已购买套餐"),
     "hasRegister" : MessageLookupByLibrary.simpleMessage("已经注册？"),
     "healthyInfo" : MessageLookupByLibrary.simpleMessage("健康资料"),
     "homeTitle" : MessageLookupByLibrary.simpleMessage("Home"),
     "idleText" : MessageLookupByLibrary.simpleMessage("下拉刷新"),
     "language" : MessageLookupByLibrary.simpleMessage("Language"),
+    "levelAbb" : MessageLookupByLibrary.simpleMessage("Lv"),
     "loadingText" : MessageLookupByLibrary.simpleMessage("正在加载..."),
     "login" : MessageLookupByLibrary.simpleMessage("登录"),
     "loginOut" : MessageLookupByLibrary.simpleMessage("退出登录"),
@@ -79,9 +94,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "myPointRecord" : MessageLookupByLibrary.simpleMessage("兑换明细"),
     "myService" : MessageLookupByLibrary.simpleMessage("我的服务"),
     "noDataText" : MessageLookupByLibrary.simpleMessage("暂无数据"),
+    "numberOfCombo" : MessageLookupByLibrary.simpleMessage("套餐次数"),
+    "numberOfGoods" : m2,
     "orderDetail" : MessageLookupByLibrary.simpleMessage("订单详情"),
     "orderNum" : MessageLookupByLibrary.simpleMessage("订单编号"),
     "orderNumber" : MessageLookupByLibrary.simpleMessage("订单号:"),
+    "orderRemark" : MessageLookupByLibrary.simpleMessage("订单备注"),
     "orderStatus1" : MessageLookupByLibrary.simpleMessage("全部订单"),
     "orderStatus2" : MessageLookupByLibrary.simpleMessage("待付款"),
     "orderStatus3" : MessageLookupByLibrary.simpleMessage("待审核"),
@@ -92,6 +110,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderTime" : MessageLookupByLibrary.simpleMessage("订单时间"),
     "passwordLogin" : MessageLookupByLibrary.simpleMessage("密码登录"),
     "passwordPlaceholder" : MessageLookupByLibrary.simpleMessage("请输入密码"),
+    "payAccount" : MessageLookupByLibrary.simpleMessage("支付账户"),
+    "payNumber" : MessageLookupByLibrary.simpleMessage("支付卡号"),
+    "payeeAccount" : MessageLookupByLibrary.simpleMessage("付款人姓名"),
+    "payeeNumber" : MessageLookupByLibrary.simpleMessage("付款人卡号"),
     "phoneCodePlaceholder" : MessageLookupByLibrary.simpleMessage("请输入验证码"),
     "phonePlaceholder" : MessageLookupByLibrary.simpleMessage("请输入手机号"),
     "pleaseSelect" : MessageLookupByLibrary.simpleMessage("请选择"),
@@ -104,19 +126,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerWord" : MessageLookupByLibrary.simpleMessage("《使用条款及隐私政策》"),
     "releaseText" : MessageLookupByLibrary.simpleMessage("松开刷新"),
     "remark" : MessageLookupByLibrary.simpleMessage("备注"),
+    "score" : MessageLookupByLibrary.simpleMessage("评分"),
     "search" : MessageLookupByLibrary.simpleMessage("search"),
     "searchPlaceholder" : MessageLookupByLibrary.simpleMessage("please input"),
+    "select" : MessageLookupByLibrary.simpleMessage("选择"),
+    "serviceAbility" : MessageLookupByLibrary.simpleMessage("服务资质"),
     "serviceTime" : MessageLookupByLibrary.simpleMessage("服务时长"),
     "settings" : MessageLookupByLibrary.simpleMessage("系统设置"),
     "sex" : MessageLookupByLibrary.simpleMessage("性别"),
+    "specs" : MessageLookupByLibrary.simpleMessage("规格"),
+    "stock" : MessageLookupByLibrary.simpleMessage("库存"),
+    "stockNumUtil" : m3,
     "submit" : MessageLookupByLibrary.simpleMessage("提交"),
-    "surplusComboOrder" : m1,
+    "submitOrder" : MessageLookupByLibrary.simpleMessage("提交订单"),
+    "submitOrderResult" : MessageLookupByLibrary.simpleMessage("提交凭证"),
+    "subtotal" : MessageLookupByLibrary.simpleMessage("小计"),
+    "surplusComboOrder" : m4,
     "tab1" : MessageLookupByLibrary.simpleMessage("Home"),
     "tab2" : MessageLookupByLibrary.simpleMessage("Order"),
     "tab3" : MessageLookupByLibrary.simpleMessage("Message"),
     "tab4" : MessageLookupByLibrary.simpleMessage("Mine"),
+    "temperatureRecord" : MessageLookupByLibrary.simpleMessage("温度记录"),
     "thirdLogin" : MessageLookupByLibrary.simpleMessage("第三方账号登录"),
     "tipTile" : MessageLookupByLibrary.simpleMessage("温馨提示"),
+    "uploadOrderResult" : MessageLookupByLibrary.simpleMessage("上传凭证"),
     "viewNow" : MessageLookupByLibrary.simpleMessage("立即查看"),
     "workPlatform" : MessageLookupByLibrary.simpleMessage("工作台")
   };

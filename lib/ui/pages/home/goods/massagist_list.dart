@@ -24,7 +24,7 @@ class _MassagistListPageState extends State<MassagistListPage> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('优秀按摩师'),
+          title: Text(S.of(context).goodMassagist),
         ),
         body: ProviderWidget(
             onModelReady: (model) {
@@ -169,7 +169,7 @@ class _ItemViewState extends State<ItemView> {
                              children: <Widget>[
                                Image.asset(ImageHelper.wrapAssets('massagist_level1.png'),width: 24.rpx,height: 19.rpx,),
                                SizedBox(width:10.rpx),
-                                 Text('LV 1',style:TextStyle(color:Theme.of(context).accentColor,fontSize: 24.rpx ),overflow: TextOverflow.ellipsis,),
+                                 Text('${S.of(context).levelAbb} 1',style:TextStyle(color:Theme.of(context).accentColor,fontSize: 24.rpx ),overflow: TextOverflow.ellipsis,),
                              ],
                            ),
                         )
@@ -186,7 +186,7 @@ class _ItemViewState extends State<ItemView> {
                             children: <Widget>[
                               Image.asset(ImageHelper.wrapAssets('massagist_point.png'),width: 24.rpx,height: 24.rpx,),
                               SizedBox(width:10.rpx),
-                              Text('评分 4.5',style:TextStyle(color: Color(0xff333333),fontSize: 24.rpx ),overflow: TextOverflow.ellipsis,),
+                              Text('${S.of(context).score} 4.5',style:TextStyle(color: Color(0xff333333),fontSize: 24.rpx ),overflow: TextOverflow.ellipsis,),
                             ],
                           ),
                         ),
@@ -197,7 +197,7 @@ class _ItemViewState extends State<ItemView> {
                             children: <Widget>[
                               Image.asset(ImageHelper.wrapAssets('massagist_comment.png'),width: 24.rpx,height: 24.rpx,),
                               SizedBox(width:10.rpx),
-                              Text('评论 356',style:TextStyle(color: Color(0xff333333),fontSize: 24.rpx ),overflow: TextOverflow.ellipsis,),
+                              Text('${S.of(context).comment} 356',style:TextStyle(color: Color(0xff333333),fontSize: 24.rpx ),overflow: TextOverflow.ellipsis,),
                             ],
                           ),
                         ),

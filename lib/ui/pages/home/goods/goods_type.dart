@@ -7,7 +7,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:massageflutterapp/view_model/refresh_helper.dart';
 import 'package:massageflutterapp/provider/provider_widget.dart';
 import 'package:massageflutterapp/view_model/my_order_list_model.dart';
-
+import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -23,14 +23,10 @@ class GoodsTypePage extends StatefulWidget {
 class _GoodsTypePageState extends State<GoodsTypePage> {
   var selected=1;//选中
   var goodsType=['还好','hj','ddd','rrrr'];
-  @override
-  void initState() {
-    // TODO: implement initState
-    goodsType.insert(0, '优秀按摩师');
-    super.initState();
-  }
+
   @override
   Widget build(BuildContext context) {
+    goodsType.insert(0, S.of(context).goodMassagist);//优秀按摩师添加
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,

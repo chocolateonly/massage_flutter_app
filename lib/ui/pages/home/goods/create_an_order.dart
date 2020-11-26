@@ -153,9 +153,9 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                               child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
-                                    Text('套餐次数'+":",style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx)),
+                                    Text(S.of(context).numberOfCombo,style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx)),
                                     SizedBox(width:10.rpx),
-                                    Text(S.of(context).orderNum,style: TextStyle(color:Color(0xff666666),fontSize: 30.rpx)),
+                                    Text('3454',style: TextStyle(color:Color(0xff666666),fontSize: 30.rpx)),
                                   ]
                               ),
                             ),
@@ -168,7 +168,7 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                               child: InkWell(
                                 onTap: () {
                                   //选择优惠券
-
+                                  Navigator.of(context).pushNamed(RouteName.myCoupons);
                                 },
                                 child: Row(
                                   children: <Widget>[
@@ -176,7 +176,7 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                                       child: Row(
                                         children: <Widget>[
                                           Text(
-                                            '优惠券',
+                                            S.of(context).coupons,
                                             style: TextStyle(
                                                 color: Color(0xff333333),
                                                 fontSize: 30.rpx),
@@ -188,7 +188,7 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                                           ),
                                           Expanded(
                                             child: Text(
-                                              '请选择',
+                                              S.of(context).pleaseSelect,
                                               style: TextStyle(
                                                   color: Color(0xff666666),
                                                   fontSize: 30.rpx),
@@ -208,14 +208,14 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                                 ),
                               ),
                             ),
-                            FormItem(label:'订单备注',controller:_remarkController,textAlign:TextAlign.left,inputType:TextInputType.multiline,maxLines:null),
+                            FormItem(label:S.of(context).orderRemark,controller:_remarkController,textAlign:TextAlign.left,inputType:TextInputType.multiline,maxLines:null,textColor: 0xff333333,),
                             SizedBox(height: 20.rpx,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
-                                Text('共1件',style: TextStyle(color: Color(0xff999999), fontSize: 24.rpx)),
+                                Text(S.of(context).numberOfGoods(1),style: TextStyle(color: Color(0xff999999), fontSize: 24.rpx)),
                                 SizedBox(width: 10.rpx,),
-                                Text('小计：',style: TextStyle(color: Color(0xff000000), fontSize: 24.rpx)),
+                                Text('${S.of(context).subtotal}：',style: TextStyle(color: Color(0xff000000), fontSize: 24.rpx)),
                                 SizedBox(width: 10.rpx,),
                                 Text(S.of(context).priceUnit+'36456',style: TextStyle(color: Color(0xffEC1C24), fontSize: 28.rpx)),
                               ],
@@ -228,10 +228,9 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                 )
               ),
               ThemeButton(
-                  title: '提交订单',
+                  title: S.of(context).submitOrder,
                   onPressed:(){
-                    //todo:处理表单
-                    Navigator.of(context).pushNamed(RouteName.uploadOrderResult);
+                    Navigator.of(context).pushNamed(RouteName.uploadOrderResult,arguments: ['']);
                   }
               )
             ],

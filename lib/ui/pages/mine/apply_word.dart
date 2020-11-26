@@ -12,6 +12,7 @@ class ApplyWordPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).registerWord),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Html(

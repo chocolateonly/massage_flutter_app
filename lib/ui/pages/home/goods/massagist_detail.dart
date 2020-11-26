@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
+import 'package:massageflutterapp/generated/l10n.dart';
 class MassagistDetailPage extends StatefulWidget {
   var id;
   MassagistDetailPage(id);
@@ -14,7 +15,7 @@ class _MassagistDetailPageState extends State<MassagistDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:Text( '详情'),
+        title:Text( S.of(context).detail),
         centerTitle: true,
       ),
       body: NotificationListener(
@@ -57,7 +58,7 @@ class _MassagistDetailPageState extends State<MassagistDetailPage> {
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: <Widget>[
-                                          Text('姓名',style:TextStyle(color: Color(0xff333333),fontSize: 34.rpx ),overflow: TextOverflow.ellipsis,),
+                                          Text('姓名',style:TextStyle(color: Color(0xff333333),fontSize: 30.rpx ),overflow: TextOverflow.ellipsis,),
                                           SizedBox(width:10.rpx),
                                           Container(
                                             padding: EdgeInsets.symmetric(vertical:6.rpx,horizontal: 10.rpx),
@@ -69,7 +70,7 @@ class _MassagistDetailPageState extends State<MassagistDetailPage> {
                                               children: <Widget>[
                                                 Image.asset(ImageHelper.wrapAssets('massagist_level1.png'),width: 24.rpx,height: 19.rpx,),
                                                 SizedBox(width:10.rpx),
-                                                Text('LV 1',style:TextStyle(color:Theme.of(context).accentColor,fontSize: 24.rpx ),overflow: TextOverflow.ellipsis,),
+                                                Text('${S.of(context).levelAbb} 1',style:TextStyle(color:Theme.of(context).accentColor,fontSize: 24.rpx ),overflow: TextOverflow.ellipsis,),
                                               ],
                                             ),
                                           )
@@ -86,7 +87,7 @@ class _MassagistDetailPageState extends State<MassagistDetailPage> {
                                         children: <Widget>[
                                           Image.asset(ImageHelper.wrapAssets('m_d_service_icon.png'),width: 36.rpx,height:36.rpx,),
                                           SizedBox(width:10.rpx),
-                                          Text('服务资质',style:TextStyle(color: Color(0xff333333),fontSize: 34.rpx ),overflow: TextOverflow.ellipsis,),
+                                          Text(S.of(context).serviceAbility,style:TextStyle(color: Color(0xff333333),fontSize: 30.rpx ),overflow: TextOverflow.ellipsis,),
                                         ],
                                       ),
                                     ),
@@ -127,7 +128,7 @@ class _MassagistDetailPageState extends State<MassagistDetailPage> {
                                   children: <Widget>[
                                     Image.asset(ImageHelper.wrapAssets('m_d_profile_icon.png'),width: 36.rpx,height:36.rpx,),
                                     SizedBox(width:10.rpx),
-                                    Text('健康资料',style:TextStyle(color: Color(0xff333333),fontSize: 34.rpx ),overflow: TextOverflow.ellipsis,),
+                                    Text(S.of(context).healthyInfo,style:TextStyle(color: Color(0xff333333),fontSize: 30.rpx ),overflow: TextOverflow.ellipsis,),
                                   ],
                                 ),
                               ),
@@ -176,7 +177,7 @@ class _MassagistDetailPageState extends State<MassagistDetailPage> {
                               ),
                               Expanded(
                                 child: Text(
-                                  '评价(0)',
+                                  '${S.of(context).comment}(0)',
                                   style: TextStyle(
                                       color: Color(0xff000000),
                                       fontSize: 30.rpx),

@@ -5,8 +5,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:massageflutterapp/view_model/refresh_helper.dart';
 import 'package:massageflutterapp/provider/provider_widget.dart';
 import 'package:massageflutterapp/view_model/my_order_list_model.dart';
-
-import 'package:massageflutterapp/config/resouce_manager.dart';
 class MassagistThermographyPage extends StatefulWidget {
 
   @override
@@ -19,7 +17,7 @@ class _MassagistThermographyPageState extends State<MassagistThermographyPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('温度记录'),
+        title: Text(S.of(context).temperatureRecord),
       ),
       body:  ProviderWidget(
           onModelReady: (model) {

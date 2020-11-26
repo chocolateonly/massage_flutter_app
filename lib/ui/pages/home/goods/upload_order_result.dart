@@ -26,7 +26,7 @@ class _UploadOrderResultPageState extends State<UploadOrderResultPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('上传凭证'),
+        title: Text(S.of(context).uploadOrderResult),
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -94,7 +94,7 @@ class _UploadOrderResultPageState extends State<UploadOrderResultPage> {
                               child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
-                                    Text('支付账户'+":",style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx)),
+                                    Text(S.of(context).payAccount+":",style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx)),
                                     SizedBox(width:10.rpx),
                                     Text(S.of(context).orderNum,style: TextStyle(color:Color(0xff666666),fontSize: 30.rpx)),
                                   ]
@@ -108,21 +108,21 @@ class _UploadOrderResultPageState extends State<UploadOrderResultPage> {
                               child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
-                                    Text('支付卡号'+":",style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx)),
+                                    Text(S.of(context).payNumber+":",style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx)),
                                     SizedBox(width:10.rpx),
                                     Text(S.of(context).orderNum,style: TextStyle(color:Color(0xff666666),fontSize: 30.rpx)),
                                   ]
                               ),
                             ),
 
-                            FormItem(label:'付款人姓名',controller:_remarkController,textAlign:TextAlign.left),
-                            FormItem(label:'付款人卡号',controller:_remarkController,textAlign:TextAlign.left),
+                            FormItem(label:S.of(context).payeeAccount,controller:_remarkController,textAlign:TextAlign.left),
+                            FormItem(label:S.of(context).payeeNumber,controller:_remarkController,textAlign:TextAlign.left),
                             SizedBox(height: 20.rpx,),
                             Container(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Text('上传凭证',style: TextStyle(color:Color(0xff666666),fontSize: 30.rpx),textAlign:TextAlign.left),
+                                  Text(S.of(context).uploadOrderResult,style: TextStyle(color:Color(0xff666666),fontSize: 30.rpx),textAlign:TextAlign.left),
                                   UploadPictureWidget(
                                     list: List.generate(7, (index) => ImageHelper.img),
                                     callback: (){
@@ -140,9 +140,9 @@ class _UploadOrderResultPageState extends State<UploadOrderResultPage> {
                 )
               ),
               ThemeButton(
-                  title: '提交凭证',
+                  title: S.of(context).submitOrderResult,
                   onPressed:(){
-                    //todo:处理表单
+                    Navigator.of(context).pushNamed(RouteName.myOrderList,arguments: [0]);
                   }
               )
             ],

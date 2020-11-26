@@ -38,8 +38,9 @@ class FormItem extends StatefulWidget {
 
 class _FormItemState extends State<FormItem> {
 
-
   Widget ItemWidget(){
+
+    print(widget.textColor);
     switch(widget.type){
       default:return Container(
           decoration: BoxDecoration(
@@ -62,7 +63,7 @@ class _FormItemState extends State<FormItem> {
                 child: TextField(
                   controller: widget.controller,
                   readOnly: widget.readOnly,
-                  style: TextStyle(color:Color(0xff999999) ),
+                  style: TextStyle(color:Color(0xff666666) ),
                   textAlign: widget.textAlign,
                   maxLines:widget.maxLines,
                   keyboardType:widget.inputType,

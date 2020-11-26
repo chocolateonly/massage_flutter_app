@@ -30,7 +30,7 @@ class _MassagistServiceProvePageState extends State<MassagistServiceProvePage> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('服务资质'),
+          title: Text(S.of(context).serviceAbility),
         ),
         body: ProviderWidget(
             onModelReady: (model) {

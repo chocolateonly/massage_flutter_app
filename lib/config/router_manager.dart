@@ -30,7 +30,7 @@ import 'package:massageflutterapp/ui/pages/home/goods/goods_type.dart';
 import 'package:massageflutterapp/ui/pages/home/goods/goods_detail.dart';
 import 'package:massageflutterapp/ui/pages/home/goods/create_an_order.dart';
 import 'package:massageflutterapp/ui/pages/home/goods/upload_order_result.dart';
-import 'package:massageflutterapp/ui/pages/home/goods/massagist_List.dart';
+import 'package:massageflutterapp/ui/pages/home/goods/massagist_list.dart';
 import 'package:massageflutterapp/ui/pages/home/goods/massagist_detail.dart';
 import 'package:massageflutterapp/ui/pages/home/goods/massagist_thermography.dart';
 import 'package:massageflutterapp/ui/pages/home/goods/massagist_service_prove.dart';
@@ -50,7 +50,8 @@ import 'package:massageflutterapp/ui/pages/mine/organization/my_organization_app
 import 'package:massageflutterapp/ui/pages/mine/apply_word.dart';
 import 'package:massageflutterapp/ui/pages/mine/healthy_info.dart';
 import 'package:massageflutterapp/ui/pages/mine/my_comments.dart';
-
+import 'package:massageflutterapp/ui/pages/mine/workplace/body_status_info.dart';
+import 'package:massageflutterapp/ui/pages/mine/workplace/personal_settings.dart';
 class RouteName {
   static const String login = 'login';
   static const String tab = 'tab';
@@ -187,7 +188,7 @@ class Router {
         var list = settings.arguments as List;
         var id=list[0];
         return CupertinoPageRoute(builder: (_) => CreateAnOrderPage(id));
-      case RouteName.createAnOrder:
+      case RouteName.uploadOrderResult:
         var list = settings.arguments as List;
         var id=list[0];
         return CupertinoPageRoute(builder: (_) => UploadOrderResultPage(id));
@@ -215,6 +216,10 @@ class Router {
         return CupertinoPageRoute(builder: (_) => ServiceOrderDetailPage(id));
       case RouteName.serviceOrderRoom:
         return CupertinoPageRoute(builder: (_) => ServiceOrderRoomPage());
+      case RouteName.bodyStatusInfo:
+        return CupertinoPageRoute(builder: (_) => BodyStatusInfoPage());
+      case RouteName.personalSetting:
+        return CupertinoPageRoute(builder: (_) => PersonalSettingsPage());
       case RouteName.myWarehouse:
         return CupertinoPageRoute(builder: (_) => MyWarehousePage());
       case RouteName.addEquipment:
