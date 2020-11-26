@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
-import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:massageflutterapp/ui/widgets/form/form_item.dart';
 import 'package:massageflutterapp/ui/widgets/form/radio_list.dart';
 import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
@@ -76,9 +75,9 @@ class _MyInfoPageState extends State<MyInfoPage> {
                                   )
                               ),
                               child: InkWell(
-                                onTap: (){
+                                onTap: () async {
                                   //todo:更换图片
-                                    uploadImages();
+                                  var images=await uploadImages(context,1);
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,41 +145,7 @@ class _MyInfoPageState extends State<MyInfoPage> {
       ),
     );
   }
-  List<Asset> images = List<Asset>();
-  String _error='';
-  Future<void> uploadImages() async {
-    List<Asset> resultList = List<Asset>();
-    String error = 'No Error Dectected';
 
-    try {
-      resultList = await MultiImagePicker.pickImages(
-        // 选择图片的最大数量
-        maxImages: 1,
-        // 是否支持拍照
-        enableCamera: true,
-        materialOptions: MaterialOptions(
-          // 显示所有照片，值为 false 时显示相册
-            startInAllView: true,
-            allViewTitle: '所有照片',
-            textOnNothingSelected: '没有选择照片'),
-      );
-    } on Exception catch (e) {
-      error = e.toString();
-    }
 
-    if(resultList.length!=0){
-      // 获取 ByteData
-      ByteData byteData = await images[0].getByteData();
-      List<int> imageData = byteData.buffer.asUint8List();
-
-      //上传图片
-      //TODO:uploader_model
-      setState(() {
-
-      });
-
-    }
-
-  }
 }
 

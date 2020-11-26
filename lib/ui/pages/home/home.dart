@@ -120,41 +120,47 @@ class _HomePageState extends State<HomePage> {
                                   padding:EdgeInsets.symmetric(horizontal: 20.rpx),
                                   height: 70.rpx,
                                   margin:EdgeInsets.only(left:20.rpx),
-                                  child: Row(
-                                    children: <Widget>[
-                                      Image.asset(
-                                        ImageHelper.wrapAssets('home_icon_search.png'),
-                                        width:36.rpx,
-                                        height: 36.rpx,
-                                      ),
-                                      Expanded(
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(horizontal: 10.rpx),
-                                          child: TextField(
-                                            controller: _searchController,
-                                            textAlignVertical:TextAlignVertical.center,
-                                            style:TextStyle(fontSize: 26.rpx,),
-                                            maxLines: 1,
-                                            readOnly: true,
-                                            decoration: InputDecoration(
-                                                border: InputBorder.none,
-                                                hintText:S.of(context).searchPlaceholder,
-                                                isDense: true // 是否为密集形式（使用较少垂直空间），默认为false
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      //去搜索
+                                      Navigator.of(context).pushNamed(RouteName.massagistList,arguments: ['']);
+                                    },
+                                    child: Row(
+                                      children: <Widget>[
+                                        Image.asset(
+                                          ImageHelper.wrapAssets('home_icon_search.png'),
+                                          width:36.rpx,
+                                          height: 36.rpx,
+                                        ),
+                                        Expanded(
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 10.rpx),
+                                            child: TextField(
+                                              controller: _searchController,
+                                              textAlignVertical:TextAlignVertical.center,
+                                              style:TextStyle(fontSize: 26.rpx,),
+                                              maxLines: 1,
+                                              readOnly: true,
+                                              decoration: InputDecoration(
+                                                  border: InputBorder.none,
+                                                  hintText:S.of(context).searchPlaceholder,
+                                                  isDense: true // 是否为密集形式（使用较少垂直空间），默认为false
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      GestureDetector(
-                                        onTap: (){
-                                          //todo:去搜索
-                                          print(_searchController.text);
-                                        },
-                                        child: Text(
-                                          S.of(context).search,
-                                          style: TextStyle(color: Theme.of(context).accentColor,fontSize: 26.rpx),
-                                        ),
-                                      )
-                                    ],
+                                        GestureDetector(
+                                          onTap: (){
+                                            //去搜索
+                                            Navigator.of(context).pushNamed(RouteName.massagistList,arguments: ['']);
+                                          },
+                                          child: Text(
+                                            S.of(context).search,
+                                            style: TextStyle(color: Theme.of(context).accentColor,fontSize: 26.rpx),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               )
@@ -176,9 +182,14 @@ class _HomePageState extends State<HomePage> {
                           decoration: BoxDecoration(
                             //color: index==0?Colors.green:Colors.red,
                           ),
-                          child: Image.asset(
-                            ImageHelper.wrapAssets(homeModel.homeType[index]),
-                            height: 150.rpx,
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.of(context).pushNamed(RouteName.goodsType,arguments: ['标题',index]);
+                            },
+                            child: Image.asset(
+                              ImageHelper.wrapAssets(homeModel.homeType[index]),
+                              height: 150.rpx,
+                            ),
                           ),
                         );
                       },

@@ -5,9 +5,9 @@ import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:massageflutterapp/ui/widgets/picker/PickerTool.dart';
-import 'package:massageflutterapp/utils/getPicker.dart';
+import 'package:massageflutterapp/ui/widgets/picker/appointment_timesorts_picker.dart';
+import 'package:massageflutterapp/ui/widgets/picker/area_picker.dart';
+
 class MakeAnAppointmentPage extends StatefulWidget {
   MakeAnAppointmentPage(id);
 
@@ -20,8 +20,14 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
   var address;
   var time;
   var remark=TextEditingController();
-  var timeList=[];
-  var can_selected_timeSorts=[];
+
+  Map selectArea;
+  ///接收选择的结果
+  void handleSelect (Map targetArea) {
+    setState(() {
+      selectArea = targetArea;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,10 +60,22 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
                                 border: Border(bottom: BorderSide(color: Color(0xffeeeeee)))
                             ),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
-                                  Text(S.of(context).orderNumber,style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
-                                  Text(S.of(context).serviceTime,style: TextStyle(color:Color(0xff333333),fontSize: 26.rpx)),
+                                  Expanded(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(S.of(context).orderNumber,style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
+                                        Text(S.of(context).serviceTime,style: TextStyle(color:Color(0xff333333),fontSize: 26.rpx)),
+                                      ],
+                                    ),
+                                  ),
+                                  Chip(
+                                    label: Text(S.of(context).surplusComboOrder(8)),
+                                    labelStyle: TextStyle(color: Theme.of(context).accentColor,fontSize: 24.rpx),
+                                    backgroundColor: Color(0xffFAF1EA),
+                                  )
                                 ]
                             ),
                           ),
@@ -70,23 +88,24 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
                                       borderRadius: BorderRadius.circular(3)),
                                   child: CachedNetworkImage(
                                       height: 150.rpx,
-                                      width: 150.rpx,
+                                      width:  150.rpx,
                                       imageUrl: ImageHelper.wrapUrl(ImageHelper.img),
                                       placeholder: (context, url) => Center(child: CupertinoActivityIndicator()),
                                       errorWidget: (context, url, error) => Icon(Icons.error))
                               ),
                               Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text('3天经期全面调理 拷贝',style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
-                                    Chip(
-                                      label: Text(S.of(context).surplusComboOrder(8)),
-                                      labelStyle: TextStyle(color: Theme.of(context).accentColor,fontSize: 24.rpx),
-                                      backgroundColor: Color(0xffFAF1EA),
-                                    )
-                                  ],
+                                child: Container(
+                                  height: 150.rpx,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text('3天经期全面调理 拷贝',style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
+                                      Text('挥洒法华寺东方航空史蒂芬霍金看到的非官方定',style: TextStyle(color:Color(0xff999999),fontSize: 24.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
+                                      Text('x1',style: TextStyle(color:Color(0xff999999),fontSize: 24.rpx),textAlign: TextAlign.left,),
+
+                                    ],
+                                  ),
                                 ),
                               )
                             ],
@@ -99,7 +118,15 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
                             ),
                             child: InkWell(
                               onTap: (){
-
+                                showModalBottomSheet(context: context, builder: (_)=>Container(
+                                  height: 300.0,
+                                  child: AreaSelection(
+                                    onSelect: handleSelect,
+                                    initProviceIndex: selectArea == null ? 0 : selectArea['proviceIndex'],
+                                    initCityIndex: selectArea == null ? 0 : selectArea['cityIndex'],
+                                    initCountyIndex: selectArea == null ? 0 : selectArea['countyIndex'],
+                                  ),
+                                ));
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,67 +152,12 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
                             child: InkWell(
                               onTap: (){
 //                                时间选择
-                                selectTimePicker(context);
-
-//底部弹出层
-                                /*var currentDatetime=new DateTime.now();
-                                var currentTime=currentDatetime.year.toString()+'-'+currentDatetime.month.toString()+'-'+currentDatetime.day.toString();//2020-11-21
-                                print('time');
-                                print(currentTime);
-                                var timeSorts=['5:00-8:00','8:00-11:00','11:00-14:00','14:00-17:00','17:00-20:00','20:00-23:00'];
-                                var newTimeList=[];
-                                var new_can_selected_timeSorts=[];
-                                for(var i=0;i<365;i++){
-                                  var next_datetime=currentDatetime.add(Duration(days: i+1));
-                                  newTimeList.add(next_datetime.year.toString()+'-'+next_datetime.month.toString()+'-'+next_datetime.day.toString());
-                                  setState(() {
-                                    timeList=newTimeList;
-                                  });
-                                }
-                                getCanSelectedTimeSorts(){
-                                  timeSorts.forEach((item) {
-                                    print(item);
-                                    var s_item=item.split('-');
-                                    var start=s_item[0].split(':')[0];
-                                    var end=s_item[1].split(':')[0];
-                                    print(currentDatetime);
-                                    var currentHour=currentDatetime.hour;
-
-                                    if(currentHour>int.parse(start)&&currentHour>int.parse(end)) {
-                                    }
-                                    else if(currentHour>int.parse(start)&&currentHour==int.parse(end)) {
-//                                      比较分钟
-
-                                    }
-                                    else{
-                                      new_can_selected_timeSorts.add(item);
-                                    }
-                                  }
-                                  );
-                                  setState(() {
-                                    can_selected_timeSorts=new_can_selected_timeSorts;
-                                  });
-                                }
-                                getCanSelectedTimeSorts();//初始化
-                                return JhPickerTool.showArrayPicker(
-                                    context,
-                                    data:[timeList,can_selected_timeSorts],//数据源
-                                    normalIndex: [0,0],//索引
-                                    onSelect: (index,selectedIndex){
-                                      if(timeList[selectedIndex[0]]==currentTime){
-                                        getCanSelectedTimeSorts();
-                                      }else{
-                                        setState(() {
-                                          can_selected_timeSorts=timeSorts;
-                                          print(can_selected_timeSorts);
-                                        });
-                                      }
-                                    },
-                                    clickCallBack:(var index, var strData){
-                                      print(index);
-                                      print(strData);
-                                    }
-                                );*/
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AppointmentTimeSortsPicker();
+                                  },
+                                );
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -234,4 +206,5 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
       ),
     );
   }
+
 }

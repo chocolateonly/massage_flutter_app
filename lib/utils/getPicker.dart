@@ -1,12 +1,12 @@
 import 'package:date_format/date_format.dart';
 import 'package:massageflutterapp/ui/widgets/picker/PickerTool.dart';
-dateFormat(currentDatetime,arg){
+ dateFormat(currentDatetime,arg){
   var time;
   switch(arg){
     case 'ymd':time=currentDatetime.year.toString()+'-'+currentDatetime.month.toString()+'-'+currentDatetime.day.toString();
-    return;
-    case 'HH':time=currentDatetime.hour.toString();
-    return;
+    break;
+    case 'HH':time=int.parse(formatDate(currentDatetime, [HH]));
+    break;
     default:time=currentDatetime.year.toString()+'-'+currentDatetime.month.toString()+'-'+currentDatetime.day.toString();
   }
   return time;

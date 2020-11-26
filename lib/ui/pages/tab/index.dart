@@ -15,7 +15,7 @@ class _TabNavigatorState extends State<TabNavigator> with WidgetsBindingObserver
   var _pageController = PageController();
   int _selectedIndex = 3;
   DateTime _lastPressed;
-  List<Widget> pages = <Widget>[HomePage(), OrderPage(), MessagePag(), MinePage()];
+  List<Widget> pages = <Widget>[HomePage(), OrderPage(0), MessagePage(), MinePage()];
 
   @override
   Widget build(BuildContext context) {

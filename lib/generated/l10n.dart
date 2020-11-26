@@ -974,6 +974,8 @@ class S {
       args: [],
     );
   }
+
+  // skipped getter for the '' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -15,6 +15,7 @@ class FormItem extends StatefulWidget {
   final maxLines;
 
   var hasBottomBorder=true;
+  var textColor;
 
   FormItem({
     this.inputDefaultValue,
@@ -26,7 +27,8 @@ class FormItem extends StatefulWidget {
     this.isRequired:false,
     this.readOnly:false,
     this.maxLines:1,
-    this.hasBottomBorder:true
+    this.hasBottomBorder:true,
+    this.textColor:0xff666666
   });
 
   @override
@@ -48,11 +50,11 @@ class _FormItemState extends State<FormItem> {
           child: Row(
             children: <Widget>[
               Container(
-                width:100.rpx,
+                width:150.rpx,
                 child: Row(
                     children: <Widget>[
                       widget.isRequired?Text("*",style: TextStyle(color: Colors.red),):Text(''),
-                      Text(widget.label,style: TextStyle(color: Color(0xff666666)),)
+                      Text(widget.label,style: TextStyle(color:Color(widget.textColor)),)
                     ],
                 ),
               ),

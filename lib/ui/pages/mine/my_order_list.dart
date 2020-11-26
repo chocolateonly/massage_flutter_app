@@ -73,7 +73,7 @@ class _OrderListContentState extends State<OrderListContent> {
       builder:(context,model,child){
         LoadingWrap.ctx=context; //需要加载时，全局加载context配置
         return SmartRefresher(
-        controller: model.refreshController,
+            controller: model.refreshController,
             header: RefreshHeader(),
             footer: RefresherFooter(),
             onRefresh: model.refresh,
@@ -173,14 +173,17 @@ class _ItemOrderState extends State<ItemOrder> {
                        child: Row(
                          children: <Widget>[
                            Text(S.of(context).priceUnit,style:TextStyle(color: Color(0xffEC1C24),fontSize: 26.rpx)),
-                           Text('2000.5',style:TextStyle(color: Color(0xffEC1C24),fontSize: 38.rpx )),
+                           Text('2000.5',style:TextStyle(color: Color(0xffEC1C24),fontSize: 38.rpx ),overflow: TextOverflow.ellipsis,),
                            SizedBox(width: 10.rpx,),
                            Text(S.of(context).priceUnit,style:TextStyle(color: Color(0xff999999),fontSize: 26.rpx,
                              decoration: TextDecoration.lineThrough,
                              decorationColor: const Color(0xff999999),),),
-                           Text('2000.5',style:TextStyle(color: Color(0xff999999),fontSize: 26.rpx,
-                             decoration: TextDecoration.lineThrough,
-                             decorationColor: const Color(0xff999999),)),
+                           Expanded(
+                             flex: 1,
+                             child:Text('299000.5',style:TextStyle(color: Color(0xff999999),fontSize: 26.rpx,
+                               decoration: TextDecoration.lineThrough,
+                               decorationColor: const Color(0xff999999),),overflow: TextOverflow.ellipsis),
+                           ),
                          ],
                        ),
                      ),
