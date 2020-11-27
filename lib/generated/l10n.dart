@@ -1975,6 +1975,26 @@ class S {
     );
   }
 
+  /// `正面照片`
+  String get idCardFont {
+    return Intl.message(
+      '正面照片',
+      name: 'idCardFont',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `反面照片`
+  String get idCardBack {
+    return Intl.message(
+      '反面照片',
+      name: 'idCardBack',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `营业执照（选填）`
   String get license {
     return Intl.message(

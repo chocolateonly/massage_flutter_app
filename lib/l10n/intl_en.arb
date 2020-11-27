@@ -196,6 +196,8 @@
   "infoExtra": "资料附件",
   "extraDownload": "附件下载",
   "leaderIdCard": "负责人身份证正反面照",
+  "idCardFont": "正面照片",
+  "idCardBack": "反面照片",
   "license": "营业执照（选填）",
   "know": "我知道了",
   "formFinishTip": "资料提交成功， 结果将在1-2工作日反馈！",
@@ -228,4 +230,5 @@
   "addEquipment": "添加库存",
   "allPicture":"所有照片",
   "notSelectedPicture": "没有选择照片"
+
 }

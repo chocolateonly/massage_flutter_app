@@ -14,10 +14,10 @@ final Http http = Http();
 
 class Http extends BaseHttp {
   static const CONTENT_TYPE_FORM = 'application/x-www-form-urlencoded';
-
+  static const baseUrl = 'http://peiwan.dev.hbbeisheng.com/';
   @override
   void init() {
-    options.baseUrl = 'http://peiwan.dev.hbbeisheng.com/';
+    options.baseUrl = baseUrl;
     options.contentType = options.contentType ?? CONTENT_TYPE_FORM;
 
     interceptors
@@ -31,13 +31,13 @@ class Http extends BaseHttp {
 class ApiInterceptor extends InterceptorsWrapper {
   String uid, token;
   bool loading;
+  bool isFrom;
   @override
   onRequest(RequestOptions options) async {
     print('options-----------');
-    print(options.data);
     uid = StorageManager.sharedPreferences.getString(UserModel.userId);
     token = StorageManager.sharedPreferences.getString(UserModel.userToken);
-    bool isFrom = options.data is FormData;
+    isFrom = options.data is FormData;
     if (!isFrom) {
       options.data['timestamp'] = new DateTime.now().millisecondsSinceEpoch.toString();
       int _localeIndex = StorageManager.sharedPreferences.getInt(LocaleModel.kLocaleIndex) ?? 0;
@@ -56,8 +56,8 @@ class ApiInterceptor extends InterceptorsWrapper {
       }
     }
     //    加载动画
-    loading=options.data['loading'];
-   if(loading) LoadingWrap.before(options.uri, '');
+    loading=!isFrom?options.data['loading']:false;
+   if(loading&&!isFrom) LoadingWrap.before(options.uri, '');
     debugPrint('---api-request--->url--> ${options.baseUrl}${options.path}' + ' json: ${options.data}');
     return options;
   }
@@ -65,7 +65,7 @@ class ApiInterceptor extends InterceptorsWrapper {
   @override
   Future onError(DioError err) {
     //加载动画完成
-    if(loading) LoadingWrap.complete(err.request.uri);
+    if(loading&&!isFrom) LoadingWrap.complete(err.request.uri);
     debugPrint('---api-request--->data--->${err.toString()}');
     return super.onError(err);
   }
@@ -75,7 +75,7 @@ class ApiInterceptor extends InterceptorsWrapper {
     debugPrint('---api-response--->resp----->${response.data}');
     ResponseData respData = ResponseData.fromJson(response.data);
      //加载动画完成
-    if(loading) LoadingWrap.complete(response.request.uri);
+    if(loading&&!isFrom) LoadingWrap.complete(response.request.uri);
 
     if (respData.success) {
       if(respData.code=="201"){

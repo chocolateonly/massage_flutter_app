@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
@@ -10,6 +11,7 @@ import 'package:massageflutterapp/ui/widgets/upload_picture_widget.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:massageflutterapp/ui/widgets/form_finish_tip.dart';
+
 class MyOrganizationApplyPage extends StatefulWidget {
 
   @override
@@ -20,6 +22,7 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
   var _nameController=TextEditingController();
   var _usernameController=TextEditingController();
   var _mobileController=TextEditingController();
+  var infoExtra=[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,9 +95,12 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
                                     ),
                                   ),
                                   UploadPictureWidget(
-                                    list: List.generate(1, (index) => ImageHelper.img),
-                                    callback: (){
-                                      print('callback');
+                                    list: infoExtra,
+                                    max: 9,
+                                    callback: (newImgList){
+                                      setState(() {
+                                          infoExtra=newImgList;
+                                      });
                                     },
                                   )
                                 ],
@@ -119,12 +125,35 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
                                       ],
                                     ),
                                   ),
-                                  UploadPictureWidget(
-                                    list: List.generate(1, (index) => ImageHelper.img),
-                                    callback: (){
-                                      print('callback');
-                                    },
-                                  )
+                                   Row(
+                                     children: <Widget>[
+                                       Expanded(
+                                         flex: 1,
+                                         child: UploadItem(context,
+                                           text:S.of(context).idCardFont,
+                                           callback: (){
+                                            setState(() {
+                                              
+                                            });
+                                           },
+                                         ),
+                                       ),
+                                       SizedBox(width: 10.rpx,),
+                                       Expanded(
+                                         flex: 1,
+                                         child: UploadItem(context,
+                                           text:S.of(context).idCardBack,
+                                           callback: (){
+                                             setState(() {
+
+                                             });
+                                           },
+                                         ),
+                                       ),
+                                     ],
+                                   )
+
+
                                 ],
                               ),
                             ),
@@ -147,10 +176,14 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
                                       ],
                                     ),
                                   ),
+//fixme
                                   UploadPictureWidget(
-                                    list: List.generate(1, (index) => ImageHelper.img),
-                                    callback: (){
-                                      print('callback');
+                                    list: infoExtra,
+                                    max: 9,
+                                    callback: (newImgList){
+                                      setState(() {
+                                        infoExtra=newImgList;
+                                      });
                                     },
                                   )
                                 ],
@@ -199,4 +232,70 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
       ),
     );
   }
+
 }
+
+class UploadItem extends StatefulWidget {
+  var text;
+  var callback;
+
+  
+  UploadItem(BuildContext context,{this.text:'选择图片',this.callback});
+
+  @override
+  _UploadItemState createState() => _UploadItemState();
+
+}
+
+class _UploadItemState extends State<UploadItem> {
+  var isSub=false;
+  var img='';
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: ()async {
+        if(isSub) return;
+        isSub=true;
+        var images = await uploadImages(context,1);
+        isSub=false;
+        setState(() {
+          img=images[0];
+          print('object');
+          print(img);
+          widget.callback(img);
+        });
+      },
+      child: Container(
+        clipBehavior:Clip.antiAlias,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.rpx),
+            border: Border.all(color: Color(0xffdcdcdc))
+        ),
+        child: Container(
+          child: img!=''?Container(
+            width: double.maxFinite,
+            height: 200.rpx,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(img)
+              )
+            ),
+          ):
+          Container(
+            width: double.maxFinite,
+            height: 200.rpx,
+            padding: EdgeInsets.symmetric(vertical:40.rpx,horizontal: 20.rpx),
+            child: Column(
+              children: <Widget>[
+                Image.asset(ImageHelper.wrapAssets('org_camera.png'),width: 75.rpx,height: 75.rpx,),
+                Text(widget.text,style: TextStyle(color: Color(0xff999999),fontSize: 28.rpx),)
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+

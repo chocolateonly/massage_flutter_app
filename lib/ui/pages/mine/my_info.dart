@@ -8,6 +8,8 @@ import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/ui/widgets/form/form_item.dart';
 import 'package:massageflutterapp/ui/widgets/form/radio_list.dart';
 import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
+import 'package:provider/provider.dart';
+import 'package:massageflutterapp/view_model/global_model.dart';
 class MyInfoPage extends StatefulWidget {
 
   @override
@@ -44,7 +46,7 @@ class _MyInfoPageState extends State<MyInfoPage> {
         imageUrl: ImageHelper.img,
         placeholder: (context, url) => Center(child: CupertinoActivityIndicator()),
         errorWidget: (context, url, error) => Icon(Icons.error));
-
+    var uploadPictureModel=Provider.of<GlobalModel>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,

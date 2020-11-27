@@ -3,6 +3,10 @@ import 'package:massageflutterapp/view_model/locale_model.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
+import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
+import 'package:massageflutterapp/services/http_api.dart';
+import 'package:massageflutterapp/services/http_utils.dart';
 class ImageHelper{
   static const String baseUrl = 'http://www.meetingplus.cn';
   static const String imagePrefix = '$baseUrl/uimg/';
@@ -25,10 +29,10 @@ return LocaleModel.localeName(_localeIndex, context);
 }
 
 Future<List> uploadImages(context,max) async {
+  print('max:'+max.toString());
   List<Asset> images = List<Asset>();
   List<Asset> resultList = List<Asset>();
   String error = 'No Error Dectected';
-
   try {
     resultList = await MultiImagePicker.pickImages(
       // 选择图片的最大数量
@@ -45,14 +49,26 @@ Future<List> uploadImages(context,max) async {
     error = e.toString();
   }
 
-  if(resultList.length!=0){
-    // 获取 ByteData
-    ByteData byteData = await images[0].getByteData();
-    List<int> imageData = byteData.buffer.asUint8List();
+  List<String> finalImg=[];
 
-    //上传图片
-    return imageData;
+  for(var i=0;i<resultList.length;i++){
+    // 获取 ByteData
+    ByteData byteData = await resultList[i].getByteData();
+    List<int> imageData = byteData.buffer.asUint8List();
+    MultipartFile multipartFile = new MultipartFile.fromBytes(
+      imageData,
+      filename: "some-file-name.jpg",
+      contentType: MediaType("image", "jpg"),
+    );
+    FormData formData = FormData.fromMap({
+      "file": multipartFile,
+      //"token": StorageManager.sharedPreferences.getString('userToken'),
+    });
+
+    var headPic = await HttpUtils.uploadFile(formData);
+    finalImg.add((Http.baseUrl+headPic).toString());
 
   }
+  return finalImg;
 
 }

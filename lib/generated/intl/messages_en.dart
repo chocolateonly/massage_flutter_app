@@ -122,6 +122,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "healthBottomWord" : MessageLookupByLibrary.simpleMessage("《健康资料协议》"),
     "healthyInfo" : MessageLookupByLibrary.simpleMessage("健康资料"),
     "homeTitle" : MessageLookupByLibrary.simpleMessage("Home"),
+    "idCardBack" : MessageLookupByLibrary.simpleMessage("反面照片"),
+    "idCardFont" : MessageLookupByLibrary.simpleMessage("正面照片"),
     "idleText" : MessageLookupByLibrary.simpleMessage("下拉刷新"),
     "infoExtra" : MessageLookupByLibrary.simpleMessage("资料附件"),
     "inputRemark" : MessageLookupByLibrary.simpleMessage("填写备注"),
