@@ -2225,6 +2225,16 @@ class S {
     );
   }
 
+  /// `我要补货`
+  String get goToAddEquipment {
+    return Intl.message(
+      '我要补货',
+      name: 'goToAddEquipment',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `库存明细`
   String get equipmentRecord {
     return Intl.message(

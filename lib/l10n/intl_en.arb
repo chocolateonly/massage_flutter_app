@@ -221,6 +221,7 @@
   "totalTime": "总时长",
   "serviceOrderTip": "温馨提示：按摩师48h内需要把钱送达财务确认哦~",
   "orderFinished": "订单已完成",
+  "goToAddEquipment": "我要补货",
   "equipmentRecord": "库存明细",
   "equipmentUsedRecord": "消耗记录",
   "equipmentAddedRecord": "补货记录",

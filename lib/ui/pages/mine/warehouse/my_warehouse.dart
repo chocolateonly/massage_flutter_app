@@ -30,7 +30,7 @@ class _MyWarehousePageState extends State<MyWarehousePage> {
                 },
                 child: Center(child: Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Text('库存明细'),
+                  child: Text(S.of(context).equipmentRecord),
                 )))
           ],
         ),

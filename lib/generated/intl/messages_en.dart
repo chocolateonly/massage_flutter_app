@@ -114,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "goBuy" : MessageLookupByLibrary.simpleMessage("立即购买"),
     "goComment" : MessageLookupByLibrary.simpleMessage("去评价"),
     "goPay" : MessageLookupByLibrary.simpleMessage("去付款"),
+    "goToAddEquipment" : MessageLookupByLibrary.simpleMessage("我要补货"),
     "goodMassagist" : MessageLookupByLibrary.simpleMessage("优秀按摩师"),
     "goodsDetail" : MessageLookupByLibrary.simpleMessage("产品详情"),
     "hasBuyCombo" : MessageLookupByLibrary.simpleMessage("已购买套餐"),
