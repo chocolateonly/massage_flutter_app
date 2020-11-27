@@ -25,13 +25,13 @@ class _MyInviteCodeState extends State<MyInviteCode> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('我的邀请码',style: TextStyle(color: Theme.of(context).accentColor,fontSize: 36.rpx),),
+          Text(S.of(context).myInviteCode,style: TextStyle(color: Theme.of(context).accentColor,fontSize: 36.rpx),),
           SizedBox(height: 20.rpx,),
           Image.network(ImageHelper.img,width: 236.rpx,height:236.rpx,),
           Container(
             width: 540.rpx,
             child: ThemeButton(
-              title:'保存我的二维码',
+              title:S.of(context).save+S.of(context).myInviteCode,
               onPressed: (){
                 AppUtil.saveImage(ImageHelper.img);
               },
@@ -43,7 +43,7 @@ class _MyInviteCodeState extends State<MyInviteCode> {
               Expanded(
                 child: Row(
                   children: <Widget>[
-                    Text('邀请码',style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),),
+                    Text(S.of(context).inviteCode,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),),
                     Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -67,7 +67,7 @@ class _MyInviteCodeState extends State<MyInviteCode> {
                 onTap: (){
                   Clipboard.setData(ClipboardData(text: '复制到剪切板'));
                 },
-                child: Text('点击复制',style: TextStyle(color: Theme.of(context).accentColor,fontSize: 26.rpx),),
+                child: Text(S.of(context).clickCopy,style: TextStyle(color: Theme.of(context).accentColor,fontSize: 26.rpx),),
               )
             ],
           )

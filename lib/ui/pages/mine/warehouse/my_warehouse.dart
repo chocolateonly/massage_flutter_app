@@ -21,7 +21,7 @@ class _MyWarehousePageState extends State<MyWarehousePage> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('我的库存'),
+          title: Text(S.of(context).myWareHouse),
           actions: <Widget>[
             InkWell(
                 onTap: (){

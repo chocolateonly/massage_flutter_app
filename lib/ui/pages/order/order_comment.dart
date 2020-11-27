@@ -16,20 +16,21 @@ class OrderCommentPage extends StatefulWidget {
 }
 
 class _OrderCommentPageState extends State<OrderCommentPage> {
-  var CommentItem=[
-    '服务',
-    '守时',
-    '技能',
-    '形象',
-    '清洁度'
-  ];
+
   var comment=TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var CommentItem=[
+      S.of(context).service,
+      S.of(context).keepTime,
+      S.of(context).ability,
+      S.of(context).appearance,
+      S.of(context).cleanScore
+    ];
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('订单评价'),
+        title: Text(S.of(context).orderComment),
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -63,7 +64,7 @@ class _OrderCommentPageState extends State<OrderCommentPage> {
                                     child: Row(
                                       children: <Widget>[
                                         Text(S.of(context).orderNumber,style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
-                                        Text(S.of(context).serviceTime,style: TextStyle(color:Color(0xff333333),fontSize: 26.rpx)),
+                                        Text('34543534',style: TextStyle(color:Color(0xff333333),fontSize: 26.rpx)),
                                       ],
                                     ),
                                   )
@@ -110,7 +111,7 @@ class _OrderCommentPageState extends State<OrderCommentPage> {
                             style: TextStyle(fontSize: 26.rpx),
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText:'请填写订单评论，这里是订单评论~',
+                                hintText:S.of(context).commentTip,
                             ),
                           ),
 //                          添加图片
@@ -143,7 +144,7 @@ class _OrderCommentPageState extends State<OrderCommentPage> {
                                       width: 10.rpx,
                                     ),
                                     Expanded(
-                                      child: Text('订单评分', style: TextStyle(color: Color(0xff000000), fontSize: 30.rpx), overflow: TextOverflow.ellipsis,),
+                                      child: Text(S.of(context).orderScore, style: TextStyle(color: Color(0xff000000), fontSize: 30.rpx), overflow: TextOverflow.ellipsis,),
                                     )
                                   ],
                                 ),
@@ -172,7 +173,7 @@ class _OrderCommentPageState extends State<OrderCommentPage> {
                 ),
               ),
               ThemeButton(
-                  title: '提交评论',
+                  title: S.of(context).submit,
                   onPressed:(){
 
                   }

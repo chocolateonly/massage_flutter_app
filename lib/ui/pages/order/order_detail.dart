@@ -5,7 +5,7 @@ import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/provider/provider_widget.dart';
-import '../../../../view_model/order_detail_model.dart';
+import '../../../view_model/order_detail_model.dart';
 import 'package:massageflutterapp/ui/pages/mine/order/get_order_button.dart';
 class OrderDetailPage extends StatefulWidget {
   var id;

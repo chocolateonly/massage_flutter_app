@@ -6,6 +6,7 @@ import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher.dart';
 class PointResultPage extends StatefulWidget {
 
   @override
@@ -15,12 +16,12 @@ class PointResultPage extends StatefulWidget {
 class _PointResultPageState extends State<PointResultPage> {
   @override
   Widget build(BuildContext context) {
-    var title='兑换结果';
-    var reciverName="收货人";
-    var reciverAddress="收货地址";
-    var usedPoint="会员积分";
-    var createdTime="兑换时间";
-    var changeOrderNumber="兑换订单号";
+    var title=S.of(context).pointChangeResult;
+    var reciverName=S.of(context).receiver;
+    var reciverAddress=S.of(context).receiverAddress;
+    var usedPoint=S.of(context).memberPoint;
+    var createdTime=S.of(context).exchangeTime;
+    var changeOrderNumber=S.of(context).exchangeOrderNumber;
 
     return Scaffold(
       appBar: AppBar(
@@ -98,7 +99,7 @@ class _PointResultPageState extends State<PointResultPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text('3天经期全面调理 拷贝',style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
-                                    Text('x1',style: TextStyle(color:Color(0xff999999),fontSize: 26.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
+                                    Text('76778'+S.of(context).point,style:TextStyle(color: Color(0xff333333),fontSize: 30.rpx),),
                                   ],
                                 ),
                               ),
@@ -154,9 +155,9 @@ class _PointResultPageState extends State<PointResultPage> {
               ),
 
               ThemeButton(
-                  title: S.of(context).submit,
+                  title: S.of(context).contact,
                   onPressed:(){
-                    //todo:处理表单
+                    launch("tel://18727275857");
                   }
               )
             ],

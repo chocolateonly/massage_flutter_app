@@ -3,10 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:massageflutterapp/config/resouce_manager.dart';
-import 'package:massageflutterapp/ui/widgets/upload_picture_widget.dart';
-import 'package:massageflutterapp/ui/widgets/rate_star.dart';
 class OrderCancelPage extends StatefulWidget {
   OrderCancelPage(id);
 
@@ -28,7 +24,7 @@ class _OrderCancelPageState extends State<OrderCancelPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('取消预约'),
+        title: Text(S.of(context).cancelAppointment),
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -56,7 +52,7 @@ class _OrderCancelPageState extends State<OrderCancelPage> {
                 ),
               ),
               ThemeButton(
-                  title: '确认取消预约',
+                  title: S.of(context).confirm,
                   onPressed:(){
 
                   }

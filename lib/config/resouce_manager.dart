@@ -38,8 +38,8 @@ Future<List> uploadImages(context,max) async {
       materialOptions: MaterialOptions(
         // 显示所有照片，值为 false 时显示相册
           startInAllView: true,
-          allViewTitle: '所有照片',
-          textOnNothingSelected: '没有选择照片'),
+          allViewTitle: S.of(context).allPicture,
+          textOnNothingSelected: S.of(context).notSelectedPicture),
     );
   } on Exception catch (e) {
     error = e.toString();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
@@ -14,13 +15,13 @@ class _MyEarningsPageState extends State<MyEarningsPage> {
   var inputController=TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var all_balance='总收益数';
-    var wait_balance="可提现收益数";
-    var record="提现记录";
-    var inputMoneyPlaceholder="输入要提现的收益数";
-    var canGetMoney="可到账金额";
-    var selectAccount="请选择账户";
-    var submit="立即提现";
+    var all_balance=S.of(context).allEarnings;
+    var wait_balance=S.of(context).canExchangeEarnings;
+    var record=S.of(context).exchangeRecord;
+    var inputMoneyPlaceholder=S.of(context).inputWillExchangeNumber;
+    var canGetMoney=S.of(context).canGetMoney;
+    var selectAccount=S.of(context).pleaseSelectAccount;
+    var submit=S.of(context).exchangeCash;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -29,6 +30,7 @@ class _MyEarningsPageState extends State<MyEarningsPage> {
            InkWell(
              onTap: (){
               //
+               Navigator.of(context).pushNamed(RouteName.exchangeRecordPage);
              },
                child: Center(child: Padding(
                  padding: const EdgeInsets.all(10.0),
@@ -139,7 +141,7 @@ class _MyEarningsPageState extends State<MyEarningsPage> {
                       padding:EdgeInsets.all(20.rpx),
                       child:InkWell(
                         onTap: (){
-
+                           Navigator.of(context).pushNamed(RouteName.myAccount);
                         },
                         child:  Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

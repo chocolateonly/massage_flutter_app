@@ -21,7 +21,7 @@ class _AddEquipmentPageState extends State<AddEquipmentPage> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('添加库存')
+          title: Text(S.of(context).addEquipment)
         ),
         body:  ProviderWidget(
             onModelReady: (model) {

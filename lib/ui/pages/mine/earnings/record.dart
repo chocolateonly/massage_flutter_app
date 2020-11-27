@@ -7,19 +7,19 @@ import 'package:massageflutterapp/provider/provider_widget.dart';
 import 'package:massageflutterapp/view_model/my_order_list_model.dart';
 
 import 'package:massageflutterapp/config/resouce_manager.dart';
-class PointRecordPage extends StatefulWidget {
+class ExchangeRecordPage extends StatefulWidget {
 
   @override
-  _PointRecordPageState createState() => _PointRecordPageState();
+  _ExchangeRecordPageState createState() => _ExchangeRecordPageState();
 }
 
-class _PointRecordPageState extends State<PointRecordPage> {
+class _ExchangeRecordPageState extends State<ExchangeRecordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(S.of(context).myPointRecord),
+        title: Text(S.of(context).exchangeRecord),
       ),
       body:  ProviderWidget(
           onModelReady: (model) {
@@ -67,7 +67,6 @@ class _ItemViewState extends State<ItemView> {
                 Expanded(
                   child: Row(
                     children: <Widget>[
-                      Image.network(ImageHelper.img,width:80.rpx,height: 80.rpx,),
                       Expanded(
                         flex: 1,
                         child: Padding(
@@ -75,7 +74,7 @@ class _ItemViewState extends State<ItemView> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text('产后收腹产后收腹带纱布塑身带纱布塑身...',style: TextStyle(color: Color(0xff333333),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
+                              Text('提现',style: TextStyle(color: Color(0xff333333),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
                               Text('2020-03-21 11：20：20',style: TextStyle(color: Color(0xffcccccc),fontSize: 28.rpx),overflow: TextOverflow.ellipsis,),
                             ],
                           ),
@@ -84,7 +83,7 @@ class _ItemViewState extends State<ItemView> {
                     ],
                   ),
                 ),
-                Text('-4511'+S.of(context).point,style: TextStyle(color: Color(0xff333333),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
+                Text('+4511',style: TextStyle(color: Color(0xffFF0000),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
               ],
             )
         ),

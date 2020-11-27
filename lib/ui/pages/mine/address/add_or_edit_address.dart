@@ -3,6 +3,7 @@ import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 import 'package:massageflutterapp/ui/widgets/form/form_item.dart';
+import 'package:massageflutterapp/ui/widgets/picker/area_picker.dart';
 class AddOrEditAddressPage extends StatefulWidget {
   var id='';
   AddOrEditAddressPage(this.id);
@@ -15,13 +16,21 @@ class _AddOrEditAddressPageState extends State<AddOrEditAddressPage> {
   var _accountController=TextEditingController();
   var _bankController=TextEditingController();
   var check=false;
+  var address='';
+  Map selectArea;
+  ///接收选择的结果
+  void handleSelect (Map targetArea) {
+    setState(() {
+      selectArea = targetArea;
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    var AddOrEditAddress=widget.id==''?"添加":"修改";
-    var name="姓名";
-    var mobile="电话";
-    var area="所在区域";
-    var addressDetail="详细地址";
+    var AddOrEditAddress=widget.id==''?S.of(context).add:S.of(context).edit;
+    var name=S.of(context).name;
+    var mobile=S.of(context).mobile;
+    var area=S.of(context).area;
+    var addressDetail=S.of(context).detailAddress;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -48,16 +57,56 @@ class _AddOrEditAddressPageState extends State<AddOrEditAddressPage> {
                           FormItem(label:name,controller:_nameController),
                           FormItem(label:mobile,controller:_accountController,inputType:TextInputType.number),
                           FormItem(label:area,controller:_bankController),
+                          Container(
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom:BorderSide(color: Color(0xffeeeeee))
+                                )
+                            ),
+                            child: InkWell(
+                              onTap: (){
+                                showModalBottomSheet(context: context, builder: (_)=>Container(
+                                  height: 300.0,
+                                  child: AreaSelection(
+                                    onSelect: handleSelect,
+                                    initProviceIndex: selectArea == null ? 0 : selectArea['proviceIndex'],
+                                    initCityIndex: selectArea == null ? 0 : selectArea['cityIndex'],
+                                    initCountyIndex: selectArea == null ? 0 : selectArea['countyIndex'],
+                                  ),
+                                ));
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Expanded(
+                                    child: Container(
+                                      padding:EdgeInsets.symmetric(vertical: 20.rpx),
+                                      child:Text(address==''?area:address,style: TextStyle(color: Color(0xff666666),fontSize: 26.rpx),overflow: TextOverflow.ellipsis,),
+                                    ),
+                                  ),
+                                  Icon( Icons.arrow_forward_ios,color: Color(0xff999999),size: 16,)
+                                ],
+                              ),
+                            ),
+
+                          ),
                           FormItem(label:addressDetail,controller:_bankController,maxLines: null,textAlign: TextAlign.left,),
-                      CheckboxListTile(
-                        title:  Text('设为默认'),
-                        value: this.check,
-                        onChanged: (bool value) {
-                          setState(() {
-                            this.check = !this.check;
-                          });
-                        },
-                      )
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                check = !check;
+                              });
+                            },
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                    child: checkIcon(),
+                                    padding:EdgeInsets.symmetric(vertical:20.rpx,horizontal: 10.rpx)
+                                ),
+                                Text(S.of(context).setDefault,style:TextStyle(color:Color(0xff666666) )),
+                              ],
+                            ),
+                          ),
                         ],
                       )
                   ),
@@ -73,6 +122,26 @@ class _AddOrEditAddressPageState extends State<AddOrEditAddressPage> {
           ),
         ),
       ),
+    );
+  }
+  Widget checkIcon() {
+    return InkWell(
+      child: !check
+          ? Icon(
+        Icons.check_circle_outline,
+        size: 20.px,
+        color: Colors.grey,
+      )
+          : Icon(
+        Icons.check_circle,
+        size: 20.px,
+        color: Theme.of(context).accentColor,
+      ),
+      onTap: () {
+        setState(() {
+          check = !check;
+        });
+      },
     );
   }
 }

@@ -118,12 +118,12 @@ class _ItemViewState extends State<ItemView> {
                   }),
             ),
             //项目
-            Container(
+/*            Container(
               width: double.maxFinite,
               padding:EdgeInsets.all(20.rpx),
               color: Color(0xffeeeeee),
               child: Text('服务项目：妈咪产前护理配套',style:TextStyle(color: Color(0xff999999),fontSize: 26.rpx ),),
-            ),
+            ),*/
             SizedBox(height: 20.rpx,),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -136,10 +136,10 @@ class _ItemViewState extends State<ItemView> {
                     padding: EdgeInsets.all(6),
                     margin: EdgeInsets.only(left: 20.rpx),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.rpx),
-                        border: Border.all(color:Theme.of(context).accentColor, width: 0.5)
+                      borderRadius: BorderRadius.circular(30.rpx),
+                        border: Border.all(color:Theme.of(context).accentColor, width: 1)
                     ),
-                    child: Text('删除评论',style:TextStyle(color: Theme.of(context).accentColor,fontSize: 26.rpx ),),
+                    child: Text(S.of(context).cancelComment,style:TextStyle(color: Theme.of(context).accentColor,fontSize: 26.rpx ),),
                   ),
                 )
               ],

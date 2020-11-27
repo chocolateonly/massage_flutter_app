@@ -71,7 +71,7 @@ class _MyOrganizationPageState extends State<MyOrganizationPage> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Text('453453',style: TextStyle(color: Colors.white,fontSize: 50.rpx),overflow: TextOverflow.ellipsis,),
-                                Text('分销用户(人)',style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
+                                Text(S.of(context).orgMember,style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
                               ],
                             ),
                           ),
@@ -87,7 +87,7 @@ class _MyOrganizationPageState extends State<MyOrganizationPage> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Text('453453',style: TextStyle(color: Colors.white,fontSize: 50.rpx),overflow: TextOverflow.ellipsis,),
-                                Text('累计佣金(元)',style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
+                                Text(S.of(context).orgEarnings+'(${S.of(context).priceUnit})',style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
                               ],
                             ),
                           ),
@@ -148,7 +148,7 @@ class _ItemViewState extends State<ItemView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text('花花',style: TextStyle(color: Color(0xff000000),fontSize: 34.rpx),overflow: TextOverflow.ellipsis,),
-                            Text('下单时间：2020-07-15  12:14:15',style: TextStyle(color: Color(0xff666666),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,),
+                            Text('2020-07-15  12:14:15',style: TextStyle(color: Color(0xff666666),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,),
                           ],
                         ),
                       ),

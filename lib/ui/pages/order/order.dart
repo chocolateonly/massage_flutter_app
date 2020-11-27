@@ -9,6 +9,7 @@ import 'package:massageflutterapp/view_model/my_order_list_model.dart';
 import 'package:massageflutterapp/view_model/refresh_helper.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/ui/pages/order/get_order_button.dart';
+import 'package:massageflutterapp/config/router_manager.dart';
 class OrderPage extends StatefulWidget {
   var type=0;//订单状态
 
@@ -19,14 +20,20 @@ class OrderPage extends StatefulWidget {
 }
 
 class _OrderPageState extends State<OrderPage> {
-
+  var current_tab;
+  @override
+  void initState() {
+    // TODO: implement initState
+    current_tab=widget.type;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     var orderStatus=[
       S.of(context).orderStatus1,
-      '待服务',
-      '进行中',
-      '已完成',
+      S.of(context).orderStatus8,
+      S.of(context).orderStatus9,
+      S.of(context).orderStatus6,
       S.of(context).orderStatus7,
     ];
 
@@ -108,78 +115,85 @@ class _ItemOrderState extends State<ItemOrder> {
               color: Colors.white,
               borderRadius: BorderRadius.circular(15.rpx)
           ),
-          child: Column(
-            children: <Widget>[
-              Container(
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Row(
-                        children: <Widget>[
-                          Text(S.of(context).orderNumber,style:TextStyle(color: Color(0xff666666),fontSize: 24.rpx)),
-                          Expanded(child: Text(widget.item.id,style:TextStyle(color: Color(0xff666666),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,)),
-                        ],
+          child: InkWell(
+            onTap: (){
+              Navigator.of(context).pushNamed(RouteName.orderDetail,arguments: ['id']);
+            },
+            child: Column(
+              children: <Widget>[
+                //订单号
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Row(
+                          children: <Widget>[
+                            Text(S.of(context).orderNumber,style:TextStyle(color: Color(0xff666666),fontSize: 24.rpx)),
+                            Expanded(child: Text(widget.item.id,style:TextStyle(color: Color(0xff666666),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,)),
+                          ],
+                        ),
                       ),
-                    ),
-                    Chip(
-                      label: Text(widget.item.name,style: TextStyle(color: Theme.of(context).accentColor,fontSize: 24.rpx),),
-                      backgroundColor:Color(0xffFAF1EA),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                padding:EdgeInsets.symmetric(vertical: 20.rpx),
-                decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(color: Color(0xffeeeeee)),top:BorderSide(color: Color(0xffeeeeee)))
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                        padding: EdgeInsets.only(right: 20.rpx),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(3)),
-                        child: CachedNetworkImage(
-                            height: 150.rpx,
-                            width: 150.rpx,
-                            imageUrl: ImageHelper.wrapUrl(widget.item.image),
-                            placeholder: (context, url) => Center(child: CupertinoActivityIndicator()),
-                            errorWidget: (context, url, error) => Icon(Icons.error))
-                    ),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(widget.item.name,style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx),textAlign: TextAlign.left,),
-                          Text(widget.item.name+'挥洒法华寺东方航空史蒂芬霍金看到的非官方定',style: TextStyle(color:Color(0xff999999),fontSize: 24.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
-                          Text('预约上门时间:2020-11-20 12:30',style: TextStyle(color:Color(0xff999999),fontSize: 24.rpx),textAlign: TextAlign.left,),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(height: 20.rpx,),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20.rpx),
-                      child: Row(
-                        children: <Widget>[
-                          Text(S.of(context).priceUnit,style:TextStyle(color: Color(0xffEC1C24),fontSize: 26.rpx)),
-                          Text('2000.5',style:TextStyle(color: Color(0xffEC1C24),fontSize: 38.rpx )),
-                          SizedBox(width: 10.rpx,),
-                          Text('(剩余3次)',style:TextStyle(color: Color(0xff999999),fontSize: 26.rpx,)),
-                        ],
-                      ),
-                    ),
+                      Chip(
+                        label: Text(widget.item.name,style: TextStyle(color: Theme.of(context).accentColor,fontSize: 24.rpx),),
+                        backgroundColor:Color(0xffFAF1EA),
+                      )
+                    ],
                   ),
-                  ...getOrderButton(context,widget.item,widget.model,'form_list'),
-                ],
-              )
-            ],
+                ),
+//              商品详情
+                Container(
+                  padding:EdgeInsets.symmetric(vertical: 20.rpx),
+                  decoration: BoxDecoration(
+                      border: Border(bottom: BorderSide(color: Color(0xffeeeeee)),top:BorderSide(color: Color(0xffeeeeee)))
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                          padding: EdgeInsets.only(right: 20.rpx),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3)),
+                          child: CachedNetworkImage(
+                              height: 150.rpx,
+                              width: 150.rpx,
+                              imageUrl: ImageHelper.wrapUrl(widget.item.image),
+                              placeholder: (context, url) => Center(child: CupertinoActivityIndicator()),
+                              errorWidget: (context, url, error) => Icon(Icons.error))
+                      ),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(widget.item.name,style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx),textAlign: TextAlign.left,),
+                            Text(widget.item.name+'挥洒法华寺东方航空史蒂芬霍金看到的非官方定',style: TextStyle(color:Color(0xff999999),fontSize: 24.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
+                            Text('预约上门时间:2020-11-20 12:30',style: TextStyle(color:Color(0xff999999),fontSize: 24.rpx),textAlign: TextAlign.left,),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20.rpx,),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20.rpx),
+                        child: Row(
+                          children: <Widget>[
+                            Text(S.of(context).priceUnit,style:TextStyle(color: Color(0xffEC1C24),fontSize: 26.rpx)),
+                            Text('2000.5',style:TextStyle(color: Color(0xffEC1C24),fontSize: 38.rpx )),
+                            SizedBox(width: 10.rpx,),
+                            Text('(${S.of(context).numberOfLeft(2)})',style:TextStyle(color: Color(0xff999999),fontSize: 26.rpx,)),
+                          ],
+                        ),
+                      ),
+                    ),
+                    ...getOrderButton(context,widget.item,widget.model,'form_list'),
+                  ],
+                )
+              ],
+            ),
           )
       ),
     );

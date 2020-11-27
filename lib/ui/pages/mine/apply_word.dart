@@ -11,7 +11,7 @@ class ApplyWordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).registerWord),
+        title: Text(title),
         centerTitle: true,
       ),
       body: SingleChildScrollView(

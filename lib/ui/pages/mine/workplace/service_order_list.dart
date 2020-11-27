@@ -21,10 +21,10 @@ class _ServiceOrderPageState extends State<ServiceOrderPage> {
   @override
   Widget build(BuildContext context) {
     var orderStatus=[
-     "全部",
-      "服务中",
-      "已完成",
-      "取消中",
+      S.of(context).all,
+      S.of(context).orderStatus9,
+      S.of(context).orderStatus6,
+      S.of(context).orderStatus7,
     ];
 
     return DefaultTabController(

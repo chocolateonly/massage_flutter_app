@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -16,8 +17,6 @@ class MyAddressPage extends StatefulWidget {
 class _MyAddressPageState extends State<MyAddressPage> {
   @override
   Widget build(BuildContext context) {
-    var myAccount="我的账号";
-    var add="添加";
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -26,10 +25,11 @@ class _MyAddressPageState extends State<MyAddressPage> {
             InkWell(
                 onTap: (){
                   //
+                  Navigator.of(context).pushNamed(RouteName.addOrEditAddress,arguments: ['']);
                 },
                 child: Center(child: Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Text(add),
+                  child: Text(S.of(context).add),
                 )))
           ],
         ),
@@ -68,9 +68,9 @@ class _ItemViewState extends State<ItemView> {
   @override
   Widget build(BuildContext context) {
 
-    var defaultTitle="默认";
-    var edit="编辑";
-    var delete="删除";
+    var defaultTitle=S.of(context).defaultText;
+    var edit=S.of(context).edit;
+    var delete=S.of(context).delete;
     return Container(
       width: double.maxFinite,
       child: Card(
@@ -97,7 +97,7 @@ class _ItemViewState extends State<ItemView> {
                             ),
                             (isDefault?Chip(
                               label: Text(defaultTitle),
-                              labelPadding: EdgeInsets.symmetric(horizontal: 4,vertical: 0),
+                              labelPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 0),
                               labelStyle: TextStyle(color: Theme.of(context).accentColor,fontSize: 24.rpx),
                               backgroundColor: Color(0xffFAF1EA),
                             ):Text('')),

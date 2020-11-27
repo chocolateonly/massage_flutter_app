@@ -20,7 +20,7 @@ class _MyCouponsPageState extends State<MyCouponsPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('我的优惠券'),
+        title: Text(S.of(context).myCoupons),
       ),
       body: ProviderWidget(
           onModelReady: (model) {
@@ -52,10 +52,15 @@ class ItemView extends StatefulWidget {
 }
 
 class _ItemViewState extends State<ItemView> {
-  var status=["立即使用","已使用","已过期"];
+
   var current_status=1;
   @override
   Widget build(BuildContext context) {
+    var status=[
+      S.of(context).useStatus,
+      S.of(context).used,
+      S.of(context).useOver
+     ];
     return  Container(
       margin:EdgeInsets.only(top:20.rpx),
       child: Row(
@@ -78,7 +83,7 @@ class _ItemViewState extends State<ItemView> {
                     Text('30',style: TextStyle(color: Colors.white,fontSize: 50.rpx),),
                   ],
                 ),
-                Text('满100可用',style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
+                Text(S.of(context).couponsUseTip(100),style: TextStyle(color: Colors.white,fontSize: 30.rpx),),
               ],
             ),
           ),
@@ -102,7 +107,7 @@ class _ItemViewState extends State<ItemView> {
                         children: <Widget>[
                           Text('新人优惠券',style: TextStyle(color: current_status==0?Colors.black:Color(0xff666666),fontSize: 30.rpx),),
                           Text('一个配套仅限使用一张,不可叠加',style: TextStyle(color: Color(0xff666666),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,),
-                          Text('有效期至：2020.12.01',style: TextStyle(color: Color(0xff666666),fontSize: 24.rpx),),
+                          Text('${S.of(context).canUseDate}：2020.12.01',style: TextStyle(color: Color(0xff666666),fontSize: 24.rpx),),
                         ],
                       ),
                       (current_status==1?Positioned(

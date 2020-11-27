@@ -17,10 +17,10 @@ class MakeAnAppointmentPage extends StatefulWidget {
 }
 
 class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
-  var address;
+
   var time;
   var remark=TextEditingController();
-
+  var address;
   Map selectArea;
   ///接收选择的结果
   void handleSelect (Map targetArea) {
@@ -197,7 +197,6 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
               ThemeButton(
                   title: S.of(context).makeAnAppointment,
                   onPressed:(){
-                    //todo:处理表单
                   }
               )
             ],

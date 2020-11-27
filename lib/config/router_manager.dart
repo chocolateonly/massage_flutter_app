@@ -11,7 +11,7 @@ import 'package:massageflutterapp/ui/pages/mine/my_order_list.dart';
 import 'package:massageflutterapp/ui/pages/mine/my_info.dart';
 import 'package:massageflutterapp/ui/pages/mine/settings.dart';
 import 'package:massageflutterapp/ui/pages/mine/agreement_file.dart';
-import 'package:massageflutterapp/ui/pages/mine/order/order_detail.dart';
+import 'file:///D:/flutter/massage_flutter_app/lib/ui/pages/order/order_detail.dart';
 import 'package:massageflutterapp/ui/pages/mine/my_combo.dart';
 import 'package:massageflutterapp/ui/pages/mine/order/make_an_appointment.dart';
 import 'package:massageflutterapp/ui/pages/mine/my_point.dart';
@@ -52,6 +52,8 @@ import 'package:massageflutterapp/ui/pages/mine/healthy_info.dart';
 import 'package:massageflutterapp/ui/pages/mine/my_comments.dart';
 import 'package:massageflutterapp/ui/pages/mine/workplace/body_status_info.dart';
 import 'package:massageflutterapp/ui/pages/mine/workplace/personal_settings.dart';
+import 'package:massageflutterapp/ui/pages/mine/point/create_an_order.dart';
+import 'package:massageflutterapp/ui/pages/mine/earnings/record.dart';
 class RouteName {
   static const String login = 'login';
   static const String tab = 'tab';
@@ -71,8 +73,10 @@ class RouteName {
   static const String pointRecord='pointRecord';
   static const String pointDetail='pointDetail';
   static const String pointResult='pointResult';
+  static const String createAnPointOrder='createAnPointOrder';//积分下单
   static const String healthyInfo='healthyInfo';
   static const String myEarnings='myEarnings';
+  static const String exchangeRecordPage="exchangeRecordPage";//提现记录
   static const String myOrganization='myOrganization';
   static const String myOrganizationApply='myOrganizationApply';
   static const String applyWord='applyWord';
@@ -159,12 +163,22 @@ class Router {
         var list = settings.arguments as List;
         var id=list[0];
         return CupertinoPageRoute(builder: (_) => PointDetailPage(id));
+      case RouteName.createAnPointOrder:
+        var list = settings.arguments as List;
+        var id=list[0];
+        return CupertinoPageRoute(builder: (_) => CreateAnPointOrderPage(id));
       case RouteName.pointResult:
         return CupertinoPageRoute(builder: (_) => PointResultPage());
       case RouteName.myEarnings:
         return CupertinoPageRoute(builder: (_) => MyEarningsPage());
+      case RouteName.exchangeRecordPage:
+        return CupertinoPageRoute(builder: (_) => ExchangeRecordPage());
       case RouteName.addAccount:
-        return CupertinoPageRoute(builder: (_) => AddAccountPage());
+        var list = settings.arguments as List;
+        var id=list[0];
+        return CupertinoPageRoute(builder: (_) => AddAccountPage(id));
+      case RouteName.myAccount:
+        return CupertinoPageRoute(builder: (_) => AccountListPage());
       case RouteName.promotionGift:
         return CupertinoPageRoute(builder: (_) => PromotionGiftPage());
       case RouteName.myCoupons:

@@ -3,10 +3,8 @@ import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
-import 'package:massageflutterapp/ui/widgets/form/form_item.dart';
 
-import 'package:massageflutterapp/config/resouce_manager.dart';
-import 'package:massageflutterapp/ui/widgets/upload_picture_widget.dart';
+import 'package:massageflutterapp/ui/widgets/form_finish_tip.dart';
 class HealthyInfoPage extends StatefulWidget {
 
   @override
@@ -64,45 +62,7 @@ class _HealthyInfoPageState extends State<HealthyInfoPage> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(10.rpx))
                               ),
-                              child:Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10.rpx),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,//自动撑高
-                                  children: <Widget>[
-                                    Container(
-                                      width:double.maxFinite,
-                                      padding: EdgeInsets.all(40.rpx),
-                                      decoration: BoxDecoration(
-                                          color: Theme.of(context).accentColor
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Icon(Icons.check_circle,color: Theme.of(context).accentColor,size: 50.rpx,),
-                                          Text(S.of(context).tipTile,style: TextStyle(color: Colors.white,fontSize: 30.rpx),)
-                                        ],
-                                      ) ,
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(40.rpx),
-                                      child:  Text('资料提交成功， 结果将在1-2工作日反馈！',
-                                        style: TextStyle(color: Color(0xff4d4d4d),fontSize: 32.rpx),textAlign: TextAlign.center,),
-                                    ),
-                                    Container(
-                                      width: 480.rpx,
-                                      child: ThemeButton(
-                                        title:'我知道了',
-                                        onPressed: (){
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
+                              child:FormFinishTip()
                           );
                         }
                     );
@@ -111,12 +71,12 @@ class _HealthyInfoPageState extends State<HealthyInfoPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('确认提交即表示同意',style: TextStyle(color: Color(0xff999999),fontSize: 26.rpx)),
+                  Text(S.of(context).bottomTip,style: TextStyle(color: Color(0xff999999),fontSize: 26.rpx)),
                   InkWell(
                     onTap: (){
-                      Navigator.of(context).pushNamed(RouteName.applyWord,arguments: ['《健康资料协议》',2]);
+                      Navigator.of(context).pushNamed(RouteName.applyWord,arguments: [S.of(context).healthBottomWord,2]);
                     },
-                    child: Text('《健康资料协议》',style: TextStyle(color:Theme.of(context).accentColor,fontSize: 26.rpx),),
+                    child: Text(S.of(context).healthBottomWord,style: TextStyle(color:Theme.of(context).accentColor,fontSize: 26.rpx),),
                   ),
                 ],
               ),

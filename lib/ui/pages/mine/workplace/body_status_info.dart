@@ -20,7 +20,7 @@ class _BodyStatusInfoPageState extends State<BodyStatusInfoPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('身体状况'),
+        title: Text(S.of(context).bodyStatus),
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -83,57 +83,7 @@ class _BodyStatusInfoPageState extends State<BodyStatusInfoPage> {
               ThemeButton(
                   title: S.of(context).submit,
                   onPressed:(){
-                    showDialog(
-                        context:context,
-                        barrierDismissible:true,//点击遮罩是否关闭
-                        builder: (context) {
-                          return Dialog(
-                              clipBehavior: Clip.antiAlias,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10.rpx))
-                              ),
-                              child:Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10.rpx),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,//自动撑高
-                                  children: <Widget>[
-                                    Container(
-                                      width:double.maxFinite,
-                                      padding: EdgeInsets.all(40.rpx),
-                                      decoration: BoxDecoration(
-                                          color: Theme.of(context).accentColor
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Icon(Icons.check_circle,color: Theme.of(context).accentColor,size: 50.rpx,),
-                                          Text(S.of(context).tipTile,style: TextStyle(color: Colors.white,fontSize: 30.rpx),)
-                                        ],
-                                      ) ,
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(40.rpx),
-                                      child:  Text('资料提交成功， 结果将在1-2工作日反馈！',
-                                        style: TextStyle(color: Color(0xff4d4d4d),fontSize: 32.rpx),textAlign: TextAlign.center,),
-                                    ),
-                                    Container(
-                                      width: 480.rpx,
-                                      child: ThemeButton(
-                                        title:'我知道了',
-                                        onPressed: (){
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                          );
-                        }
-                    );
+
                   }
               ),
               SizedBox(height: 20.rpx,)

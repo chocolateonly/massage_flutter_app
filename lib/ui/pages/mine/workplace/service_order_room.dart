@@ -23,7 +23,7 @@ class _ServiceOrderRoomPageState extends State<ServiceOrderRoomPage> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('接单大厅'),
+          title: Text(S.of(context).serviceOrderRoom),
         ),
         body: ProviderWidget2<OrderDetailModel,MyOrderListModel>(
           onModelReady: (orderDetailModel,model){

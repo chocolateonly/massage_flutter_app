@@ -16,11 +16,10 @@ class MessagePage extends StatefulWidget {
 class _MessagePageState extends State<MessagePage> {
   @override
   Widget build(BuildContext context) {
-    var myAccount="消息提醒";
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(myAccount),
+          title: Text(S.of(context).messageTip),
         ),
         body:  ProviderWidget(
             onModelReady: (model) {
@@ -76,7 +75,7 @@ class _ItemViewState extends State<ItemView> {
                       children: <Widget>[
                         Image.asset(ImageHelper.wrapAssets('m_icon.png'),width: 35.rpx,height: 35.rpx,),
                         SizedBox(width: 10.rpx,),
-                        Text('系统通知',style: TextStyle(color: Color(0xff333333),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
+                        Text(S.of(context).systemNotice,style: TextStyle(color: Color(0xff333333),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
                       ],
                     ),
                     Container(

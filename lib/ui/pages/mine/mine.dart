@@ -268,7 +268,9 @@ class _MinePageState extends State<MinePage> {
             Navigator.of(context).pushNamed(RouteName.myEarnings);
             break;
           case 3:
-            Navigator.of(context).pushNamed(RouteName.myOrganization);
+            //判断是否已经入驻
+            Navigator.of(context).pushNamed(RouteName.myOrganizationApply);
+            //Navigator.of(context).pushNamed(RouteName.myOrganization);
             break;
           case 4:
             Navigator.of(context).pushNamed(RouteName.myComments);

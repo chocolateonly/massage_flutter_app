@@ -8,15 +8,15 @@ import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/ui/widgets/form/form_item.dart';
 
-class CreateAnOrderPage extends StatefulWidget {
-  CreateAnOrderPage(id);
+class CreateAnPointOrderPage extends StatefulWidget {
+  CreateAnPointOrderPage(id);
 
 
   @override
-  _CreateAnOrderPageState createState() => _CreateAnOrderPageState();
+  _CreateAnPointOrderPageState createState() => _CreateAnPointOrderPageState();
 }
 
-class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
+class _CreateAnPointOrderPageState extends State<CreateAnPointOrderPage> {
   var _remarkController=TextEditingController();
 
   @override
@@ -114,19 +114,16 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text('3天经期全面调理 拷贝',style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
-                                  Text('挥洒法华寺东方航空史蒂芬霍金看到的非官方定',style: TextStyle(color:Color(0xff999999),fontSize: 24.rpx),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
 
                                   Row(
                                     children: <Widget>[
                                       Expanded(
                                       child:Row(
                                         children: <Widget>[
-                                          Text(S.of(context).priceUnit,style:TextStyle(color: Color(0xff333333),fontSize: 30.rpx),),
-                                          Text('76778',style:TextStyle(color: Color(0xff333333),fontSize: 30.rpx),),
+                                         Text('76778'+S.of(context).point,style:TextStyle(color: Color(0xff333333),fontSize: 30.rpx),),
                                         ],
                                       ),
                                   ),
-                                      Text('x1',style: TextStyle(color:Color(0xff999999),fontSize: 24.rpx),textAlign: TextAlign.left,),
                                     ],
                                   ),
 
@@ -145,81 +142,8 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                         ),
                         child: Column(
                           children: <Widget>[
-                            Container(
-                              padding:EdgeInsets.symmetric(vertical: 20.rpx),
-                              decoration: BoxDecoration(
-                                  border: Border(bottom: BorderSide(color: Color(0xffeeeeee)))
-                              ),
-                              child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(S.of(context).numberOfCombo,style: TextStyle(color:Color(0xff333333),fontSize: 30.rpx)),
-                                    SizedBox(width:10.rpx),
-                                    Text('3454',style: TextStyle(color:Color(0xff666666),fontSize: 30.rpx)),
-                                  ]
-                              ),
-                            ),
+                            FormItem(label:S.of(context).remark,controller:_remarkController,textAlign:TextAlign.left,inputType:TextInputType.multiline,maxLines:null,textColor: 0xff333333,),
 
-                            Container(
-                              padding:EdgeInsets.symmetric(vertical: 20.rpx),
-                              decoration: BoxDecoration(
-                                  border: Border(bottom: BorderSide(color: Color(0xffeeeeee)))
-                              ),
-                              child: InkWell(
-                                onTap: () {
-                                  //选择优惠券
-                                  Navigator.of(context).pushNamed(RouteName.myCoupons);
-                                },
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: Row(
-                                        children: <Widget>[
-                                          Text(
-                                            S.of(context).coupons,
-                                            style: TextStyle(
-                                                color: Color(0xff333333),
-                                                fontSize: 30.rpx),
-                                            textAlign: TextAlign.left,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                          SizedBox(
-                                            width: 10.rpx,
-                                          ),
-                                          Expanded(
-                                            child: Text(
-                                              S.of(context).pleaseSelect,
-                                              style: TextStyle(
-                                                  color: Color(0xff666666),
-                                                  fontSize: 30.rpx),
-                                              textAlign: TextAlign.right,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: Color(0xff999999),
-                                      size: 16,
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            FormItem(label:S.of(context).orderRemark,controller:_remarkController,textAlign:TextAlign.left,inputType:TextInputType.multiline,maxLines:null,textColor: 0xff333333,),
-                            SizedBox(height: 20.rpx,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Text(S.of(context).numberOfGoods(1),style: TextStyle(color: Color(0xff999999), fontSize: 24.rpx)),
-                                SizedBox(width: 10.rpx,),
-                                Text('${S.of(context).subtotal}：',style: TextStyle(color: Color(0xff000000), fontSize: 24.rpx)),
-                                SizedBox(width: 10.rpx,),
-                                Text(S.of(context).priceUnit+'36456',style: TextStyle(color: Color(0xffEC1C24), fontSize: 28.rpx)),
-                              ],
-                            )
                           ],
                         ),
                       ),
@@ -230,7 +154,7 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
               ThemeButton(
                   title: S.of(context).submitOrder,
                   onPressed:(){
-                    Navigator.of(context).pushNamed(RouteName.uploadOrderResult,arguments: ['']);
+                    Navigator.of(context).pushNamed(RouteName.pointResult,arguments: ['']);
                   }
               )
             ],

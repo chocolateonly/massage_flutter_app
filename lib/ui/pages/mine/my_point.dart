@@ -7,7 +7,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:massageflutterapp/view_model/refresh_helper.dart';
 import 'package:massageflutterapp/provider/provider_widget.dart';
 import 'package:massageflutterapp/view_model/my_order_list_model.dart';
-
+import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:flutter/cupertino.dart';
 class MyPointPage extends StatefulWidget {
 
@@ -64,7 +64,9 @@ class _MyPointPageState extends State<MyPointPage> {
                             Expanded(child: Text(S.of(context).myPoint,style: TextStyle(color: Colors.white,fontSize: 32.rpx),overflow: TextOverflow.ellipsis,)),
                             FlatButton(
                               color: Colors.white,
-                              onPressed: (){},
+                              onPressed: (){
+                                Navigator.of(context).pushNamed(RouteName.pointRecord);
+                              },
                               child: Text(S.of(context).myPointRecord,style: TextStyle(color: Color(0xff6F6349),fontSize: 30.rpx),),
                               shape: StadiumBorder(
                                 side: BorderSide(
@@ -91,6 +93,7 @@ class _MyPointPageState extends State<MyPointPage> {
                 Container(
                   width: double.maxFinite,
                   height: 70.rpx,
+                  padding:EdgeInsets.symmetric(horizontal: 20.rpx),
                   child: CustomScrollView(
                     scrollDirection: Axis.horizontal,
                     slivers: <Widget>[
@@ -104,6 +107,7 @@ class _MyPointPageState extends State<MyPointPage> {
                                     setState(() {
                                       selected=index;
                                     });
+                                    model.refresh(init:true);
                                   },
                                   child: Chip(
                                     label: Text('哈哈哈哈',style: TextStyle(color: selected==index?Colors.white:Color(0xff666666)),),
@@ -158,38 +162,43 @@ class ItemView extends StatefulWidget {
 class _ItemViewState extends State<ItemView> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAlias,//超出剪切
-      shape:  RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.rpx)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: Container(
-              width: double.maxFinite,
-              height: 328.rpx,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit:BoxFit.cover,
-                    image:NetworkImage(ImageHelper.wrapUrl(ImageHelper.img))
-                )
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).pushNamed(RouteName.pointDetail,arguments: ['id']);
+      },
+      child: Card(
+        clipBehavior: Clip.antiAlias,//超出剪切
+        shape:  RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.rpx)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                width: double.maxFinite,
+                height: 328.rpx,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit:BoxFit.cover,
+                      image:NetworkImage(ImageHelper.wrapUrl(ImageHelper.img))
+                  )
+                ),
               ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(widget.item.name,style:TextStyle(color:   Color(0xff333333),fontSize: 34.rpx),overflow: TextOverflow.ellipsis,),
-                  Text('4534'+'积分',style:TextStyle(color:   Color(0xffFF2544),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
-                  Text('已兑23件',style:TextStyle(color:   Color(0xff999999),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,),
-                ],
-              )
-          ),
-        ],
+            Container(
+              padding: EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(widget.item.name,style:TextStyle(color:   Color(0xff333333),fontSize: 34.rpx),overflow: TextOverflow.ellipsis,),
+                    Text('4534'+S.of(context).point,style:TextStyle(color:   Color(0xffFF2544),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
+                    Text(S.of(context).numberOfChange(23),style:TextStyle(color:   Color(0xff999999),fontSize: 24.rpx),overflow: TextOverflow.ellipsis,),
+                  ],
+                )
+            ),
+          ],
+        ),
       ),
     );
   }

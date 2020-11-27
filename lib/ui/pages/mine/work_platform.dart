@@ -5,7 +5,6 @@ import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/provider/provider_widget.dart';
-import 'package:massageflutterapp/ui/pages/mine/order/get_order_button.dart';
 import 'package:massageflutterapp/view_model/order_detail_model.dart';
 import 'package:massageflutterapp/view_model/my_order_list_model.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
@@ -110,10 +109,10 @@ class _WorkPlatformPageState extends State<WorkPlatformPage> {
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                                             children: <Widget>[
-                                              gridItem('接单大厅','w_1.png',0),
-                                              gridItem('我的库存','w_2.png',1),
-                                              gridItem('身体状况','w_3.png',2),
-                                              gridItem('个人设置','w_4.png',3),
+                                              gridItem(S.of(context).serviceOrderRoom,'w_1.png',0),
+                                              gridItem(S.of(context).myWareHouse,'w_2.png',1),
+                                              gridItem(S.of(context).bodyStatus,'w_3.png',2),
+                                              gridItem(S.of(context).personalSettings,'w_4.png',3),
                                             ],
                                           ),
                                         ],
@@ -132,14 +131,14 @@ class _WorkPlatformPageState extends State<WorkPlatformPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('待服务订单',style: TextStyle(color:Color(0xff333333),fontSize: 34.rpx),overflow: TextOverflow.ellipsis),
+                            Text(S.of(context).workplaceWaitServiceOrder,style: TextStyle(color:Color(0xff333333),fontSize: 34.rpx),overflow: TextOverflow.ellipsis),
                             InkWell(
                               onTap: (){
                                 Navigator.of(context).pushNamed(RouteName.serviceOrder,arguments: [0]);
                               },
                               child: Row(
                                 children: <Widget>[
-                                  Text('查看全部',style: TextStyle(color:Color(0xff999999),fontSize: 26.rpx),overflow: TextOverflow.ellipsis),
+                                  Text(S.of(context).showAll,style: TextStyle(color:Color(0xff999999),fontSize: 26.rpx),overflow: TextOverflow.ellipsis),
                                   SizedBox(width: 10.rpx,),
                                   Image.asset(ImageHelper.wrapAssets('w_arrow_r.png'),width:22.rpx,height: 22.rpx,)
                                 ],
@@ -269,7 +268,7 @@ class _ItemOrderState extends State<ItemOrder> {
               child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text("预约信息",style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
+                    Text(S.of(context).appointmentInfo,style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
                     SizedBox(width:10.rpx),
                     Text(S.of(context).serviceTime,style: TextStyle(color:Color(0xff333333),fontSize: 26.rpx),overflow: TextOverflow.ellipsis,),
                   ]
@@ -283,7 +282,7 @@ class _ItemOrderState extends State<ItemOrder> {
               child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text("预约时间",style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
+                    Text(S.of(context).appointmentTime,style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
                     SizedBox(width:10.rpx),
                     Text('2020-11-1 1:00-2020-11-1 1:00',style: TextStyle(color:Color(0xff333333),fontSize: 26.rpx),overflow: TextOverflow.ellipsis),
                   ]
@@ -297,7 +296,7 @@ class _ItemOrderState extends State<ItemOrder> {
               child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text("预约佣金",style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
+                    Text(S.of(context).appointmentMoney,style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
                     SizedBox(width:10.rpx),
                     Text(S.of(context).priceUnit+'200.00',style: TextStyle(color:Color(0xff333333),fontSize: 26.rpx),overflow: TextOverflow.ellipsis),
                   ]
@@ -312,7 +311,7 @@ class _ItemOrderState extends State<ItemOrder> {
 
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("上门地址",style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
+                    Text(S.of(context).appointmentAddress,style: TextStyle(color:Color(0xff666666),fontSize: 26.rpx)),
                     SizedBox(width:10.rpx),
                     Expanded(child: Text('备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注',style: TextStyle(color:Color(0xff333333),fontSize: 26.rpx),maxLines: null,)),
                   ]

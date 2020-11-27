@@ -37,14 +37,14 @@ class _PromotionGiftPageState extends State<PromotionGiftPage> {
                     padding: EdgeInsets.symmetric(vertical: 10),
                     child:RichText(
                         text: TextSpan(
-                            text: '分享好友',
+                            text: S.of(context).shareFriend,
                             style: TextStyle(fontSize: 32.rpx, color: Color(0xff333333)),
                             children: <TextSpan>[
                               TextSpan(
-                                text: '30元',
+                                text: S.of(context).priceUnit+'30',
                                 style: TextStyle(fontSize: 32.rpx, color: Color(0xffC49C5F)),),
                               TextSpan(
-                                text: '新人优惠券，当TA首次下单后',
+                                text: S.of(context).shareFriendTip1,
                                 style: TextStyle(fontSize: 32.rpx, color: Color(0xff333333)),),
                             ]),
                         textAlign: TextAlign.center),
@@ -53,14 +53,14 @@ class _PromotionGiftPageState extends State<PromotionGiftPage> {
                     padding: EdgeInsets.symmetric(vertical: 10),
                     child:RichText(
                         text: TextSpan(
-                            text: '您可以获得',
+                            text: S.of(context).shareFriendTip2,
                             style: TextStyle(fontSize: 40.rpx, color: Color(0xff333333)),
                             children: <TextSpan>[
                               TextSpan(
-                                text: '30元',
+                                text: S.of(context).priceUnit+'30',
                                 style: TextStyle(fontSize: 40.rpx, color: Color(0xffFF6C3C)),),
                               TextSpan(
-                                text: '奖励',
+                                text: S.of(context).shareFriendTip3,
                                 style: TextStyle(fontSize: 40.rpx, color: Color(0xff333333)),),
                             ]),
                         textAlign: TextAlign.center),
@@ -92,7 +92,7 @@ class _PromotionGiftPageState extends State<PromotionGiftPage> {
                             color: Theme.of(context).accentColor,
                             border: Border.all(color:Colors.transparent, width: 1)),
                         child: Center(
-                          child: Text('邀请好友',
+                          child: Text(S.of(context).shareFriend,
                             style: TextStyle(color:Colors.white, fontSize: 34.rpx),textAlign: TextAlign.center,
                           ),
                         ),
@@ -112,7 +112,7 @@ class _PromotionGiftPageState extends State<PromotionGiftPage> {
                             borderRadius: BorderRadius.circular(10.rpx),
                             border: Border.all(color:Theme.of(context).accentColor, width: 1)),
                         child: Center(
-                          child: Text('我的优惠券',
+                          child: Text(S.of(context).myCoupons,
                             style: TextStyle(color:Theme.of(context).accentColor, fontSize: 34.rpx),textAlign: TextAlign.center,
                           ),
                         ),

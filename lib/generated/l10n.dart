@@ -345,6 +345,16 @@ class S {
     );
   }
 
+  /// `全部`
+  String get all {
+    return Intl.message(
+      '全部',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `全部订单`
   String get orderStatus1 {
     return Intl.message(
@@ -410,6 +420,26 @@ class S {
     return Intl.message(
       '取消中',
       name: 'orderStatus7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `待服务`
+  String get orderStatus8 {
+    return Intl.message(
+      '待服务',
+      name: 'orderStatus8',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务中`
+  String get orderStatus9 {
+    return Intl.message(
+      '服务中',
+      name: 'orderStatus9',
       desc: '',
       args: [],
     );
@@ -1240,6 +1270,1016 @@ class S {
     return Intl.message(
       '付款人卡号',
       name: 'payeeNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `剩余{num}次`
+  String numberOfLeft(Object num) {
+    return Intl.message(
+      '剩余$num次',
+      name: 'numberOfLeft',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `投诉举报`
+  String get complain {
+    return Intl.message(
+      '投诉举报',
+      name: 'complain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `确认完成`
+  String get finish {
+    return Intl.message(
+      '确认完成',
+      name: 'finish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `去评价`
+  String get goComment {
+    return Intl.message(
+      '去评价',
+      name: 'goComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `查看详情`
+  String get showDetail {
+    return Intl.message(
+      '查看详情',
+      name: 'showDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消预约`
+  String get cancelAppointment {
+    return Intl.message(
+      '取消预约',
+      name: 'cancelAppointment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `订单评价`
+  String get orderComment {
+    return Intl.message(
+      '订单评价',
+      name: 'orderComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请填写订单评论，这里是订单评论~`
+  String get commentTip {
+    return Intl.message(
+      '请填写订单评论，这里是订单评论~',
+      name: 'commentTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `订单评分`
+  String get orderScore {
+    return Intl.message(
+      '订单评分',
+      name: 'orderScore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务`
+  String get service {
+    return Intl.message(
+      '服务',
+      name: 'service',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `守时`
+  String get keepTime {
+    return Intl.message(
+      '守时',
+      name: 'keepTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `技能`
+  String get ability {
+    return Intl.message(
+      '技能',
+      name: 'ability',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `形象`
+  String get appearance {
+    return Intl.message(
+      '形象',
+      name: 'appearance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `清洁度`
+  String get cleanScore {
+    return Intl.message(
+      '清洁度',
+      name: 'cleanScore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请填写内容~`
+  String get pleaseInputContent {
+    return Intl.message(
+      '请填写内容~',
+      name: 'pleaseInputContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `消息提醒`
+  String get messageTip {
+    return Intl.message(
+      '消息提醒',
+      name: 'messageTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `系统通知`
+  String get systemNotice {
+    return Intl.message(
+      '系统通知',
+      name: 'systemNotice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `分享好友`
+  String get shareFriend {
+    return Intl.message(
+      '分享好友',
+      name: 'shareFriend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `新人优惠券，当TA首次下单后`
+  String get shareFriendTip1 {
+    return Intl.message(
+      '新人优惠券，当TA首次下单后',
+      name: 'shareFriendTip1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `您可以获得`
+  String get shareFriendTip2 {
+    return Intl.message(
+      '您可以获得',
+      name: 'shareFriendTip2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `奖励`
+  String get shareFriendTip3 {
+    return Intl.message(
+      '奖励',
+      name: 'shareFriendTip3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的优惠券`
+  String get myCoupons {
+    return Intl.message(
+      '我的优惠券',
+      name: 'myCoupons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的邀请码`
+  String get myInviteCode {
+    return Intl.message(
+      '我的邀请码',
+      name: 'myInviteCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `保存`
+  String get save {
+    return Intl.message(
+      '保存',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `邀请码`
+  String get inviteCode {
+    return Intl.message(
+      '邀请码',
+      name: 'inviteCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `点击复制`
+  String get clickCopy {
+    return Intl.message(
+      '点击复制',
+      name: 'clickCopy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即使用`
+  String get useStatus {
+    return Intl.message(
+      '立即使用',
+      name: 'useStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已使用`
+  String get used {
+    return Intl.message(
+      '已使用',
+      name: 'used',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已过期`
+  String get useOver {
+    return Intl.message(
+      '已过期',
+      name: 'useOver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `满{num}可用`
+  String couponsUseTip(Object num) {
+    return Intl.message(
+      '满$num可用',
+      name: 'couponsUseTip',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `有效期至`
+  String get canUseDate {
+    return Intl.message(
+      '有效期至',
+      name: 'canUseDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `积分`
+  String get point {
+    return Intl.message(
+      '积分',
+      name: 'point',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已兑{num}件`
+  String numberOfChange(Object num) {
+    return Intl.message(
+      '已兑$num件',
+      name: 'numberOfChange',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `使用规则`
+  String get useRule {
+    return Intl.message(
+      '使用规则',
+      name: 'useRule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即兑换`
+  String get changePoint {
+    return Intl.message(
+      '立即兑换',
+      name: 'changePoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `确认订单`
+  String get confirmOrder {
+    return Intl.message(
+      '确认订单',
+      name: 'confirmOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `兑换结果`
+  String get pointChangeResult {
+    return Intl.message(
+      '兑换结果',
+      name: 'pointChangeResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `收货人`
+  String get receiver {
+    return Intl.message(
+      '收货人',
+      name: 'receiver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `收货地址`
+  String get receiverAddress {
+    return Intl.message(
+      '收货地址',
+      name: 'receiverAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `会员积分`
+  String get memberPoint {
+    return Intl.message(
+      '会员积分',
+      name: 'memberPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `兑换时间`
+  String get exchangeTime {
+    return Intl.message(
+      '兑换时间',
+      name: 'exchangeTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `兑换订单号`
+  String get exchangeOrderNumber {
+    return Intl.message(
+      '兑换订单号',
+      name: 'exchangeOrderNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `总收益数`
+  String get allEarnings {
+    return Intl.message(
+      '总收益数',
+      name: 'allEarnings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可提现收益数`
+  String get canExchangeEarnings {
+    return Intl.message(
+      '可提现收益数',
+      name: 'canExchangeEarnings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提现记录`
+  String get exchangeRecord {
+    return Intl.message(
+      '提现记录',
+      name: 'exchangeRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `输入要提现的收益数`
+  String get inputWillExchangeNumber {
+    return Intl.message(
+      '输入要提现的收益数',
+      name: 'inputWillExchangeNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可到账金额`
+  String get canGetMoney {
+    return Intl.message(
+      '可到账金额',
+      name: 'canGetMoney',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请选择账户`
+  String get pleaseSelectAccount {
+    return Intl.message(
+      '请选择账户',
+      name: 'pleaseSelectAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即提现`
+  String get exchangeCash {
+    return Intl.message(
+      '立即提现',
+      name: 'exchangeCash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的账号`
+  String get myAccount {
+    return Intl.message(
+      '我的账号',
+      name: 'myAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `添加`
+  String get add {
+    return Intl.message(
+      '添加',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `删除`
+  String get delete {
+    return Intl.message(
+      '删除',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `默认`
+  String get defaultText {
+    return Intl.message(
+      '默认',
+      name: 'defaultText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `添加账号`
+  String get addAccount {
+    return Intl.message(
+      '添加账号',
+      name: 'addAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `姓名`
+  String get name {
+    return Intl.message(
+      '姓名',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `银行卡号`
+  String get bankCard {
+    return Intl.message(
+      '银行卡号',
+      name: 'bankCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `所属银行`
+  String get bankName {
+    return Intl.message(
+      '所属银行',
+      name: 'bankName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `设为默认`
+  String get setDefault {
+    return Intl.message(
+      '设为默认',
+      name: 'setDefault',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `所在区域`
+  String get area {
+    return Intl.message(
+      '所在区域',
+      name: 'area',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `详细地址`
+  String get detailAddress {
+    return Intl.message(
+      '详细地址',
+      name: 'detailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `分销用户(人)`
+  String get orgMember {
+    return Intl.message(
+      '分销用户(人)',
+      name: 'orgMember',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `累计佣金`
+  String get orgEarnings {
+    return Intl.message(
+      '累计佣金',
+      name: 'orgEarnings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `机构入驻`
+  String get orgApply {
+    return Intl.message(
+      '机构入驻',
+      name: 'orgApply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `为保证您的利益，请如实填写以下信息`
+  String get orgApplyTip {
+    return Intl.message(
+      '为保证您的利益，请如实填写以下信息',
+      name: 'orgApplyTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `机构名称`
+  String get orgName {
+    return Intl.message(
+      '机构名称',
+      name: 'orgName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `机构负责人`
+  String get orgLeader {
+    return Intl.message(
+      '机构负责人',
+      name: 'orgLeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `联系方式`
+  String get contactWay {
+    return Intl.message(
+      '联系方式',
+      name: 'contactWay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `资料附件`
+  String get infoExtra {
+    return Intl.message(
+      '资料附件',
+      name: 'infoExtra',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `附件下载`
+  String get extraDownload {
+    return Intl.message(
+      '附件下载',
+      name: 'extraDownload',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `负责人身份证正反面照`
+  String get leaderIdCard {
+    return Intl.message(
+      '负责人身份证正反面照',
+      name: 'leaderIdCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `营业执照（选填）`
+  String get license {
+    return Intl.message(
+      '营业执照（选填）',
+      name: 'license',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我知道了`
+  String get know {
+    return Intl.message(
+      '我知道了',
+      name: 'know',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `资料提交成功， 结果将在1-2工作日反馈！`
+  String get formFinishTip {
+    return Intl.message(
+      '资料提交成功， 结果将在1-2工作日反馈！',
+      name: 'formFinishTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `点击提交，即表示您已同意`
+  String get bottomTip {
+    return Intl.message(
+      '点击提交，即表示您已同意',
+      name: 'bottomTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `《机构入驻协议》`
+  String get orgBottomWord {
+    return Intl.message(
+      '《机构入驻协议》',
+      name: 'orgBottomWord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `删除评论`
+  String get cancelComment {
+    return Intl.message(
+      '删除评论',
+      name: 'cancelComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `《健康资料协议》`
+  String get healthBottomWord {
+    return Intl.message(
+      '《健康资料协议》',
+      name: 'healthBottomWord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `接单大厅`
+  String get serviceOrderRoom {
+    return Intl.message(
+      '接单大厅',
+      name: 'serviceOrderRoom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的库存`
+  String get myWareHouse {
+    return Intl.message(
+      '我的库存',
+      name: 'myWareHouse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `身体状况`
+  String get bodyStatus {
+    return Intl.message(
+      '身体状况',
+      name: 'bodyStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `个人设置`
+  String get personalSettings {
+    return Intl.message(
+      '个人设置',
+      name: 'personalSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `待服务订单`
+  String get workplaceWaitServiceOrder {
+    return Intl.message(
+      '待服务订单',
+      name: 'workplaceWaitServiceOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `查看全部`
+  String get showAll {
+    return Intl.message(
+      '查看全部',
+      name: 'showAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `预约信息`
+  String get appointmentInfo {
+    return Intl.message(
+      '预约信息',
+      name: 'appointmentInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `预约时间`
+  String get appointmentTime {
+    return Intl.message(
+      '预约时间',
+      name: 'appointmentTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `预约佣金`
+  String get appointmentMoney {
+    return Intl.message(
+      '预约佣金',
+      name: 'appointmentMoney',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `上门地址`
+  String get appointmentAddress {
+    return Intl.message(
+      '上门地址',
+      name: 'appointmentAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `配套升级`
+  String get upComboLevel {
+    return Intl.message(
+      '配套升级',
+      name: 'upComboLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `开始按摩`
+  String get startMassage {
+    return Intl.message(
+      '开始按摩',
+      name: 'startMassage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `拒绝接单`
+  String get refuseOrder {
+    return Intl.message(
+      '拒绝接单',
+      name: 'refuseOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `确认接单`
+  String get receiveOrder {
+    return Intl.message(
+      '确认接单',
+      name: 'receiveOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `填写备注`
+  String get inputRemark {
+    return Intl.message(
+      '填写备注',
+      name: 'inputRemark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `总时长`
+  String get totalTime {
+    return Intl.message(
+      '总时长',
+      name: 'totalTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `温馨提示：按摩师48h内需要把钱送达财务确认哦~`
+  String get serviceOrderTip {
+    return Intl.message(
+      '温馨提示：按摩师48h内需要把钱送达财务确认哦~',
+      name: 'serviceOrderTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `订单已完成`
+  String get orderFinished {
+    return Intl.message(
+      '订单已完成',
+      name: 'orderFinished',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `库存明细`
+  String get equipmentRecord {
+    return Intl.message(
+      '库存明细',
+      name: 'equipmentRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `消耗记录`
+  String get equipmentUsedRecord {
+    return Intl.message(
+      '消耗记录',
+      name: 'equipmentUsedRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `补货记录`
+  String get equipmentAddedRecord {
+    return Intl.message(
+      '补货记录',
+      name: 'equipmentAddedRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `添加库存`
+  String get addEquipment {
+    return Intl.message(
+      '添加库存',
+      name: 'addEquipment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `所有照片`
+  String get allPicture {
+    return Intl.message(
+      '所有照片',
+      name: 'allPicture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `没有选择照片`
+  String get notSelectedPicture {
+    return Intl.message(
+      '没有选择照片',
+      name: 'notSelectedPicture',
       desc: '',
       args: [],
     );

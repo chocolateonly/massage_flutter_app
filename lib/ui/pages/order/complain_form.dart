@@ -52,7 +52,7 @@ class _ComplainFormPageState extends State<ComplainFormPage> {
                             style: TextStyle(fontSize: 26.rpx),
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: '请填写内容~',
+                              hintText: S.of(context).pleaseInputContent,
                             ),
                           ),
                         ],

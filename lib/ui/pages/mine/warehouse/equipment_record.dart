@@ -5,24 +5,20 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:massageflutterapp/view_model/refresh_helper.dart';
 import 'package:massageflutterapp/provider/provider_widget.dart';
 import 'package:massageflutterapp/view_model/my_order_list_model.dart';
-
-import 'package:massageflutterapp/ui/widgets/button/theme_button.dart';
-
-import 'package:massageflutterapp/config/router_manager.dart';
-import 'package:massageflutterapp/config/resouce_manager.dart';
 class EquipmentRecordPage extends StatefulWidget {
   @override
   _EquipmentRecordPageState createState() => _EquipmentRecordPageState();
 }
 
 class _EquipmentRecordPageState extends State<EquipmentRecordPage> {
-  var tab=[
-    '消耗记录',
-    '补货记录'
-  ];
+
   var index=0;
   @override
   Widget build(BuildContext context) {
+    var tab=[
+      S.of(context).equipmentUsedRecord,
+      S.of(context).equipmentAddedRecord
+    ];
     return DefaultTabController(
       length: tab.length,
       initialIndex: index,
@@ -30,7 +26,7 @@ class _EquipmentRecordPageState extends State<EquipmentRecordPage> {
         backgroundColor: Color(0xfff5f5f5),
         appBar: AppBar(
           centerTitle: true,
-          title: Text('库存明细'),
+          title: Text(S.of(context).equipmentRecord),
           bottom: TabBar(
               indicatorSize: TabBarIndicatorSize.label,
               isScrollable: true,

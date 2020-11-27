@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:massageflutterapp/config/router_manager.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -16,8 +17,8 @@ class AccountListPage extends StatefulWidget {
 class _AccountListPageState extends State<AccountListPage> {
   @override
   Widget build(BuildContext context) {
-    var myAccount="我的账号";
-    var add="添加";
+    var myAccount=S.of(context).myAccount;
+    var add=S.of(context).add;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -25,7 +26,7 @@ class _AccountListPageState extends State<AccountListPage> {
         actions: <Widget>[
           InkWell(
               onTap: (){
-                //
+                Navigator.of(context).pushNamed(RouteName.addAccount,arguments: ['']);
               },
               child: Center(child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -68,9 +69,9 @@ class _ItemViewState extends State<ItemView> {
   @override
   Widget build(BuildContext context) {
 
-    var defaultTitle="默认";
-    var edit="编辑";
-    var delete="删除";
+    var defaultTitle=S.of(context).defaultText;
+    var edit=S.of(context).edit;
+    var delete=S.of(context).delete;
     return Container(
       width: double.maxFinite,
       child: Card(
@@ -93,14 +94,15 @@ class _ItemViewState extends State<ItemView> {
                             ),
                             (isDefault?Chip(
                               label: Text(defaultTitle),
-                              labelPadding: EdgeInsets.symmetric(horizontal: 4,vertical: 0),
+
+                              labelPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 0),
                               labelStyle: TextStyle(color: Theme.of(context).accentColor,fontSize: 24.rpx),
                               backgroundColor: Color(0xffFAF1EA),
                             ):Text('')),
                           ],
                         )
                     ),
-                    Text('银行卡号',style: TextStyle(color: Color(0xff333333),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
+                    Text('56345436546',style: TextStyle(color: Color(0xff333333),fontSize: 30.rpx),overflow: TextOverflow.ellipsis,),
                   ],
                 ),
                 Container(
