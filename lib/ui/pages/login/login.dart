@@ -2,12 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:massageflutterapp/config/resouce_manager.dart';
 import 'package:massageflutterapp/config/router_manager.dart';
+import 'package:massageflutterapp/ui/widgets/Loading.dart';
+import 'package:massageflutterapp/utils/bs_mob_share.dart';
 import 'package:massageflutterapp/utils/size_fit.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:massageflutterapp/view_model/global_model.dart';
 import './CodeButton.dart';
+import 'dart:convert';
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -248,7 +251,15 @@ Widget FooterView(BuildContext context) {
             InkWell(
               onTap: (){
                 //todo:第三方登录
-
+                Loading.showLoading(context);
+                BSMobShare bsShare = BSMobShare.getInstance();
+                bsShare.initFacebook('1086735288450986', '95609587445901d52fb07b2f37adb0d4', 'THSHOP');
+                bsShare.auth(6, (ret) {
+                  Loading.hideLoading(context);
+                  var data = new Map<String, dynamic>.from(jsonDecode(ret.data));
+                  //thirdLogin(userModel, context, data['userID'], data['icon'], data['nickname'], "1");
+                  //{"expiresIn":2592000,"refresh_token":"kJTG2kOAR4m68HpM7v2e","nickname":"斌杨","icon":"https:\/\/profile.line-scdn.net\/0hfeQZJjg6OUpsIxC45H5GHVBmNycbDT8CFEUieEEnMnIRGikfVUZ1e0kiZC5BEHZIVhUhKUkhbn9H","token_type":"Bearer","userID":"Ufb1570aa14dc1b0f3b0bcbc1ab344935","expiresTime":1603762431736,"token":"eyJhbGciOiJIUzI1NiJ9.pfxtf6FC43iCzcsjtoF9uLh47_UyJhPAnuher4g6GVTHR4nULWCwowYekLDxUfObSbyVeagEF-3wg1XavUEwQRU0JD4Ot1JAuiXN3VW68cTL7tctru2toIVnfDlcpcraRasblGWcghNwGfV6ydIxpfEp0MUB9DbjrMyXWkX2plI.EoZP4fq4rGoTtRA8Yo7aMYR5jp2ZwpGPWqEy9gXhV9U"}
+                });
               },
                 child: Image.asset(ImageHelper.wrapAssets("icon_facebook.png"), height: 100.rpx, width: 100.rpx)),
           ],

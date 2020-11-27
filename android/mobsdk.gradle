@@ -1,0 +1,21 @@
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+
+    appKey "30553c3cfe95c"
+    appSecret "3ac6cc73902ba3d4fb2261aa577aab91"
+
+    ShareSDK {
+
+        //平台配置信息
+        devInfo {
+            Facebook {
+                appKey "1086735288450986"
+                appSecret "95609587445901d52fb07b2f37adb0d4"
+                callbackUri "https://www.mob.com/"
+                shareByAppClient true
+                enable true
+            }
+        }
+    }
+}
