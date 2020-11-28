@@ -65,7 +65,15 @@ class _PromotionGiftPageState extends State<PromotionGiftPage> {
                             ]),
                         textAlign: TextAlign.center),
                   ),
-
+                 Container(
+                   padding: EdgeInsets.symmetric(vertical: 10),
+                   child:InkWell(
+                       onTap: (){
+                         Navigator.of(context).pushNamed(RouteName.applyWord,arguments: [S.of(context).rewardRule,3]);
+                       },
+                       child: Text(S.of(context).rewardRule, style: TextStyle(color:Color(0xffC49C5F), fontSize: 24.rpx),textAlign: TextAlign.center,)
+                   ),
+                 ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 40,vertical: 10),
                     child: InkWell(
@@ -92,9 +100,7 @@ class _PromotionGiftPageState extends State<PromotionGiftPage> {
                             color: Theme.of(context).accentColor,
                             border: Border.all(color:Colors.transparent, width: 1)),
                         child: Center(
-                          child: Text(S.of(context).shareFriend,
-                            style: TextStyle(color:Colors.white, fontSize: 34.rpx),textAlign: TextAlign.center,
-                          ),
+                          child: Text(S.of(context).shareFriend, style: TextStyle(color:Colors.white, fontSize: 34.rpx),textAlign: TextAlign.center,),
                         ),
                       ),
                     ),

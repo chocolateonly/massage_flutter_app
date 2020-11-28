@@ -188,6 +188,11 @@ class _MakeAnAppointmentPageState extends State<MakeAnAppointmentPage> {
                                 border: InputBorder.none,
                                 hintText:S.of(context).remark,
                             ),
+                          ),
+
+                          Container(
+                            padding:EdgeInsets.symmetric(vertical: 20.rpx),
+                            child: Text(S.of(context).makeAnAppointmentTip,style: TextStyle(color: Color(0xff666666), fontSize: 26.rpx)),
                           )
                         ],
                       )

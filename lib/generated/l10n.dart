@@ -645,6 +645,16 @@ class S {
     );
   }
 
+  /// `已阅读免责条款`
+  String get makeAnAppointmentTip {
+    return Intl.message(
+      '已阅读免责条款',
+      name: 'makeAnAppointmentTip',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `应聘表格`
   String get applicationForm {
     return Intl.message(
@@ -1275,6 +1285,16 @@ class S {
     );
   }
 
+  /// `温馨提示：请按订单金额如实打入支付账号， 支付成功后上传凭证，等待财务审核！`
+  String get uploadOrderResultTip {
+    return Intl.message(
+      '温馨提示：请按订单金额如实打入支付账号， 支付成功后上传凭证，等待财务审核！',
+      name: 'uploadOrderResultTip',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `剩余{num}次`
   String numberOfLeft(Object num) {
     return Intl.message(
@@ -1480,6 +1500,16 @@ class S {
     return Intl.message(
       '奖励',
       name: 'shareFriendTip3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `奖励细则`
+  String get rewardRule {
+    return Intl.message(
+      '奖励细则',
+      name: 'rewardRule',
       desc: '',
       args: [],
     );
@@ -2310,6 +2340,136 @@ class S {
     return Intl.message(
       '没有选择照片',
       name: 'notSelectedPicture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `类型`
+  String get type {
+    return Intl.message(
+      '类型',
+      name: 'type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `经验`
+  String get experience {
+    return Intl.message(
+      '经验',
+      name: 'experience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务项目`
+  String get serviceProject {
+    return Intl.message(
+      '服务项目',
+      name: 'serviceProject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `资质证书`
+  String get abilityCertificate {
+    return Intl.message(
+      '资质证书',
+      name: 'abilityCertificate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提现卡号`
+  String get exchangeBankCard {
+    return Intl.message(
+      '提现卡号',
+      name: 'exchangeBankCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `工作时间段`
+  String get workTimeSort {
+    return Intl.message(
+      '工作时间段',
+      name: 'workTimeSort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `工作区域选择`
+  String get workAreaSelect {
+    return Intl.message(
+      '工作区域选择',
+      name: 'workAreaSelect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `优秀按摩师文凭`
+  String get goodMassagistCertificate {
+    return Intl.message(
+      '优秀按摩师文凭',
+      name: 'goodMassagistCertificate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `等级说明`
+  String get massagistLevel {
+    return Intl.message(
+      '等级说明',
+      name: 'massagistLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `累计分数`
+  String get massagistScore {
+    return Intl.message(
+      '累计分数',
+      name: 'massagistScore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `距离升级`
+  String get nextLevel {
+    return Intl.message(
+      '距离升级',
+      name: 'nextLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `等级特权`
+  String get levelPriority {
+    return Intl.message(
+      '等级特权',
+      name: 'levelPriority',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `升级说明`
+  String get upLevelRule {
+    return Intl.message(
+      '升级说明',
+      name: 'upLevelRule',
       desc: '',
       args: [],
     );

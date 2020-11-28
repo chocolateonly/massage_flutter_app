@@ -54,6 +54,7 @@ import 'package:massageflutterapp/ui/pages/mine/workplace/body_status_info.dart'
 import 'package:massageflutterapp/ui/pages/mine/workplace/personal_settings.dart';
 import 'package:massageflutterapp/ui/pages/mine/point/create_an_order.dart';
 import 'package:massageflutterapp/ui/pages/mine/earnings/record.dart';
+import 'package:massageflutterapp/ui/pages/mine/workplace/massagist_level.dart';
 class RouteName {
   static const String login = 'login';
   static const String tab = 'tab';
@@ -108,7 +109,7 @@ class RouteName {
   static const String orderComment="orderComment";//预约订单评价
   static const String orderCancel="orderCancel";//预约订单取消
   static const String complainForm="complainForm";//举报投诉  填写备注
-
+  static const String massagistLevel="massagistLevel";
 }
 
 class Router {
@@ -118,7 +119,7 @@ class Router {
       case RouteName.login:
         return CupertinoPageRoute(builder: (_) => LoginPage());
      case RouteName.tab:
-        return CupertinoPageRoute(builder: (_) => MyOrganizationApplyPage());
+        return CupertinoPageRoute(builder: (_) => MassagistLevelPage());
         //return CupertinoPageRoute(builder: (_) => TabNavigator());
       case RouteName.language:
         return CupertinoPageRoute(builder: (_) => LanguagePage());
@@ -268,6 +269,8 @@ class Router {
         return CupertinoPageRoute(builder: (_) => HealthyInfoPage());
       case RouteName.myComments:
         return CupertinoPageRoute(builder: (_) => MyCommentsPage());
+      case RouteName.massagistLevel:
+        return CupertinoPageRoute(builder: (_) => MassagistLevelPage());
       default:
         return CupertinoPageRoute(
             builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));

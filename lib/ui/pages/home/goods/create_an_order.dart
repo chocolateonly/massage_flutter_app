@@ -223,6 +223,10 @@ class _CreateAnOrderPageState extends State<CreateAnOrderPage> {
                           ],
                         ),
                       ),
+                      Container(
+                        padding:EdgeInsets.symmetric(vertical: 20.rpx),
+                        child: Text(S.of(context).uploadOrderResultTip,style: TextStyle(color: Color(0xff666666), fontSize: 26.rpx)),
+                      )
                     ],
                   ),
                 )
