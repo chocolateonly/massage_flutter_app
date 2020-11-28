@@ -17,6 +17,8 @@ class FormItem extends StatefulWidget {
   var hasBottomBorder=true;
   var textColor;
 
+  var labelWidth;
+
   FormItem({
     this.inputDefaultValue,
     this.label='title',
@@ -28,7 +30,8 @@ class FormItem extends StatefulWidget {
     this.readOnly:false,
     this.maxLines:1,
     this.hasBottomBorder:true,
-    this.textColor:0xff666666
+    this.textColor:0xff666666,
+    this.labelWidth:150.0
   });
 
   @override
@@ -51,7 +54,7 @@ class _FormItemState extends State<FormItem> {
           child: Row(
             children: <Widget>[
               Container(
-                width:150.rpx,
+                width:widget.labelWidth,
                 child: Row(
                     children: <Widget>[
                       widget.isRequired?Text("*",style: TextStyle(color: Colors.red),):Text(''),

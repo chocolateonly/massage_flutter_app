@@ -23,6 +23,9 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
   var _usernameController=TextEditingController();
   var _mobileController=TextEditingController();
   var infoExtra=[];
+  var idCardFont='';
+  var idCardBack='';
+  var license=[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,9 +134,9 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
                                          flex: 1,
                                          child: UploadItem(context,
                                            text:S.of(context).idCardFont,
-                                           callback: (){
+                                           callback: (img){
                                             setState(() {
-                                              
+                                              idCardFont=img;
                                             });
                                            },
                                          ),
@@ -143,9 +146,9 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
                                          flex: 1,
                                          child: UploadItem(context,
                                            text:S.of(context).idCardBack,
-                                           callback: (){
+                                           callback: (img){
                                              setState(() {
-
+                                               idCardBack=img;
                                              });
                                            },
                                          ),
@@ -176,13 +179,12 @@ class _MyOrganizationApplyPageState extends State<MyOrganizationApplyPage> {
                                       ],
                                     ),
                                   ),
-//fixme
                                   UploadPictureWidget(
-                                    list: infoExtra,
+                                    list: license,
                                     max: 9,
                                     callback: (newImgList){
                                       setState(() {
-                                        infoExtra=newImgList;
+                                        license=newImgList;
                                       });
                                     },
                                   )

@@ -67,6 +67,7 @@ class _UploadPictureWidgetState extends State<UploadPictureWidget> {
                           ImageHelper.wrapAssets('icon_picture_add.png'),
                           width: 194.rpx,
                           height: 194.rpx,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     )
