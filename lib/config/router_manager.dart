@@ -119,8 +119,8 @@ class Router {
       case RouteName.login:
         return CupertinoPageRoute(builder: (_) => LoginPage());
      case RouteName.tab:
-        return CupertinoPageRoute(builder: (_) => MassagistLevelPage());
-        //return CupertinoPageRoute(builder: (_) => TabNavigator());
+//        return CupertinoPageRoute(builder: (_) => MassagistLevelPage());
+        return CupertinoPageRoute(builder: (_) => TabNavigator());
       case RouteName.language:
         return CupertinoPageRoute(builder: (_) => LanguagePage());
       case RouteName.register:
