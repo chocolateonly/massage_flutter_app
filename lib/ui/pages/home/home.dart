@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:massageflutterapp/generated/l10n.dart';
+import 'package:massageflutterapp/ui/widgets/chart/chart.dart';
 import 'package:massageflutterapp/view_model/home_model.dart';
 import 'package:massageflutterapp/provider/provider_widget.dart';
 import 'package:massageflutterapp/ui/pages/settings/settings.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -35,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                 FocusScope.of(context).requestFocus(new FocusNode());
                 return true;
               },
-              child:Container()
+              child: MyHomePage()
           );
         },
         model: HomeModel(),

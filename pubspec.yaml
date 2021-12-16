@@ -69,6 +69,7 @@ dev_dependencies:
   shared_preferences: ^0.5.12+4
   # 本地json对象存储
   localstorage: ^2.0.0
+  trading_chart: ^0.1.2
   #
   #url_launcher: ^5.7.10
 # For information on the generic Dart part of this file, see the
