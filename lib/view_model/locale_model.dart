@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:massageflutterapp/config/storage_manager.dart';
 
 class LocaleModel extends ChangeNotifier {
-  static const localeValueList = ['zh', 'en',"ms"];
+  static const localeValueList = ['zh', 'en'];
 
   //
   static const kLocaleIndex = 'kLocaleIndex';
@@ -32,8 +32,8 @@ class LocaleModel extends ChangeNotifier {
         return '中文';
       case 1:
         return 'English';
-      case 2:
-        return 'Malay';
+//      case 2:
+//        return 'Malay';
       default:
         return '';
     }

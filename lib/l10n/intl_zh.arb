@@ -3,9 +3,11 @@
   "tab2": "订单",
   "tab3": "消息",
   "tab4": "我的",
-
+  "dark": "暗系",
+  "light": "亮系",
   "homeTitle": "首页",
   "language": "语言",
+  "settings": "系统设置",
   "search": "搜索",
   "searchPlaceholder": "请输入关键字搜索",
 
@@ -53,7 +55,6 @@
   "workPlatform":"工作台",
 
   "myInfo": "个人资料",
-  "settings": "系统设置",
   "avatar": "头像",
   "ID": "ID",
   "mobile": "电话",

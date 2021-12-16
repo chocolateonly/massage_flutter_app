@@ -75,6 +75,26 @@ class S {
     );
   }
 
+  /// `Dark`
+  String get dark {
+    return Intl.message(
+      'Dark',
+      name: 'dark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get light {
+    return Intl.message(
+      'Light',
+      name: 'light',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Home`
   String get homeTitle {
     return Intl.message(
@@ -90,6 +110,16 @@ class S {
     return Intl.message(
       'Language',
       name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
       desc: '',
       args: [],
     );
@@ -770,16 +800,6 @@ class S {
     return Intl.message(
       '个人资料',
       name: 'myInfo',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `系统设置`
-  String get settings {
-    return Intl.message(
-      '系统设置',
-      name: 'settings',
       desc: '',
       args: [],
     );
@@ -2482,7 +2502,6 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'ms'),
       Locale.fromSubtags(languageCode: 'zh'),
     ];
   }

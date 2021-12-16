@@ -3,8 +3,11 @@
   "tab2": "Order",
   "tab3": "Message",
   "tab4": "Mine",
+  "dark": "Dark",
+  "light": "Light",
   "homeTitle": "Home",
   "language": "Language",
+  "settings": "Settings",
   "search": "search",
   "searchPlaceholder": "please input",
 
@@ -76,7 +79,6 @@
   "workPlatform":"工作台",
 
   "myInfo": "个人资料",
-  "settings": "系统设置",
   "avatar": "头像",
   "ID": "ID",
   "mobile": "电话",

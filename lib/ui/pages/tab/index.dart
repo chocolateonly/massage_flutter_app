@@ -13,7 +13,7 @@ class TabNavigator extends StatefulWidget {
 
 class _TabNavigatorState extends State<TabNavigator> with WidgetsBindingObserver{
   var _pageController = PageController();
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
   DateTime _lastPressed;
   List<Widget> pages = <Widget>[HomePage(), OrderPage(0), MessagePage(), MinePage()];
 
